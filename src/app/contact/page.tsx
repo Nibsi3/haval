@@ -1,6 +1,7 @@
 "use client";
 
 import { Phone, Mail, MapPin, Clock, Send, Facebook, Instagram, Linkedin } from 'lucide-react';
+import Image from 'next/image';
 import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
 
@@ -22,13 +23,17 @@ export default function Contact() {
     <div className="min-h-screen bg-[#0a0a0a]">
       <Header />
 
-      {/* Hero */}
-      <section className="pt-32 pb-16 px-6">
-        <div className="max-w-7xl mx-auto text-center">
-          <h1 className="text-4xl md:text-6xl font-bold text-white mb-4">Contact Us</h1>
-          <p className="text-gray-400 max-w-2xl mx-auto text-lg">
-            Get in touch with our team
-          </p>
+      {/* Hero with Wallpaper */}
+      <section className="relative h-[40vh] min-h-[300px]">
+        <Image src="/wallpapers/p500.webp" alt="Contact Us" fill className="object-cover object-center" priority />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#0a0a0a] via-black/60 to-black/40" />
+        <div className="absolute inset-0 flex items-center justify-center">
+          <div className="text-center px-6">
+            <h1 className="text-4xl md:text-6xl font-bold text-white mb-4">Contact Us</h1>
+            <p className="text-gray-300 max-w-2xl mx-auto text-lg">
+              Get in touch with our team
+            </p>
+          </div>
         </div>
       </section>
 

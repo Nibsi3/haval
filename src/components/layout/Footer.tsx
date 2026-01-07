@@ -9,29 +9,6 @@ const socialLinks = [
   { name: 'Instagram', href: 'https://www.instagram.com/maritime_motorspe/', icon: Instagram },
 ];
 
-const locations = [
-  {
-    name: 'Maritime Motors',
-    address: 'Cnr. William Moffett Expressway & Circular Dr, Gqeberha',
-    phone: '041 399 2800',
-  },
-  {
-    name: 'Jetour Nelson Mandela Bay',
-    address: 'Cnr. William Moffet Expressway & Circular Dr, Overbaakens, Gqeberha',
-    phone: '041 399 2800',
-  },
-  {
-    name: 'Maritime Commercial',
-    address: '111 Grahamstown Rd, North End, Gqeberha, 6001',
-    phone: '041 408 6600',
-  },
-  {
-    name: 'Maritime George',
-    address: '44 C.J. Langenhoven Rd, George Central, George, 6529',
-    phone: '044 803 7900',
-  },
-];
-
 export default function Footer() {
   return (
     <footer className="bg-black border-t border-white/10">
@@ -121,21 +98,6 @@ export default function Footer() {
           </div>
         </div>
 
-        {/* Locations Grid */}
-        <div className="mt-16 pt-8 border-t border-white/10">
-          <h3 className="text-white font-bold mb-6">Our Locations</h3>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {locations.map((loc) => (
-              <div key={loc.name} className="bg-white/5 rounded-xl p-4">
-                <h4 className="text-white font-medium mb-2">{loc.name}</h4>
-                <p className="text-gray-500 text-xs mb-2">{loc.address}</p>
-                <a href={`tel:${loc.phone.replace(/\s/g, '')}`} className="text-blue-400 text-sm hover:text-blue-300">
-                  {loc.phone}
-                </a>
-              </div>
-            ))}
-          </div>
-        </div>
       </div>
 
       {/* Bottom Bar */}

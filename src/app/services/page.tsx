@@ -96,9 +96,7 @@ export default function Services() {
         <div className="absolute inset-0 bg-gradient-to-t from-[#0a0a0a] via-black/60 to-black/40" />
         <div className="absolute inset-0 flex items-center justify-center">
           <div className="text-center px-6">
-            <h1 className="text-4xl md:text-6xl font-bold text-white mb-4">
-              Service & Parts
-            </h1>
+            <h1 className="text-4xl md:text-6xl font-bold text-white mb-4">Service & Parts</h1>
             <p className="text-gray-300 max-w-2xl mx-auto text-lg">
               Expert care for your vehicle from factory-trained technicians
             </p>
@@ -216,11 +214,9 @@ export default function Services() {
                 </li>
               </ul>
             </div>
-            <div className="relative h-[400px] rounded-2xl overflow-hidden bg-gradient-to-br from-blue-900/30 to-zinc-900 flex items-center justify-center">
-              <div className="text-center">
-                <Wrench className="w-20 h-20 text-blue-400/50 mx-auto mb-4" />
-                <p className="text-gray-500 text-lg">Expert Service</p>
-              </div>
+            <div className="relative h-[400px] rounded-2xl overflow-hidden">
+              <Image src="/tank300.jpg" alt="Expert Service" fill className="object-cover" loading="lazy" />
+              <div className="absolute inset-0 bg-black/40" />
             </div>
           </div>
         </div>
@@ -316,11 +312,11 @@ export default function Services() {
       {/* What You Need When Buying */}
       <section className="py-16 px-6">
         <div className="max-w-7xl mx-auto">
-          <div className="bg-gradient-to-br from-blue-600/20 to-blue-900/20 border border-blue-500/30 rounded-3xl p-8 md:p-12">
+          <div className="bg-zinc-900 border border-white/10 rounded-2xl p-8 md:p-12">
             <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-8">
               <div className="lg:max-w-xl">
                 <div className="flex items-center gap-3 mb-4">
-                  <div className="w-12 h-12 bg-blue-600 rounded-xl flex items-center justify-center">
+                  <div className="w-12 h-12 bg-white/10 rounded-xl flex items-center justify-center">
                     <Car className="w-6 h-6 text-white" />
                   </div>
                   <h2 className="text-2xl md:text-3xl font-bold text-white">What to Bring When Buying a Car</h2>
@@ -331,9 +327,9 @@ export default function Services() {
               </div>
               
               <div className="grid grid-cols-2 gap-4 lg:gap-6">
-                <div className="bg-white/5 backdrop-blur-sm rounded-xl p-4 flex items-center gap-3">
-                  <div className="w-10 h-10 bg-green-500/20 rounded-lg flex items-center justify-center flex-shrink-0">
-                    <FileText className="w-5 h-5 text-green-400" />
+                <div className="bg-zinc-800 border border-white/10 rounded-xl p-4 flex items-center gap-3">
+                  <div className="w-10 h-10 bg-white/10 rounded-lg flex items-center justify-center flex-shrink-0">
+                    <FileText className="w-5 h-5 text-white" />
                   </div>
                   <div>
                     <p className="text-white font-semibold text-sm">3 Payslips</p>
@@ -341,9 +337,9 @@ export default function Services() {
                   </div>
                 </div>
                 
-                <div className="bg-white/5 backdrop-blur-sm rounded-xl p-4 flex items-center gap-3">
-                  <div className="w-10 h-10 bg-blue-500/20 rounded-lg flex items-center justify-center flex-shrink-0">
-                    <CreditCard className="w-5 h-5 text-blue-400" />
+                <div className="bg-zinc-800 border border-white/10 rounded-xl p-4 flex items-center gap-3">
+                  <div className="w-10 h-10 bg-white/10 rounded-lg flex items-center justify-center flex-shrink-0">
+                    <CreditCard className="w-5 h-5 text-white" />
                   </div>
                   <div>
                     <p className="text-white font-semibold text-sm">Bank Statements</p>
@@ -351,9 +347,9 @@ export default function Services() {
                   </div>
                 </div>
                 
-                <div className="bg-white/5 backdrop-blur-sm rounded-xl p-4 flex items-center gap-3">
-                  <div className="w-10 h-10 bg-purple-500/20 rounded-lg flex items-center justify-center flex-shrink-0">
-                    <FileText className="w-5 h-5 text-purple-400" />
+                <div className="bg-zinc-800 border border-white/10 rounded-xl p-4 flex items-center gap-3">
+                  <div className="w-10 h-10 bg-white/10 rounded-lg flex items-center justify-center flex-shrink-0">
+                    <FileText className="w-5 h-5 text-white" />
                   </div>
                   <div>
                     <p className="text-white font-semibold text-sm">ID & License</p>
@@ -361,9 +357,9 @@ export default function Services() {
                   </div>
                 </div>
                 
-                <div className="bg-white/5 backdrop-blur-sm rounded-xl p-4 flex items-center gap-3">
-                  <div className="w-10 h-10 bg-orange-500/20 rounded-lg flex items-center justify-center flex-shrink-0">
-                    <Home className="w-5 h-5 text-orange-400" />
+                <div className="bg-zinc-800 border border-white/10 rounded-xl p-4 flex items-center gap-3">
+                  <div className="w-10 h-10 bg-white/10 rounded-lg flex items-center justify-center flex-shrink-0">
+                    <Home className="w-5 h-5 text-white" />
                   </div>
                   <div>
                     <p className="text-white font-semibold text-sm">Proof of Residence</p>

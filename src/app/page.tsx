@@ -1,7 +1,11 @@
+'use client';
+
 import CarCarousel from '@/components/layout/CarCarousel';
 import Footer from '@/components/layout/Footer';
 import BrandsSlider from '@/components/BrandsSlider';
+import AnimatedCounter from '@/components/AnimatedCounter';
 import Link from 'next/link';
+import Image from 'next/image';
 
 const services = [
   {
@@ -86,17 +90,10 @@ export default function Home() {
       <section className="py-20 px-6 bg-gradient-to-r from-blue-900/20 to-purple-900/20">
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-            {[
-              { value: '65+', label: 'Years of Excellence' },
-              { value: '9', label: 'Premium Brands' },
-              { value: '50K+', label: 'Happy Customers' },
-              { value: '4', label: 'Locations' },
-            ].map((stat) => (
-              <div key={stat.label} className="text-center">
-                <div className="text-4xl md:text-6xl font-black text-white mb-2">{stat.value}</div>
-                <div className="text-gray-400 text-sm uppercase tracking-wider">{stat.label}</div>
-              </div>
-            ))}
+            <AnimatedCounter value="65+" label="Years of Excellence" />
+            <AnimatedCounter value="9" label="Premium Brands" />
+            <AnimatedCounter value="50K+" label="Happy Customers" />
+            <AnimatedCounter value="4" label="Locations" />
           </div>
         </div>
       </section>

@@ -210,19 +210,50 @@ export default function CarCarousel() {
         )}
       </AnimatePresence>
 
-      {/* Dynamic Background gradient based on car color */}
-      <motion.div 
-        className="absolute inset-0"
-        animate={{ backgroundColor: currentCar.color }}
-        transition={{ duration: 1 }}
-        style={{ opacity: 0.3 }}
-      />
-      <div className="absolute inset-0 bg-gradient-to-t from-[#0a0a0a] via-transparent to-[#0a0a0a]/80" />
+      {/* Modern Background Effects */}
+      <div className="absolute inset-0 overflow-hidden">
+        {/* Animated gradient orb - top right */}
+        <motion.div
+          className="absolute -top-1/4 -right-1/4 w-[800px] h-[800px] rounded-full blur-[120px]"
+          animate={{ 
+            backgroundColor: currentCar.color,
+            scale: [1, 1.1, 1],
+            rotate: [0, 10, 0]
+          }}
+          transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
+          style={{ opacity: 0.4 }}
+        />
+        
+        {/* Animated gradient orb - bottom left */}
+        <motion.div
+          className="absolute -bottom-1/4 -left-1/4 w-[600px] h-[600px] rounded-full blur-[100px]"
+          animate={{ 
+            backgroundColor: currentCar.color,
+            scale: [1.1, 1, 1.1],
+            rotate: [0, -10, 0]
+          }}
+          transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
+          style={{ opacity: 0.3 }}
+        />
 
-      {/* Grid pattern overlay */}
-      <div className="absolute inset-0 opacity-[0.02]" style={{
-        backgroundImage: `linear-gradient(rgba(255,255,255,0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.1) 1px, transparent 1px)`,
-        backgroundSize: '100px 100px'
+        {/* Center glow behind car */}
+        <motion.div
+          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[300px] rounded-full blur-[80px]"
+          animate={{ backgroundColor: currentCar.color }}
+          transition={{ duration: 1 }}
+          style={{ opacity: 0.25 }}
+        />
+      </div>
+
+      {/* Gradient overlays for depth */}
+      <div className="absolute inset-0 bg-gradient-to-t from-[#0a0a0a] via-transparent to-[#0a0a0a]/90" />
+      <div className="absolute inset-0 bg-gradient-to-r from-[#0a0a0a]/50 via-transparent to-[#0a0a0a]/50" />
+
+
+      {/* Modern grid pattern */}
+      <div className="absolute inset-0 opacity-[0.03]" style={{
+        backgroundImage: `radial-gradient(circle at 1px 1px, rgba(255,255,255,0.15) 1px, transparent 0)`,
+        backgroundSize: '40px 40px'
       }} />
 
       {/* Header - only show after intro */}
@@ -279,6 +310,7 @@ export default function CarCarousel() {
 
             {/* Center: Car Image */}
             <div className="lg:col-span-5 relative h-[300px] md:h-[400px] flex items-center justify-center">
+              
               <AnimatePresence mode="wait" custom={direction}>
                 <motion.div
                   key={currentCar.id}

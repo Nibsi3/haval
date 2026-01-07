@@ -1,29 +1,33 @@
+'use client';
+
 import Image from 'next/image';
 import Link from 'next/link';
 import { Phone, MapPin, ExternalLink, Facebook, Instagram, Linkedin, Car } from 'lucide-react';
 import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
+import AnimatedCounter from '@/components/AnimatedCounter';
 
 const locations = [
   {
     name: 'Maritime Motors',
     address: 'Cnr. William Moffett Expressway & Circular Dr, Overbaakens, Gqeberha, 6000',
     phone: '041 399 2800',
-  },
-  {
-    name: 'Jetour Nelson Mandela Bay',
-    address: 'Cnr. William Moffet Expressway & Circular Dr, Overbaakens, Gqeberha, 6000',
-    phone: '041 399 2800',
+    mapUrl: 'https://www.google.com/maps/dir/-33.9876803,25.5562544/-33.97959,25.55352/@-33.9824379,25.5436883,15z',
+    embedUrl: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3311.9892!2d25.5535!3d-33.9796!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1e7ad1ecf00e265f%3A0xacb1f2ec1dcfd275!2sMaritime%20Motors!5e0!3m2!1sen!2sza!4v1234567890',
   },
   {
     name: 'Maritime Commercial',
     address: '111 Grahamstown Rd, North End, Gqeberha, 6001',
     phone: '041 408 6600',
+    mapUrl: 'https://www.google.com/maps/dir/-33.9876803,25.5562544/-33.92839,25.60486/@-33.9582083,25.5429752,13z',
+    embedUrl: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3310.5!2d25.6049!3d-33.9284!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1e7ad3!2sMaritime%20Commercial!5e0!3m2!1sen!2sza!4v1234567890',
   },
   {
     name: 'Maritime George',
     address: '44 C.J. Langenhoven Rd, George Central, George, 6529',
     phone: '044 803 7900',
+    mapUrl: 'https://www.google.com/maps/dir/-33.9876803,25.5562544/-33.95616,22.45249/@-33.610492,21.3243824,7z',
+    embedUrl: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3310!2d22.4525!3d-33.9562!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1dd60547e38a2947%3A0xbe0cecd5a3dff8bc!2sMaritime%20George!5e0!3m2!1sen!2sza!4v1234567890',
   },
 ];
 
@@ -77,11 +81,9 @@ export default function About() {
                 includes nine exceptional franchises.
               </p>
             </div>
-            <div className="relative h-[400px] rounded-2xl overflow-hidden bg-gradient-to-br from-blue-900/30 to-zinc-900 flex items-center justify-center">
-              <div className="text-center">
-                <Car className="w-20 h-20 text-blue-400/50 mx-auto mb-4" />
-                <p className="text-gray-500 text-lg">Since 1958</p>
-              </div>
+            <div className="relative h-[400px] rounded-2xl overflow-hidden">
+              <Image src="/service.jpg" alt="Since 1958" fill className="object-cover" loading="lazy" />
+              <div className="absolute inset-0 bg-black/40" />
             </div>
           </div>
         </div>
@@ -91,22 +93,15 @@ export default function About() {
       <section className="py-16 px-6 bg-zinc-950">
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-            {[
-              { value: '65+', label: 'Years of Excellence' },
-              { value: '9', label: 'Premium Brands' },
-              { value: '50K+', label: 'Happy Customers' },
-              { value: '4', label: 'Locations' },
-            ].map((stat) => (
-              <div key={stat.label} className="text-center">
-                <div className="text-4xl md:text-5xl font-black text-white mb-2">{stat.value}</div>
-                <div className="text-gray-500 text-sm uppercase tracking-wider">{stat.label}</div>
-              </div>
-            ))}
+            <AnimatedCounter value="65+" label="Years of Excellence" />
+            <AnimatedCounter value="9" label="Premium Brands" />
+            <AnimatedCounter value="50K+" label="Happy Customers" />
+            <AnimatedCounter value="4" label="Locations" />
           </div>
         </div>
       </section>
 
-      {/* Locations with Map */}
+      {/* Locations with Individual Maps */}
       <section className="py-16 px-6">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-12">
@@ -116,40 +111,54 @@ export default function About() {
             </p>
           </div>
 
-          {/* Map Embed */}
-          <div className="relative h-[400px] rounded-2xl overflow-hidden mb-12">
-            <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3311.9892!2d25.5535!3d-33.9796!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1e7ad1ecf00e265f%3A0xacb1f2ec1dcfd275!2sMaritime%20Motors!5e0!3m2!1sen!2sza!4v1234567890"
-              width="100%"
-              height="100%"
-              style={{ border: 0 }}
-              allowFullScreen
-              loading="lazy"
-              referrerPolicy="no-referrer-when-downgrade"
-              className="grayscale"
-            />
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
             {locations.map((loc) => (
               <div
                 key={loc.name}
-                className="bg-zinc-900 border border-white/10 rounded-xl p-6 hover:border-blue-500/30 transition-all"
+                className="bg-zinc-900 border border-white/10 rounded-xl overflow-hidden hover:border-blue-500/30 transition-all"
               >
-                <div className="flex items-center space-x-3 mb-4">
-                  <div className="w-10 h-10 bg-blue-600/20 rounded-lg flex items-center justify-center">
-                    <Car className="w-5 h-5 text-blue-400" />
-                  </div>
-                  <h3 className="text-white font-bold">{loc.name}</h3>
+                {/* Individual Map */}
+                <div className="relative h-[200px]">
+                  <iframe
+                    src={loc.embedUrl}
+                    width="100%"
+                    height="100%"
+                    style={{ border: 0 }}
+                    allowFullScreen
+                    loading="lazy"
+                    referrerPolicy="no-referrer-when-downgrade"
+                    className="grayscale hover:grayscale-0 transition-all duration-500"
+                  />
                 </div>
-                <p className="text-gray-500 text-sm mb-4">{loc.address}</p>
-                <a
-                  href={`tel:${loc.phone.replace(/\s/g, '')}`}
-                  className="flex items-center space-x-2 text-emerald-400 hover:text-emerald-300 transition-colors"
-                >
-                  <Phone className="w-4 h-4" />
-                  <span className="text-sm">{loc.phone}</span>
-                </a>
+                
+                <div className="p-6">
+                  <div className="flex items-center space-x-3 mb-4">
+                    <div className="w-10 h-10 bg-blue-600/20 rounded-lg flex items-center justify-center">
+                      <Car className="w-5 h-5 text-blue-400" />
+                    </div>
+                    <h3 className="text-white font-bold">{loc.name}</h3>
+                  </div>
+                  <p className="text-gray-500 text-sm mb-4">{loc.address}</p>
+                  <div className="flex flex-col space-y-2">
+                    <a
+                      href={`tel:${loc.phone.replace(/\s/g, '')}`}
+                      className="flex items-center space-x-2 text-emerald-400 hover:text-emerald-300 transition-colors"
+                    >
+                      <Phone className="w-4 h-4" />
+                      <span className="text-sm">{loc.phone}</span>
+                    </a>
+                    <a
+                      href={loc.mapUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center space-x-2 text-blue-400 hover:text-blue-300 transition-colors"
+                    >
+                      <MapPin className="w-4 h-4" />
+                      <span className="text-sm">Get Directions</span>
+                      <ExternalLink className="w-3 h-3" />
+                    </a>
+                  </div>
+                </div>
               </div>
             ))}
           </div>
@@ -180,18 +189,20 @@ export default function About() {
 
       {/* CTA */}
       <section className="py-16 px-6">
-        <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">Visit Us Today</h2>
-          <p className="text-gray-400 mb-8 max-w-xl mx-auto">
-            Experience the Maritime difference. Visit any of our showrooms or contact us to learn more.
-          </p>
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-            <Link href="/contact" className="bg-white text-black px-8 py-4 rounded-full font-bold hover:bg-gray-200 transition-all">
-              Contact Us
-            </Link>
-            <a href="tel:0413992800" className="border border-white/30 text-white px-8 py-4 rounded-full font-bold hover:bg-white/10 transition-all">
-              Call 041 399 2800
-            </a>
+        <div className="max-w-4xl mx-auto">
+          <div className="bg-zinc-900 border border-white/10 rounded-2xl p-8 md:p-12 text-center">
+            <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">Visit Us Today</h2>
+            <p className="text-gray-400 mb-8 max-w-xl mx-auto">
+              Experience the Maritime difference. Visit any of our showrooms or contact us to learn more.
+            </p>
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+              <Link href="/contact" className="bg-white text-black px-8 py-4 rounded-full font-bold hover:bg-gray-200 transition-all">
+                Contact Us
+              </Link>
+              <a href="tel:0413992800" className="border border-white/30 text-white px-8 py-4 rounded-full font-bold hover:bg-white/10 transition-all">
+                Call 041 399 2800
+              </a>
+            </div>
           </div>
         </div>
       </section>
