@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { ArrowLeft, ExternalLink, Scale } from 'lucide-react';
+import { ArrowLeft } from 'lucide-react';
 import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
 
@@ -15,72 +15,118 @@ export default function LegalNoticePage() {
             <span>Back to Home</span>
           </Link>
 
-          <div className="bg-zinc-900 border border-white/10 rounded-2xl p-8 md:p-12">
-            <div className="flex items-center space-x-4 mb-8">
-              <div className="w-14 h-14 bg-blue-600/20 rounded-xl flex items-center justify-center">
-                <Scale className="w-7 h-7 text-blue-400" />
+          {/* Document Header */}
+          <div className="border-b border-white/20 pb-8 mb-8">
+            <p className="text-gray-500 text-sm uppercase tracking-wider mb-2">Legal Document</p>
+            <h1 className="text-3xl md:text-4xl font-bold text-white mb-2">Legal Notice</h1>
+            <p className="text-gray-400">Terms, Conditions & Company Information</p>
+          </div>
+
+          {/* Company Information */}
+          <div className="mb-10">
+            <h2 className="text-lg font-semibold text-white mb-4 uppercase tracking-wide">Company Information</h2>
+            <div className="border border-white/10 divide-y divide-white/10">
+              <div className="flex justify-between py-3 px-4">
+                <span className="text-gray-400">Registered Name</span>
+                <span className="text-white font-medium">Maritime Motors (Pty) Ltd</span>
               </div>
-              <div>
-                <h1 className="text-3xl font-bold text-white">Legal Notice</h1>
-                <p className="text-gray-500">Terms and conditions of use</p>
+              <div className="flex justify-between py-3 px-4">
+                <span className="text-gray-400">Registration Number</span>
+                <span className="text-white font-medium">1958/000979/07</span>
+              </div>
+              <div className="flex justify-between py-3 px-4">
+                <span className="text-gray-400">VAT Number</span>
+                <span className="text-white font-medium">4540103927</span>
+              </div>
+              <div className="flex justify-between py-3 px-4">
+                <span className="text-gray-400">FSP Number</span>
+                <span className="text-white font-medium">FSP 45171</span>
+              </div>
+              <div className="flex justify-between py-3 px-4">
+                <span className="text-gray-400">Country</span>
+                <span className="text-white font-medium">Republic of South Africa</span>
               </div>
             </div>
+          </div>
 
-            <div className="prose prose-invert max-w-none">
-              <p className="text-gray-400 leading-relaxed mb-6">
-                This legal notice governs your use of The Maritime Group website and services. 
-                By accessing or using our website, you agree to be bound by these terms.
+          {/* Website Use */}
+          <div className="mb-10">
+            <h2 className="text-lg font-semibold text-white mb-4 uppercase tracking-wide">Website Use</h2>
+            <p className="text-gray-400 leading-relaxed">
+              By accessing and using this website, you accept and agree to be bound by these terms and conditions. 
+              If you do not agree to these terms, please do not use our website. We reserve the right to modify 
+              these terms at any time without prior notice.
+            </p>
+          </div>
+
+          {/* Intellectual Property */}
+          <div className="mb-10">
+            <h2 className="text-lg font-semibold text-white mb-4 uppercase tracking-wide">Intellectual Property</h2>
+            <p className="text-gray-400 leading-relaxed">
+              All content on this website, including but not limited to text, graphics, logos, images, and software, 
+              is the property of The Maritime Group or its licensors and is protected by South African and 
+              international copyright and trademark laws.
+            </p>
+          </div>
+
+          {/* Disclaimer */}
+          <div className="mb-10">
+            <h2 className="text-lg font-semibold text-white mb-4 uppercase tracking-wide">Disclaimer</h2>
+            <p className="text-gray-400 leading-relaxed">
+              While we strive to provide accurate information, we make no warranties about the accuracy, completeness, 
+              or reliability of any information on this website. Vehicle specifications, pricing, and availability 
+              are subject to change without notice. Images shown may differ from actual vehicles.
+            </p>
+          </div>
+
+          {/* Limitation of Liability */}
+          <div className="mb-10">
+            <h2 className="text-lg font-semibold text-white mb-4 uppercase tracking-wide">Limitation of Liability</h2>
+            <p className="text-gray-400 leading-relaxed">
+              The Maritime Group shall not be liable for any direct, indirect, incidental, special, or consequential 
+              damages arising from your use of this website, our services, or any products purchased through our dealerships.
+            </p>
+          </div>
+
+          {/* Governing Law */}
+          <div className="mb-10">
+            <h2 className="text-lg font-semibold text-white mb-4 uppercase tracking-wide">Governing Law & Jurisdiction</h2>
+            <div className="text-gray-400 space-y-4 leading-relaxed">
+              <p>
+                These terms and conditions shall be governed by and construed in accordance with the laws of the 
+                Republic of South Africa. Any disputes arising from or in connection with these terms shall be 
+                subject to the exclusive jurisdiction of the South African courts.
               </p>
-
-              <h2 className="text-xl font-bold text-white mt-8 mb-4">Company Information</h2>
-              <p className="text-gray-400 leading-relaxed mb-6">
-                The Maritime Group is a registered company in South Africa. Our Financial Services 
-                Provider number is FSP 45171. All vehicle sales and finance activities are conducted 
-                in accordance with South African law.
+              <p>
+                All financial services are provided in accordance with the Financial Advisory and Intermediary 
+                Services Act (FAIS). The Maritime Group is an authorized Financial Services Provider (FSP 45171).
               </p>
+            </div>
+          </div>
 
-              <h2 className="text-xl font-bold text-white mt-8 mb-4">Disclaimer</h2>
-              <p className="text-gray-400 leading-relaxed mb-6">
-                While we strive to provide accurate and up-to-date information, we make no warranties 
-                or representations about the accuracy, completeness, or reliability of any information 
-                on this website. Vehicle specifications, pricing, and availability are subject to change 
-                without notice.
-              </p>
-
-              <h2 className="text-xl font-bold text-white mt-8 mb-4">Intellectual Property</h2>
-              <p className="text-gray-400 leading-relaxed mb-6">
-                All content on this website, including text, graphics, logos, and images, is the 
-                property of The Maritime Group or its licensors and is protected by copyright and 
-                trademark laws.
-              </p>
-
-              <h2 className="text-xl font-bold text-white mt-8 mb-4">Limitation of Liability</h2>
-              <p className="text-gray-400 leading-relaxed mb-6">
-                The Maritime Group shall not be liable for any direct, indirect, incidental, or 
-                consequential damages arising from your use of this website or our services.
-              </p>
-
-              <h2 className="text-xl font-bold text-white mt-8 mb-4">Governing Law</h2>
-              <p className="text-gray-400 leading-relaxed mb-6">
-                These terms shall be governed by and construed in accordance with the laws of the 
-                Republic of South Africa. Any disputes shall be subject to the exclusive jurisdiction 
-                of the South African courts.
-              </p>
-
-              <div className="bg-zinc-800 rounded-xl p-6 mt-8">
-                <h3 className="text-white font-bold mb-4">View Full Legal Notice</h3>
-                <p className="text-gray-400 text-sm mb-4">
-                  Download or view our complete Legal Notice document.
-                </p>
-                <a
-                  href="https://www.themaritimegroup.co.za/wp-content/uploads/2021/07/Legal-Notice.pdf"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center space-x-2 bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg font-medium transition-colors"
-                >
-                  <span>View PDF Document</span>
-                  <ExternalLink className="w-4 h-4" />
-                </a>
+          {/* Contact Information */}
+          <div className="border-t border-white/20 pt-8">
+            <h2 className="text-lg font-semibold text-white mb-4 uppercase tracking-wide">Contact Information</h2>
+            <div className="border border-white/10 divide-y divide-white/10">
+              <div className="flex justify-between py-3 px-4">
+                <span className="text-gray-400">Registered Address</span>
+                <span className="text-white font-medium text-right">Cnr. William Moffett Expressway & Circular Drive, Gqeberha, 6000</span>
+              </div>
+              <div className="flex justify-between py-3 px-4">
+                <span className="text-gray-400">Telephone</span>
+                <span className="text-white font-medium">041 399 2800</span>
+              </div>
+              <div className="flex justify-between py-3 px-4">
+                <span className="text-gray-400">Fax</span>
+                <span className="text-white font-medium">041 399 2801</span>
+              </div>
+              <div className="flex justify-between py-3 px-4">
+                <span className="text-gray-400">Email</span>
+                <span className="text-white font-medium">info@maritimemotors.co.za</span>
+              </div>
+              <div className="flex justify-between py-3 px-4">
+                <span className="text-gray-400">Website</span>
+                <span className="text-white font-medium">www.themaritimegroup.co.za</span>
               </div>
             </div>
           </div>
