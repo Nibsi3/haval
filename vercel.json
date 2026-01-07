@@ -1,0 +1,10 @@
+{
+  "buildCommand": "npm run build",
+  "outputDirectory": ".next",
+  "framework": "nextjs",
+  "regions": ["cdg1"],
+  "images": {
+    "minimumCacheTTL": 60,
+    "formats": ["image/avif", "image/webp"]
+  }
+}
