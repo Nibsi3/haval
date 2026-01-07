@@ -96,7 +96,7 @@ export default function About() {
             <AnimatedCounter value="65+" label="Years of Excellence" />
             <AnimatedCounter value="9" label="Premium Brands" />
             <AnimatedCounter value="50K+" label="Happy Customers" />
-            <AnimatedCounter value="4" label="Locations" />
+            <AnimatedCounter value="3" label="Locations" />
           </div>
         </div>
       </section>
