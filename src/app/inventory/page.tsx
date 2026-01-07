@@ -69,9 +69,8 @@ export default function Inventory() {
             <motion.div
               key={car.id}
               initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
+              animate={{ opacity: 1, y: 0 }}
               transition={{ delay: i * 0.1 }}
-              viewport={{ once: true }}
               className="group bg-zinc-950 border border-white/5 rounded-[2rem] overflow-hidden hover:border-blue-500/50 transition-colors"
             >
               <div className="h-80 relative bg-black">

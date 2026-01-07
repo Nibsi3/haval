@@ -215,7 +215,7 @@ export default function Services() {
               </ul>
             </div>
             <div className="relative h-[400px] rounded-2xl overflow-hidden">
-              <Image src="/tank300.jpg" alt="Expert Service" fill className="object-cover" loading="lazy" />
+              <Image src="/tank300.jpg" alt="Expert Service" fill className="object-cover" priority />
               <div className="absolute inset-0 bg-black/40" />
             </div>
           </div>

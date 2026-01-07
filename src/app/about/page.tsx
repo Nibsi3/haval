@@ -82,7 +82,7 @@ export default function About() {
               </p>
             </div>
             <div className="relative h-[400px] rounded-2xl overflow-hidden">
-              <Image src="/service.jpg" alt="Since 1958" fill className="object-cover" loading="lazy" />
+              <Image src="/service.jpg" alt="Since 1958" fill className="object-cover" priority />
               <div className="absolute inset-0 bg-black/40" />
             </div>
           </div>
@@ -125,7 +125,7 @@ export default function About() {
                     height="100%"
                     style={{ border: 0 }}
                     allowFullScreen
-                    loading="lazy"
+                    loading="eager"
                     referrerPolicy="no-referrer-when-downgrade"
                     className="grayscale hover:grayscale-0 transition-all duration-500"
                   />

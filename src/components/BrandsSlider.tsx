@@ -81,6 +81,7 @@ export default function BrandsSlider() {
                 src={brand.logo}
                 alt={brand.name}
                 fill
+                priority
                 className={`object-contain transition-all ${brand.invert ? 'brightness-0 invert group-hover:brightness-0 group-hover:invert' : 'brightness-90 group-hover:brightness-110'}`}
               />
             </div>

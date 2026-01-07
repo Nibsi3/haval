@@ -30,6 +30,19 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <head>
+        {/* Preload critical hero images for instant loading */}
+        <link rel="preload" href="/cars/Haval Tank 300.png" as="image" />
+        <link rel="preload" href="/cars/Haval H6.png" as="image" />
+        <link rel="preload" href="/cars/Haval H6 GT.png" as="image" />
+        <link rel="preload" href="/cars/Haval Pro.png" as="image" />
+        <link rel="preload" href="/cars/Haval H7.png" as="image" />
+        {/* Preconnect to external resources */}
+        <link rel="preconnect" href="https://www.google.com" />
+        <link rel="preconnect" href="https://maps.googleapis.com" />
+        <link rel="dns-prefetch" href="https://www.google.com" />
+        <link rel="dns-prefetch" href="https://maps.googleapis.com" />
+      </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased bg-[#0a0a0a] text-white`}
       >
