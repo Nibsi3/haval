@@ -75,7 +75,7 @@ export default function BlogPage() {
 
       <section className="relative h-[60vh] min-h-[500px] flex items-center">
         <Image
-          src="/wallpapers/h6gt.jpg"
+          src="/wallpapers/blog-hero.jpg"
           alt="The Maritime Journal"
           fill
           quality={100}
@@ -188,58 +188,59 @@ export default function BlogPage() {
               <div className="h-[1px] flex-1 mx-10 bg-gradient-to-r from-white/10 to-transparent" />
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               {paginatedPosts.map((post, idx) => (
                 <motion.article
                   key={post.slug}
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: idx * 0.05 }}
-                  className="group relative flex flex-col bg-zinc-950/20 border border-white/5 rounded-xl overflow-hidden hover:border-blue-500/30 transition-all duration-500 shadow-lg"
+                  className="group relative flex flex-col bg-zinc-900/50 border border-white/5 rounded-2xl overflow-hidden hover:border-blue-500/30 transition-all duration-500 shadow-xl hover:shadow-2xl hover:shadow-blue-500/5"
                 >
                   <Link href={`/blog/${post.slug}`} className="absolute inset-0 z-10" aria-label={`Open ${post.title}`}> 
                     <span className="sr-only">Open article</span>
                   </Link>
-                  <div className="relative h-24 w-full overflow-hidden">
+                  <div className="relative h-48 w-full overflow-hidden">
                     <Image
                       src={post.thumbnailImage}
                       alt={post.title}
                       fill
                       quality={100}
-                      className="object-cover object-center group-hover:scale-110 transition-transform duration-1000"
+                      className="object-cover object-center group-hover:scale-105 transition-transform duration-700"
                     />
-                    <div className="absolute top-2 left-2">
-                      <span className="bg-black/60 backdrop-blur-xl text-white text-[5px] font-black uppercase tracking-[0.2em] px-1.5 py-0.5 rounded border border-white/10">
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
+                    <div className="absolute top-4 left-4">
+                      <span className="bg-blue-600 text-white text-[10px] font-bold uppercase tracking-[0.15em] px-3 py-1.5 rounded-full shadow-lg">
                         {post.category}
                       </span>
                     </div>
                   </div>
 
-                  <div className="p-3 flex flex-col flex-1">
-                    <div className="flex items-center gap-1.5 text-[7px] font-bold text-gray-500 uppercase tracking-widest mb-1.5">
+                  <div className="p-5 flex flex-col flex-1">
+                    <div className="flex items-center gap-2 text-xs text-gray-500 mb-3">
                       <span>{formatDate(post.date)}</span>
-                      <span className="text-white/10">•</span>
+                      <span className="text-white/20">•</span>
                       <span className="flex items-center gap-1">
-                        <Clock3 className="w-2 h-2" />
+                        <Clock3 className="w-3 h-3" />
                         {post.readTime}
                       </span>
                     </div>
                     
-                    <h3 className="text-xs font-bold text-white mb-1.5 leading-tight group-hover:text-blue-400 transition-colors duration-300 line-clamp-2">
+                    <h3 className="text-lg font-bold text-white mb-3 leading-snug group-hover:text-blue-400 transition-colors duration-300 line-clamp-2">
                       {post.title}
                     </h3>
                     
-                    <p className="text-gray-400 text-[9px] mb-3 line-clamp-2 leading-relaxed font-light">
+                    <p className="text-gray-400 text-sm mb-4 line-clamp-2 leading-relaxed">
                       {post.excerpt}
                     </p>
 
-                    <div className="mt-auto pt-2 border-t border-white/5">
+                    <div className="mt-auto pt-4 border-t border-white/5">
                       <Link
                         href={`/blog/${post.slug}`}
-                        className="relative z-20 text-blue-500 hover:text-blue-400 font-bold text-[8px] flex items-center gap-1 group/link uppercase tracking-widest"
+                        className="relative z-20 text-blue-500 hover:text-blue-400 font-bold text-xs flex items-center gap-2 group/link uppercase tracking-widest"
                       >
                         Read article
-                        <ArrowRight className="w-2 h-2 group-hover/link:translate-x-1 transition-transform" />
+                        <ArrowRight className="w-3 h-3 group-hover/link:translate-x-1 transition-transform" />
                       </Link>
                     </div>
                   </div>

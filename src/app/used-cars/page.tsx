@@ -132,7 +132,7 @@ export default function UsedCarsPage() {
 
       <section className="relative h-[50vh] min-h-[400px] flex items-center">
         <Image
-          src="/wallpapers/tank300.jpg"
+          src="/wallpapers/road.jpg"
           alt="Premium Used Vehicles"
           fill
           quality={100}
@@ -210,13 +210,15 @@ export default function UsedCarsPage() {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2">
-            {filteredCars.map((car, idx) => (
+            <AnimatePresence mode="popLayout">
+            {filteredCars.map((car) => (
               <motion.div
                 key={car.id}
                 layout
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: idx * 0.1 }}
+                initial={{ opacity: 0, scale: 0.95 }}
+                animate={{ opacity: 1, scale: 1 }}
+                exit={{ opacity: 0, scale: 0.95 }}
+                transition={{ duration: 0.2 }}
                 className="group relative flex flex-col bg-zinc-950/20 border border-white/5 rounded-xl overflow-hidden hover:border-blue-500/30 transition-all duration-500 shadow-xl"
               >
                 <Link href={`/used-cars/${car.id}`} className="absolute inset-0 z-10" aria-label={`Open ${car.year} ${car.name}`}> 
@@ -285,7 +287,7 @@ export default function UsedCarsPage() {
 
                   <div className="mt-auto grid grid-cols-1 gap-1.5">
                     <Link
-                      href={`/contact?subject=${encodeURIComponent('Pre-Owned Vehicles')}&message=${encodeURIComponent(`Hi Maritime team, I'm interested in the ${car.year} ${car.name} (${car.model}) in ${car.colour}, with ${formatNumber(car.mileage)} KM, listed at R ${formatNumber(car.price)}. Please share full specifications and availability.`)}`}
+                      href={`/used-cars/${car.id}`}
                       className="relative z-20 flex items-center justify-center gap-1 py-2 rounded bg-blue-600 text-white text-[8px] font-black uppercase tracking-widest hover:bg-blue-500 transition-all duration-300 shadow-xl shadow-blue-600/20 group/btn"
                     >
                       View full specifications
@@ -295,6 +297,7 @@ export default function UsedCarsPage() {
                 </div>
               </motion.div>
             ))}
+            </AnimatePresence>
           </div>
 
           <div className="mt-32 p-16 rounded-[4rem] bg-gradient-to-br from-blue-600/10 via-zinc-950 to-zinc-950 border border-white/5 text-center relative overflow-hidden shadow-2xl">

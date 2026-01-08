@@ -2,10 +2,12 @@
 
 import Link from 'next/link';
 import { useState } from 'react';
-import { Menu, X, ChevronDown } from 'lucide-react';
+import { Menu, X } from 'lucide-react';
+import { motion, AnimatePresence } from 'framer-motion';
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isCarsOpen, setIsCarsOpen] = useState(false);
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50">
@@ -19,17 +21,58 @@ export default function Header() {
             <nav className="hidden md:flex items-center space-x-8">
               <Link href="/about" className="text-gray-300 hover:text-white text-sm font-medium transition-colors">About</Link>
               <Link href="/services" className="text-gray-300 hover:text-white text-sm font-medium transition-colors">Services</Link>
-              <div className="relative group">
-                <button className="text-gray-300 hover:text-white text-sm font-medium transition-colors inline-flex items-center gap-1">
+              <div 
+                className="relative"
+                onMouseEnter={() => setIsCarsOpen(true)}
+                onMouseLeave={() => setIsCarsOpen(false)}
+              >
+                <button className="text-gray-300 hover:text-white text-sm font-medium transition-colors">
                   Our Cars
-                  <ChevronDown className="w-4 h-4" />
                 </button>
-                <div className="absolute left-0 top-full mt-2 hidden group-hover:block">
-                  <div className="bg-black/80 backdrop-blur-xl border border-white/10 rounded-xl p-2 shadow-2xl min-w-[180px]">
-                    <Link href="/new-vehicles" className="block px-4 py-2 text-gray-300 hover:text-white hover:bg-white/5 rounded-lg text-sm">New Vehicles</Link>
-                    <Link href="/used-cars" className="block px-4 py-2 text-gray-300 hover:text-white hover:bg-white/5 rounded-lg text-sm">Used Vehicles</Link>
-                  </div>
-                </div>
+                <AnimatePresence>
+                  {isCarsOpen && (
+                    <motion.div 
+                      className="absolute left-1/2 top-full pt-3"
+                      initial={{ opacity: 0, y: -8 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      exit={{ opacity: 0, y: -8 }}
+                      transition={{ duration: 0.2 }}
+                      style={{ x: '-50%' }}
+                    >
+                      <motion.div 
+                        className="flex gap-2 bg-black/90 backdrop-blur-xl border border-white/10 rounded-xl p-2 shadow-2xl"
+                        initial={{ gap: 0 }}
+                        animate={{ gap: 8 }}
+                        transition={{ delay: 0.1, duration: 0.25 }}
+                      >
+                        <motion.div
+                          initial={{ opacity: 0, x: 20 }}
+                          animate={{ opacity: 1, x: 0 }}
+                          transition={{ delay: 0.15, duration: 0.2 }}
+                        >
+                          <Link 
+                            href="/new-vehicles" 
+                            className="block px-5 py-2.5 text-gray-300 hover:text-white hover:bg-white/10 rounded-lg text-sm font-medium whitespace-nowrap transition-colors"
+                          >
+                            New Vehicles
+                          </Link>
+                        </motion.div>
+                        <motion.div
+                          initial={{ opacity: 0, x: -20 }}
+                          animate={{ opacity: 1, x: 0 }}
+                          transition={{ delay: 0.15, duration: 0.2 }}
+                        >
+                          <Link 
+                            href="/used-cars" 
+                            className="block px-5 py-2.5 text-gray-300 hover:text-white hover:bg-white/10 rounded-lg text-sm font-medium whitespace-nowrap transition-colors"
+                          >
+                            Used Vehicles
+                          </Link>
+                        </motion.div>
+                      </motion.div>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
               </div>
               <Link href="/blog" className="text-gray-300 hover:text-white text-sm font-medium transition-colors">Blog</Link>
               <Link href="/contact" className="text-gray-300 hover:text-white text-sm font-medium transition-colors">Contact</Link>

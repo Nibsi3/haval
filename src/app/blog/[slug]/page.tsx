@@ -1,3 +1,5 @@
+"use client";
+
 import Image from 'next/image';
 import Link from 'next/link';
 import Header from '@/components/layout/Header';
@@ -7,11 +9,12 @@ import type { BlogCategory } from '@/lib/blogPosts';
 import { notFound } from 'next/navigation';
 import { motion } from 'framer-motion';
 import { ArrowLeft, CalendarDays, Clock3, Tag as TagIcon, ArrowRight } from 'lucide-react';
+import { use } from 'react';
 
 interface BlogPostPageProps {
-  params: {
+  params: Promise<{
     slug: string;
-  };
+  }>;
 }
 
 function formatDate(date: string) {
@@ -27,8 +30,8 @@ function buildCategoryLink(category: BlogCategory) {
   return `/blog?category=${query}`;
 }
 
-export default async function BlogPostPage({ params }: BlogPostPageProps) {
-  const { slug } = await params;
+export default function BlogPostPage({ params }: BlogPostPageProps) {
+  const { slug } = use(params);
   const post = getPostBySlug(slug);
 
   if (!post) {

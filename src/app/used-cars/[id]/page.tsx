@@ -20,13 +20,14 @@ export default function UsedCarDetailPage({ params }: PageProps) {
     <div className="min-h-screen bg-[#0a0a0a]">
       <Header />
 
-      <section className="relative h-[45vh] min-h-[360px] flex items-end">
-        <Image src={car.image} alt={car.name} fill quality={100} className="object-contain object-center bg-gradient-to-b from-black/40 to-zinc-900/40" />
-        <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-transparent to-[#0a0a0a]" />
-        <div className="relative max-w-7xl mx-auto px-6 w-full pb-10 pt-24">
+      <section className="relative pt-32 pb-10 px-6">
+        <div className="max-w-7xl mx-auto">
           <p className="text-blue-500 text-xs font-bold uppercase tracking-[0.3em] mb-2">Pre-Owned Vehicle</p>
-          <h1 className="text-white text-3xl md:text-5xl font-black tracking-tight">{car.year} {car.name}</h1>
-          <p className="text-gray-400 text-sm mt-2">{car.bodyType} • {car.fuelType} • {car.transmission} • {car.drivetrain}</p>
+          <h1 className="text-white text-3xl md:text-5xl font-black tracking-tight mb-2">{car.year} {car.name}</h1>
+          <p className="text-gray-400 text-sm mb-8">{car.bodyType} • {car.fuelType} • {car.transmission} • {car.drivetrain}</p>
+          <div className="relative aspect-video max-w-3xl rounded-3xl overflow-hidden border border-white/10 bg-gradient-to-b from-black/40 to-zinc-900/40">
+            <Image src={car.image} alt={car.name} fill quality={100} className="object-contain p-8" />
+          </div>
         </div>
       </section>
 

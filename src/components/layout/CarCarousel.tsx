@@ -23,7 +23,7 @@ const cars = [
     },
     price: 'From R 799,900',
     image: '/cars/haval-tank-300.png',
-    color: '#1e3a5f',
+    bgImage: '/carousel_bg/tank300.jpg',
   },
   {
     id: 2,
@@ -40,7 +40,7 @@ const cars = [
     },
     price: 'From R 599,900',
     image: '/cars/haval-h6.png',
-    color: '#2d1f3d',
+    bgImage: '/carousel_bg/h6.jpg',
   },
   {
     id: 3,
@@ -57,7 +57,7 @@ const cars = [
     },
     price: 'From R 649,900',
     image: '/cars/haval-h6-gt.png',
-    color: '#3d2020',
+    bgImage: '/carousel_bg/h6gt.jpg',
   },
   {
     id: 4,
@@ -74,7 +74,7 @@ const cars = [
     },
     price: 'From R 429,900',
     image: '/cars/haval-pro.png',
-    color: '#1f2d3d',
+    bgImage: '/carousel_bg/jolion.webp',
   },
   {
     id: 5,
@@ -91,7 +91,7 @@ const cars = [
     },
     price: 'From R 699,900',
     image: '/cars/haval-h7.png',
-    color: '#0d3320',
+    bgImage: '/carousel_bg/h7.jpg',
   },
 ];
 
@@ -229,7 +229,7 @@ export default function CarCarousel() {
         <motion.div
           className="absolute -top-1/4 -right-1/4 w-[800px] h-[800px] rounded-full blur-[120px]"
           animate={{ 
-            backgroundColor: currentCar.color,
+            backgroundColor: '#1e3a5f',
             scale: [1, 1.1, 1],
             rotate: [0, 10, 0]
           }}
@@ -241,7 +241,7 @@ export default function CarCarousel() {
         <motion.div
           className="absolute -bottom-1/4 -left-1/4 w-[600px] h-[600px] rounded-full blur-[100px]"
           animate={{ 
-            backgroundColor: currentCar.color,
+            backgroundColor: '#1e3a5f',
             scale: [1.1, 1, 1.1],
             rotate: [0, -10, 0]
           }}
@@ -252,16 +252,13 @@ export default function CarCarousel() {
         {/* Center glow behind car */}
         <motion.div
           className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[300px] rounded-full blur-[80px]"
-          animate={{ backgroundColor: currentCar.color }}
-          transition={{ duration: 1 }}
-          style={{ opacity: 0.25 }}
+          style={{ opacity: 0.25, backgroundColor: '#1e3a5f' }}
         />
       </div>
 
       {/* Gradient overlays for depth */}
       <div className="absolute inset-0 bg-gradient-to-t from-[#0a0a0a] via-transparent to-[#0a0a0a]/90" />
       <div className="absolute inset-0 bg-gradient-to-r from-[#0a0a0a]/50 via-transparent to-[#0a0a0a]/50" />
-
 
       {/* Modern grid pattern */}
       <div className="absolute inset-0 opacity-[0.03]" style={{
@@ -385,37 +382,8 @@ export default function CarCarousel() {
           </div>
         </div>
 
-        {/* Bottom Navigation - Pagination Dots */}
-        <div 
-          className="pb-28 flex flex-col items-center justify-center"
-          onMouseEnter={() => setIsPaused(true)}
-          onMouseLeave={() => setIsPaused(false)}
-        >
-          {/* Pagination Dots */}
-          <div className="flex items-center space-x-3">
-            {cars.map((car, index) => (
-              <button
-                key={car.id}
-                onClick={() => goToSlide(index)}
-                className="group relative p-2"
-                aria-label={`Go to ${car.name} ${car.model}`}
-              >
-                <div className={`w-3 h-3 rounded-full transition-all duration-300 ${
-                  index === currentIndex 
-                    ? 'bg-white scale-125' 
-                    : 'bg-white/30 hover:bg-white/50'
-                }`} />
-                {index === currentIndex && (
-                  <motion.div
-                    layoutId="dot-ring"
-                    className="absolute inset-0 border-2 border-white rounded-full"
-                    transition={{ duration: 0.3 }}
-                  />
-                )}
-              </button>
-            ))}
-          </div>
-        </div>
+        {/* Spacer for bottom content */}
+        <div className="pb-28" />
       </div>
 
       {/* Bottom-left model tabs (current and next) */}
@@ -424,25 +392,20 @@ export default function CarCarousel() {
         onMouseEnter={() => setIsPaused(true)}
         onMouseLeave={() => setIsPaused(false)}
       >
-        <div className="flex flex-wrap items-center gap-3">
+        <div className="flex flex-wrap items-end gap-3">
           {cars.map((car, index) => (
-            <button
+            <motion.button
               key={car.id}
               onClick={() => goToSlide(index)}
+              animate={{ y: index === currentIndex ? -8 : 0 }}
+              transition={{ duration: 0.3, ease: "easeOut" }}
               className={`relative px-3 py-1.5 rounded-full text-[10px] font-bold uppercase tracking-widest transition-all border
                 ${index === currentIndex ? 'bg-white text-black border-white' : 'bg-white/10 text-white/80 border-white/20 hover:bg-white/20'}`}
               aria-label={`Go to ${car.name} ${car.model}`}
             >
               <span className="opacity-70 mr-1">{index === currentIndex ? 'Now:' : index === nextIndex ? 'Next:' : ''}</span>
               {car.model}
-              {index === currentIndex && (
-                <motion.span
-                  layoutId="tab-underline"
-                  className="absolute -bottom-1 left-3 right-3 h-0.5 bg-black"
-                  transition={{ duration: 0.25 }}
-                />
-              )}
-            </button>
+            </motion.button>
           ))}
         </div>
       </div>
