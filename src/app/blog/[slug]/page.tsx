@@ -5,6 +5,7 @@ import Footer from '@/components/layout/Footer';
 import { getPostBySlug, getRelatedPosts } from '@/lib/blogPosts';
 import type { BlogCategory } from '@/lib/blogPosts';
 import { notFound } from 'next/navigation';
+import { motion } from 'framer-motion';
 import { ArrowLeft, CalendarDays, Clock3, Tag as TagIcon, ArrowRight } from 'lucide-react';
 
 interface BlogPostPageProps {
@@ -90,11 +91,29 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
         <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-[1fr_350px] gap-20">
           <div className="space-y-12">
             <article className="prose prose-invert prose-lg max-w-none">
-              <div className="flex flex-col gap-8">
+              <div className="flex flex-col gap-12">
                 {post.content.map((paragraph, idx) => (
-                  <p key={idx} className="text-gray-300 text-lg md:text-xl leading-relaxed font-light">
-                    {paragraph}
-                  </p>
+                  <div key={idx} className="space-y-12">
+                    <p className="text-gray-300 text-lg md:text-xl leading-relaxed font-light">
+                      {paragraph}
+                    </p>
+                    {/* Interperse gallery images every few paragraphs */}
+                    {post.gallery && post.gallery[idx] && (
+                      <motion.div 
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        className="relative aspect-video rounded-[2rem] overflow-hidden border border-white/5 shadow-2xl"
+                      >
+                        <Image
+                          src={post.gallery[idx]}
+                          alt={`${post.title} detail ${idx + 1}`}
+                          fill
+                          className="object-cover"
+                        />
+                      </motion.div>
+                    )}
+                  </div>
                 ))}
               </div>
 

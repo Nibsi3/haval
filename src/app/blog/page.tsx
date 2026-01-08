@@ -188,16 +188,16 @@ export default function BlogPage() {
               <div className="h-[1px] flex-1 mx-10 bg-gradient-to-r from-white/10 to-transparent" />
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2">
               {paginatedPosts.map((post, idx) => (
                 <motion.article
                   key={post.slug}
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: idx * 0.1 }}
-                  className="group flex flex-col bg-zinc-950/20 border border-white/5 rounded-[2.5rem] overflow-hidden hover:border-blue-500/30 transition-all duration-500 shadow-lg"
+                  transition={{ delay: idx * 0.05 }}
+                  className="group flex flex-col bg-zinc-950/20 border border-white/5 rounded-xl overflow-hidden hover:border-blue-500/30 transition-all duration-500 shadow-lg"
                 >
-                  <div className="relative h-72 w-full overflow-hidden">
+                  <div className="relative h-24 w-full overflow-hidden">
                     <Image
                       src={post.thumbnailImage}
                       alt={post.title}
@@ -205,38 +205,38 @@ export default function BlogPage() {
                       quality={100}
                       className="object-cover object-center group-hover:scale-110 transition-transform duration-1000"
                     />
-                    <div className="absolute top-6 left-6">
-                      <span className="bg-black/60 backdrop-blur-xl text-white text-[9px] font-black uppercase tracking-[0.3em] px-4 py-2 rounded-xl border border-white/10">
+                    <div className="absolute top-2 left-2">
+                      <span className="bg-black/60 backdrop-blur-xl text-white text-[5px] font-black uppercase tracking-[0.2em] px-1.5 py-0.5 rounded border border-white/10">
                         {post.category}
                       </span>
                     </div>
                   </div>
 
-                  <div className="p-10 flex flex-col flex-1">
-                    <div className="flex items-center gap-3 text-[10px] font-bold text-gray-500 uppercase tracking-widest mb-6">
+                  <div className="p-3 flex flex-col flex-1">
+                    <div className="flex items-center gap-1.5 text-[7px] font-bold text-gray-500 uppercase tracking-widest mb-1.5">
                       <span>{formatDate(post.date)}</span>
-                      <span>•</span>
-                      <span className="flex items-center gap-1.5">
-                        <Clock3 className="w-3 h-3" />
+                      <span className="text-white/10">•</span>
+                      <span className="flex items-center gap-1">
+                        <Clock3 className="w-2 h-2" />
                         {post.readTime}
                       </span>
                     </div>
                     
-                    <h3 className="text-2xl font-bold text-white mb-6 leading-tight group-hover:text-blue-400 transition-colors duration-300 line-clamp-2">
+                    <h3 className="text-xs font-bold text-white mb-1.5 leading-tight group-hover:text-blue-400 transition-colors duration-300 line-clamp-2">
                       {post.title}
                     </h3>
                     
-                    <p className="text-gray-400 text-base mb-10 line-clamp-3 leading-relaxed font-light">
+                    <p className="text-gray-400 text-[9px] mb-3 line-clamp-2 leading-relaxed font-light">
                       {post.excerpt}
                     </p>
 
-                    <div className="mt-auto pt-8 border-t border-white/5">
+                    <div className="mt-auto pt-2 border-t border-white/5">
                       <Link
                         href={`/blog/${post.slug}`}
-                        className="text-blue-500 hover:text-blue-400 font-bold text-sm flex items-center gap-2 group/link"
+                        className="text-blue-500 hover:text-blue-400 font-bold text-[8px] flex items-center gap-1 group/link uppercase tracking-widest"
                       >
                         Read article
-                        <ArrowRight className="w-4 h-4 group-hover/link:translate-x-1 transition-transform" />
+                        <ArrowRight className="w-2 h-2 group-hover/link:translate-x-1 transition-transform" />
                       </Link>
                     </div>
                   </div>

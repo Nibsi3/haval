@@ -22,6 +22,7 @@ export interface BlogPost {
   tags: string[];
   excerpt: string;
   content: string[];
+  gallery?: string[];
 }
 
 export const blogPosts: BlogPost[] = [
@@ -45,6 +46,19 @@ export const blogPosts: BlogPost[] = [
       `Ground clearance is a generous 224mm, and the approach and departure angles (33 and 34 degrees respectively) mean you can tackle steep obstacles with confidence. The water wading depth of 700mm is also particularly useful during our summer storm seasons or when crossing shallow river drifts in the interior.`,
       `If you would like to explore the full specification sheet, pricing and current offers, visit the dedicated Tank 300 page and book a test drive with The Maritime Group in Gqeberha or George.`,
     ],
+    gallery: [
+      '/haval_pics/haval-tank-300/0.jpg',
+      '/haval_pics/haval-tank-300/1.jpg',
+      '/haval_pics/haval-tank-300/2.jpg',
+      '/haval_pics/haval-tank-300/3.jpg',
+      '/haval_pics/haval-tank-300/4.jpg',
+      '/haval_pics/haval-tank-300/5.jpg',
+      '/haval_pics/haval-tank-300/6.png',
+      '/haval_pics/haval-tank-300/7.jpg',
+      '/haval_pics/haval-tank-300/8.jpg',
+      '/haval_pics/haval-tank-300/9.jpg',
+      '/haval_pics/tank-300-engine.webp'
+    ]
   },
   {
     slug: 'gwm-tank-500-luxury-without-limits',
@@ -65,6 +79,17 @@ export const blogPosts: BlogPost[] = [
       `But don't let the luxury fool you – this is a "Tank" after all. Built on a robust ladder-frame chassis and equipped with a professional-grade 4WD system, the Tank 500 is more than capable of tackling the toughest South African terrain. Eleven different terrain modes, front and rear differential locks, and a low-range transfer case provide the hardware needed for serious off-roading. It's a vehicle that can take you from a black-tie event to a remote safari lodge without breaking a sweat.`,
       `Safety is equally impressive, with a full suite of L2 autonomous driving features, including adaptive cruise control, lane-keeping assistance, and automatic emergency braking. For the discerning South African buyer who refuses to choose between luxury and capability, the GWM Tank 500 is the ultimate answer.`,
     ],
+    gallery: [
+      '/haval_pics/haval-h7/0.jpg',
+      '/haval_pics/haval-h7/1.jpg',
+      '/haval_pics/haval-h7/2.png',
+      '/haval_pics/haval-h7/3.jpg',
+      '/haval_pics/haval-h7/4.jpg',
+      '/haval_pics/haval-h7/5.jpg',
+      '/haval_pics/haval-h7/6.jpg',
+      '/haval_pics/haval-h7/7.jpg',
+      '/haval_pics/haval-h7/8.jpg'
+    ]
   },
   {
     slug: 'haval-h6-the-sweet-spot-for-sa-families',
@@ -84,6 +109,18 @@ export const blogPosts: BlogPost[] = [
       `Inside the cabin, the H6 leans heavily into technology and comfort. A large central touchscreen, digital instrument cluster and intuitive steering-wheel controls make everyday interactions simple and modern. Soft-touch materials, supportive seats and thoughtful storage solutions give the impression of a vehicle that has been designed around family life. Isofix child-seat anchors, multiple USB ports and rear air vents all contribute to a cabin that works just as well on a long trip down the Garden Route as it does in weekday traffic.`,
       `Safety has become a non‑negotiable for South African buyers, and here the H6 more than holds its own. Depending on the grade, features such as adaptive cruise control, lane-keep assist, blind-spot monitoring and autonomous emergency braking create an invisible safety net around the vehicle. For families who want a stylish SUV that balances value, specification and peace of mind, the H6 is difficult to overlook. You can explore variants, colours and current promotions on our Haval H6 model page.`,
     ],
+    gallery: [
+      '/haval_pics/haval-h6/0.jpg',
+      '/haval_pics/haval-h6/1.jpg',
+      '/haval_pics/haval-h6/2.jpg',
+      '/haval_pics/haval-h6/3.jpg',
+      '/haval_pics/haval-h6/4.jpg',
+      '/haval_pics/haval-h6/5.jpg',
+      '/haval_pics/haval-h6/6.jpg',
+      '/haval_pics/haval-h6/7.jpg',
+      '/haval_pics/haval-h6/8.jpg',
+      '/haval_pics/haval-h6/9.png'
+    ]
   },
   {
     slug: 'haval-h6-gt-performance-with-purpose',
@@ -99,10 +136,21 @@ export const blogPosts: BlogPost[] = [
       'With its coupe-inspired roofline and tuned chassis, the Haval H6 GT brings genuine excitement to the everyday commute without sacrificing practicality.',
     content: [
       `Not every South African driver wants their family SUV to disappear into the background. The Haval H6 GT was created for customers who appreciate the practicality of the H6, but who are also looking for something a little more expressive. The fastback roofline, bold rear spoiler and striking alloy wheels immediately set it apart from the school-run crowd, while still offering the raised seating position and usable boot space that make SUVs so popular.`,
-      `Beneath the skin the H6 GT shares its 2.0-litre turbocharged petrol engine with the regular H6, but the chassis has been tuned for a more engaging character. Steering response has been sharpened, the suspension has been subtly firmed and drive modes allow the driver to tailor the experience to the road ahead. On a twisting pass the H6 GT feels composed and planted, giving you the confidence to enjoy the power on offer, yet it remains compliant enough for daily commuting over patched-up city streets.`,
+      `Beneath the skin the H6 GT carries a 2.0-litre turbocharged petrol engine with the regular H6, but the chassis has been tuned for a more engaging character. Steering response has been sharpened, the suspension has been subtly firmed and drive modes allow the driver to tailor the experience to the road ahead. On a twisting pass the H6 GT feels composed and planted, giving you the confidence to enjoy the power on offer, yet it remains compliant enough for daily commuting over patched-up city streets.`,
       `Open the door and you are greeted by sport-influenced details that never slip into gimmickry. Supportive sports seats, contrasting stitching and carefully chosen trim materials create a cockpit that feels special without abandoning the sense of quality and comfort that defines the broader H6 range. A full suite of connectivity and driver-assistance systems is on hand, from smartphone mirroring to adaptive cruise control and 360-degree cameras, making long journeys and tight parking bays equally stress-free.`,
       `The H6 GT also features a unique "Race" mode, which enhances the exhaust note and sharpens the throttle response, perfect for those times when you find yourself on a quiet stretch of coastal road. For South African buyers who want their next SUV to feel like a reward rather than a compromise, the H6 GT deserves a spot on the shortlist. It brings stand-out styling and a genuinely enjoyable driving experience, yet remains practical enough for daily life.`,
     ],
+    gallery: [
+      '/haval_pics/haval-h6-gt/0.jpg',
+      '/haval_pics/haval-h6-gt/1.jpg',
+      '/haval_pics/haval-h6-gt/2.jpg',
+      '/haval_pics/haval-h6-gt/3.jpg',
+      '/haval_pics/haval-h6-gt/4.jpg',
+      '/haval_pics/haval-h6-gt/5.jpg',
+      '/haval_pics/haval-h6-gt/6.png',
+      '/haval_pics/haval-h6-gt/7.jpg',
+      '/haval_pics/haval-h6-gt/8.jpg'
+    ]
   },
   {
     slug: 'gwm-p500-redefining-the-double-cab',
@@ -123,13 +171,22 @@ export const blogPosts: BlogPost[] = [
       `Practicality hasn't been forgotten, however. The load bed is spacious and equipped with multiple tie-down points, while the 3.5-ton towing capacity matches the best in the business. The unique "barn-door" style tailgate option makes loading smaller items much easier in tight spaces. Safety is also paramount, with a 5-star rating and a comprehensive suite of active safety systems, including lane-keeping assist and adaptive cruise control.`,
       `For the South African business owner or outdoor enthusiast who wants the capability of a bakkie with the comfort of a luxury SUV, the GWM P500 is a game-changer. It's time to rethink what a double-cab can be.`,
     ],
+    gallery: [
+      '/haval_pics/haval-jolion-pro/0.jpg',
+      '/haval_pics/haval-jolion-pro/1.jpg',
+      '/haval_pics/haval-jolion-pro/2.jpg',
+      '/haval_pics/haval-jolion-pro/3.png',
+      '/haval_pics/haval-jolion-pro/4.jpg',
+      '/haval_pics/haval-jolion-pro/5.jpg',
+      '/haval_pics/haval-jolion-pro/6.jpg'
+    ]
   },
   {
     slug: 'gwm-ora-03-electric-living-in-sa',
     title: 'GWM ORA 03: Embracing the Electric Future in South Africa',
     category: 'ORA',
     modelSlug: 'ora-03',
-    heroImage: '/wallpapers/p500.webp',
+    heroImage: '/wallpapers/ora03.jpg',
     thumbnailImage: '/cars/haval-pro.png',
     date: '2025-01-20',
     readTime: '8 min read',
@@ -143,13 +200,20 @@ export const blogPosts: BlogPost[] = [
       `Inside, the ORA 03 continues the premium theme with high-quality vegan leather, a massive integrated dual-screen setup, and a minimalist design that feels light and airy. Despite its compact exterior dimensions, the interior space is surprisingly generous, especially for rear passengers. Standard features include a 360-degree camera system, wireless phone charging, and a full suite of driver-assistance technologies.`,
       `For South Africans looking to reduce their carbon footprint and stay ahead of the curve, the ORA 03 offers a compelling package. It's not just an electric car; it's a statement about where the automotive world is heading. Visit The Maritime Group to experience the silent revolution for yourself.`,
     ],
+    gallery: [
+      '/haval_pics/haval-interior-1.webp',
+      '/haval_pics/haval-exterior-1.webp',
+      '/haval_pics/haval-tank-300/20.jpg',
+      '/haval_pics/haval-tank-300/21.jpg',
+      '/haval_pics/haval-tank-300/22.jpg'
+    ]
   },
   {
     slug: 'haval-jolion-smart-urban-crossover',
     title: 'Haval Jolion: The Smart Urban Crossover',
     category: 'Jolion',
     modelSlug: 'jolion',
-    heroImage: '/wallpapers/p500.webp',
+    heroImage: '/wallpapers/jolion.jpg',
     thumbnailImage: '/cars/haval-pro.png',
     date: '2025-01-18',
     readTime: '6 min read',
@@ -158,16 +222,27 @@ export const blogPosts: BlogPost[] = [
       'Compact on the outside yet surprisingly spacious inside, the Haval Jolion has become a favourite choice for South Africans who split their time between city streets and weekend escapes.',
     content: [
       `The modern South African city car has a demanding brief. It needs to be compact enough for tight parking bays and busy shopping-centre ramps, yet versatile enough to handle longer journeys and occasional gravel roads. The Haval Jolion hits this balance with ease. Its compact footprint and light steering make it effortless to manoeuvre, while the slightly raised ride height gives drivers the confidence and visibility they expect from an SUV.`,
-      `Under the bonnet lies a 1.5-litre turbocharged petrol engine that delivers 105 kW and 210 Nm. In everyday driving the Jolion feels responsive and willing, with smooth power delivery that makes merging onto highways or overtaking slow-moving traffic feel relaxed. A choice of manual or dual-clutch automatic transmissions means there is a Jolion to suit both traditionalists and those who prefer the ease of an automatic in congested traffic.`,
+      `Under the bonnet lies a 1.5-litre turbocharged petrol engine that delivers 105 kW and 210 Nm. In everyday driving the Jolion feels responsive and willing, with some power delivery that makes merging onto highways or overtaking slow-moving traffic feel relaxed. A choice of manual or dual-clutch automatic transmissions means there is a Jolion to suit both traditionalists and those who prefer the ease of an automatic in congested traffic.`,
       `Inside, the Jolion punches well above its weight in terms of design and technology. A minimalist dashboard layout, floating centre console and high-resolution touchscreen create a cabin that would not look out of place in a far more expensive vehicle. Quality materials, thoughtful storage spaces and generous rear legroom make it easy to live with, whether it is doing duty as a first family car or a stylish runabout for empty-nesters.`,
       `Safety and value round out the Jolion package. Multiple airbags, electronic stability control and advanced driver-assistance features are available across the range, while Haval's strong warranty and service-plan offering helps to keep ownership costs predictable. For buyers who want a crossover that looks sharp, feels modern and fits the realities of South African urban life, the Jolion is an appealing option. Full specifications and current deals can be explored on our Jolion model page.`,
     ],
+    gallery: [
+      '/haval_pics/haval-jolion-pro/0.jpg',
+      '/haval_pics/haval-jolion-pro/1.jpg',
+      '/haval_pics/haval-jolion-pro/2.jpg',
+      '/haval_pics/haval-jolion-pro/3.png',
+      '/haval_pics/haval-jolion-pro/4.jpg',
+      '/haval_pics/haval-jolion-pro/5.jpg',
+      '/haval_pics/haval-jolion-pro/6.jpg',
+      '/haval_pics/haval-jolion-pro/7.jpg',
+      '/haval_pics/haval-jolion-pro/8.jpg'
+    ]
   },
   {
     slug: 'hybrid-technology-the-best-of-both-worlds',
     title: 'GWM Hybrid Technology: Why it Makes Sense for South Africa',
     category: 'Technology',
-    heroImage: '/wallpapers/h6gt.jpg',
+    heroImage: '/wallpapers/h6.jpg',
     thumbnailImage: '/cars/haval-h6.png',
     date: '2025-01-22',
     readTime: '7 min read',
@@ -180,6 +255,14 @@ export const blogPosts: BlogPost[] = [
       `The result is a significant improvement in fuel efficiency, especially in urban environments where fuel consumption usually spikes. But it's not just about saving money at the pump – it's also about performance. The electric motor provides instant torque, making these vehicles feel much more responsive and powerful than their traditional counterparts. For example, the H6 HEV delivers a combined 179 kW and 530 Nm, providing a level of performance that matches or exceeds many premium European SUVs.`,
       `Furthermore, the hybrid system helps to reduce the overall wear and tear on the petrol engine, potentially leading to longer-term reliability. For South African drivers who want the benefits of electric driving – smoothness, silence, and efficiency – without any change to their daily routine or concerns about charging infrastructure, GWM's hybrid range is the logical choice. It truly is the best of both worlds.`,
     ],
+    gallery: [
+      '/haval_pics/haval-h6/10.jpg',
+      '/haval_pics/haval-h6/11.jpg',
+      '/haval_pics/haval-h6/12.jpg',
+      '/haval_pics/haval-h6/13.jpg',
+      '/haval_pics/haval-h6/14.jpg',
+      '/haval_pics/haval-h6/15.jpg'
+    ]
   },
   {
     slug: 'ownership-guide-gwm-haval-in-south-africa',
@@ -198,6 +281,11 @@ export const blogPosts: BlogPost[] = [
       `Another important factor for South African customers is geographic coverage. The Maritime Group plays a key role here, with strategically located dealerships and service centres in Gqeberha and George supporting customers across the Eastern and Western Cape. Whether you are bringing in your Tank 300 after a Karoo road trip or your Jolion after months of urban commuting, the same diagnostic equipment and technical expertise is on hand.`,
       `Ultimately, owning a GWM or Haval in South Africa should feel like a partnership. Transparent communication around service costs, flexible booking options and the availability of courtesy vehicles where possible all contribute to a smoother experience. If you are considering joining the GWM or Haval family, speak to our team about the specific warranty and service benefits attached to the model you are interested in. We will happily guide you through the details so that you can make an informed, confident decision.`,
     ],
+    gallery: [
+      '/haval_pics/service.jpg',
+      '/haval_pics/haval-interior-1.webp',
+      '/haval_pics/haval-exterior-1.webp'
+    ]
   },
 ];
 
