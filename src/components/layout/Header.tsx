@@ -79,7 +79,7 @@ export default function Header() {
             </nav>
 
             <div className="flex items-center space-x-4">
-              <Link href="/contact" className="hidden md:block bg-white text-black px-5 py-2 rounded-full text-sm font-semibold hover:bg-gray-100 transition-colors">
+              <Link href="/quote" className="hidden md:block bg-white text-black px-5 py-2 rounded-full text-sm font-semibold hover:bg-gray-100 transition-colors">
                 Get a Quote
               </Link>
               
@@ -103,7 +103,7 @@ export default function Header() {
               <Link href="/used-cars" className="text-white text-lg font-medium" onClick={() => setIsMenuOpen(false)}>Used Vehicles</Link>
               <Link href="/blog" className="text-white text-lg font-medium" onClick={() => setIsMenuOpen(false)}>Blog</Link>
               <Link href="/contact" className="text-white text-lg font-medium" onClick={() => setIsMenuOpen(false)}>Contact</Link>
-              <Link href="/contact" className="bg-white text-black px-6 py-3 rounded-full text-center font-bold mt-4" onClick={() => setIsMenuOpen(false)}>
+              <Link href="/quote" className="bg-white text-black px-6 py-3 rounded-full text-center font-bold mt-4" onClick={() => setIsMenuOpen(false)}>
                 Get a Quote
               </Link>
             </nav>

@@ -2,6 +2,7 @@
 
 import Link from 'next/link';
 import { Facebook, Instagram, Linkedin, Phone, Mail, MapPin } from 'lucide-react';
+import { TrackedPhone, TrackedWhatsApp } from '@/components/TrackedContact';
 
 const socialLinks = [
   { name: 'LinkedIn', href: 'https://www.linkedin.com/company/maritime-motors/', icon: Linkedin },
@@ -73,10 +74,14 @@ export default function Footer() {
             <h3 className="text-white font-bold mb-6">Contact Us</h3>
             <ul className="space-y-4">
               <li>
-                <a href="tel:0413992800" className="flex items-center space-x-3 text-gray-400 hover:text-white transition-colors">
+                <TrackedPhone 
+                  phone="+27 41 399 2800" 
+                  location="Footer"
+                  className="flex items-center space-x-3 text-gray-400 hover:text-white transition-colors"
+                >
                   <Phone className="w-5 h-5" />
                   <span className="text-sm">041 399 2800</span>
-                </a>
+                </TrackedPhone>
               </li>
               <li>
                 <a href="mailto:marketing@maritimemotors.co.za" className="flex items-center space-x-3 text-gray-400 hover:text-white transition-colors">
