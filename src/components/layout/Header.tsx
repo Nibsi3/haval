@@ -17,9 +17,10 @@ export default function Header() {
             </Link>
             
             <nav className="hidden md:flex items-center space-x-8">
-              <Link href="/" className="text-gray-300 hover:text-white text-sm font-medium transition-colors">Models</Link>
               <Link href="/about" className="text-gray-300 hover:text-white text-sm font-medium transition-colors">About</Link>
               <Link href="/services" className="text-gray-300 hover:text-white text-sm font-medium transition-colors">Services</Link>
+              <Link href="/used-cars" className="text-gray-300 hover:text-white text-sm font-medium transition-colors">Used Cars</Link>
+              <Link href="/blog" className="text-gray-300 hover:text-white text-sm font-medium transition-colors">Blog</Link>
               <Link href="/contact" className="text-gray-300 hover:text-white text-sm font-medium transition-colors">Contact</Link>
             </nav>
 
@@ -42,9 +43,10 @@ export default function Header() {
         {isMenuOpen && (
           <div className="md:hidden bg-black/90 backdrop-blur-xl mt-2 rounded-2xl border border-white/10">
             <nav className="flex flex-col p-6 space-y-4">
-              <Link href="/" className="text-white text-lg font-medium" onClick={() => setIsMenuOpen(false)}>Models</Link>
               <Link href="/about" className="text-white text-lg font-medium" onClick={() => setIsMenuOpen(false)}>About</Link>
               <Link href="/services" className="text-white text-lg font-medium" onClick={() => setIsMenuOpen(false)}>Services</Link>
+              <Link href="/used-cars" className="text-white text-lg font-medium" onClick={() => setIsMenuOpen(false)}>Used Cars</Link>
+              <Link href="/blog" className="text-white text-lg font-medium" onClick={() => setIsMenuOpen(false)}>Blog</Link>
               <Link href="/contact" className="text-white text-lg font-medium" onClick={() => setIsMenuOpen(false)}>Contact</Link>
               <Link href="/contact" className="bg-white text-black px-6 py-3 rounded-full text-center font-bold mt-4" onClick={() => setIsMenuOpen(false)}>
                 Get a Quote

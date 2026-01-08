@@ -44,7 +44,7 @@ export default function About() {
 
       {/* Hero with Wallpaper */}
       <section className="relative h-[40vh] min-h-[300px]">
-        <Image src="/wallpapers/tank300.jpg" alt="About Us" fill className="object-cover object-center" priority />
+        <Image src="/wallpapers/tank300.jpg" alt="About Us" fill quality={100} className="object-cover object-center" priority />
         <div className="absolute inset-0 bg-gradient-to-t from-[#0a0a0a] via-black/60 to-black/40" />
         <div className="absolute inset-0 flex items-center justify-center">
           <div className="text-center px-6">
@@ -82,7 +82,7 @@ export default function About() {
               </p>
             </div>
             <div className="relative h-[400px] rounded-2xl overflow-hidden">
-              <Image src="/service.jpg" alt="Since 1958" fill className="object-cover" priority />
+              <Image src="/service.jpg" alt="Since 1958" fill quality={100} className="object-cover" priority />
               <div className="absolute inset-0 bg-black/40" />
             </div>
           </div>

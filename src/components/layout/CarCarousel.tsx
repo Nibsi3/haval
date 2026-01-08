@@ -22,7 +22,7 @@ const cars = [
       transmission: '8AT ZF',
     },
     price: 'From R 799,900',
-    image: '/cars/Haval Tank 300.png',
+    image: '/cars/haval-tank-300.png',
     color: '#1e3a5f',
   },
   {
@@ -39,7 +39,7 @@ const cars = [
       transmission: '7DCT',
     },
     price: 'From R 599,900',
-    image: '/cars/Haval H6.png',
+    image: '/cars/haval-h6.png',
     color: '#2d1f3d',
   },
   {
@@ -56,7 +56,7 @@ const cars = [
       transmission: '7DCT',
     },
     price: 'From R 649,900',
-    image: '/cars/Haval H6 GT.png',
+    image: '/cars/haval-h6-gt.png',
     color: '#3d2020',
   },
   {
@@ -73,7 +73,7 @@ const cars = [
       transmission: '7DCT',
     },
     price: 'From R 429,900',
-    image: '/cars/Haval Pro.png',
+    image: '/cars/haval-pro.png',
     color: '#1f2d3d',
   },
   {
@@ -90,7 +90,7 @@ const cars = [
       transmission: '7DCT',
     },
     price: 'From R 699,900',
-    image: '/cars/Haval H7.png',
+    image: '/cars/haval-h7.png',
     color: '#0d3320',
   },
 ];
@@ -174,6 +174,18 @@ export default function CarCarousel() {
 
   return (
     <section className="relative w-full h-screen bg-[#0a0a0a] overflow-hidden">
+      <div className="hidden" aria-hidden="true">
+        {cars.map((car) => (
+          <Image
+            key={car.id}
+            src={car.image}
+            alt=""
+            width={1600}
+            height={800}
+            priority
+          />
+        ))}
+      </div>
       {/* Intro Animation Overlay */}
       <AnimatePresence>
         {!isIntroComplete && (
@@ -325,8 +337,9 @@ export default function CarCarousel() {
                   <Image
                     src={currentCar.image}
                     alt={`${currentCar.name} ${currentCar.model}`}
-                    width={800}
-                    height={400}
+                    width={1600}
+                    height={800}
+                    quality={100}
                     className="w-full h-auto object-contain drop-shadow-2xl"
                     priority
                   />

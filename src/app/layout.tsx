@@ -32,11 +32,15 @@ export default function RootLayout({
     <html lang="en">
       <head>
         {/* Preload critical hero images for instant loading */}
-        <link rel="preload" href="/cars/Haval Tank 300.png" as="image" />
-        <link rel="preload" href="/cars/Haval H6.png" as="image" />
-        <link rel="preload" href="/cars/Haval H6 GT.png" as="image" />
-        <link rel="preload" href="/cars/Haval Pro.png" as="image" />
-        <link rel="preload" href="/cars/Haval H7.png" as="image" />
+        <link rel="preload" href="/cars/haval-tank-300.png" as="image" />
+        <link rel="preload" href="/cars/haval-h6.png" as="image" />
+        <link rel="preload" href="/cars/haval-h6-gt.png" as="image" />
+        <link rel="preload" href="/cars/haval-pro.png" as="image" />
+        <link rel="preload" href="/cars/haval-h7.png" as="image" />
+        {/* Preload wallpapers used across top-level pages */}
+        <link rel="preload" href="/wallpapers/tank300.jpg" as="image" />
+        <link rel="preload" href="/wallpapers/h6gt.jpg" as="image" />
+        <link rel="preload" href="/wallpapers/p500.webp" as="image" />
         {/* Preconnect to external resources */}
         <link rel="preconnect" href="https://www.google.com" />
         <link rel="preconnect" href="https://maps.googleapis.com" />

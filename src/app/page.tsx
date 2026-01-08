@@ -4,6 +4,7 @@ import CarCarousel from '@/components/layout/CarCarousel';
 import Footer from '@/components/layout/Footer';
 import BrandsSlider from '@/components/BrandsSlider';
 import AnimatedCounter from '@/components/AnimatedCounter';
+import HavalGallery from '@/components/HavalGallery';
 import Link from 'next/link';
 import Image from 'next/image';
 
@@ -50,8 +51,11 @@ export default function Home() {
         <BrandsSlider />
       </section>
 
+      {/* High-Impact Visual Gallery */}
+      <HavalGallery />
+
       {/* Services Section */}
-      <section className="py-20 px-6">
+      <section className="py-24 px-6 bg-zinc-950/50">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-5xl font-bold text-white mb-4">What We Offer</h2>
