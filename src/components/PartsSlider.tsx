@@ -12,16 +12,16 @@ interface PartsBrand {
 }
 
 const partsBrands: PartsBrand[] = [
-  { name: 'Mercedes-Benz', logo: '/brands/Mercedes Benz Maritime Motors.jpg', link: 'https://www.google.com/maps/dir/-33.9876803,25.5562544/-33.97959,25.55352/@-33.9824379,25.5436883,15z', subtitle: 'Maritime Motors' },
-  { name: 'Kia', logo: '/brands/Kia Nelson Mandela Bay.jpg', link: 'https://www.google.com/maps/dir/-33.9876803,25.5562544/-33.97959,25.55352/@-33.9824379,25.5436883,15z', subtitle: 'Maritime Motors', invert: true },
-  { name: 'Mitsubishi', logo: '/brands/Mitsubishi Motors at Maritime.png', link: 'https://www.google.com/maps/dir/-33.9876803,25.5562544/-33.97959,25.55352/@-33.9824379,25.5436883,15z', subtitle: 'Maritime Motors' },
-  { name: 'Honda Auto PE', logo: '/brands/Honda at Maritime George.png', link: 'https://www.google.com/maps/dir/-33.9876803,25.5562544/-33.97959,25.55352/@-33.9824379,25.5436883,15z', subtitle: 'Maritime Motors', invert: true },
-  { name: 'Honda & Haval George', logo: '/brands/Honda at Maritime George.png', link: 'https://www.google.com/maps/dir/-33.9876803,25.5562544/-33.95616,22.45249/@-33.610492,21.3243824,7z', subtitle: 'Maritime George', invert: true },
-  { name: 'GWM', logo: '/brands/GWM Maritime George.png', link: 'https://www.google.com/maps/dir/-33.9876803,25.5562544/-33.95616,22.45249/@-33.610492,21.3243824,7z', subtitle: 'Maritime George', invert: true },
-  { name: 'Haval', logo: '/brands/Haval at Maritime George.png', link: 'https://www.google.com/maps/dir/-33.9876803,25.5562544/-33.95616,22.45249/@-33.610492,21.3243824,7z', subtitle: 'Maritime George' },
-  { name: 'Jetour', logo: '/brands/Jetour Nelson Mandela Bay.png', link: 'https://www.google.com/maps/dir/-33.9876803,25.5562544/-33.97959,25.55352/@-33.9824379,25.5436883,15z', subtitle: 'Maritime Motors', invert: true },
-  { name: 'Tata Motors', logo: '/brands/Tata Motors Nelson Mandela Bay.png', link: 'https://www.google.com/maps/dir/-33.9876803,25.5562544/-33.97959,25.55352/@-33.9824379,25.5436883,15z', subtitle: 'Maritime Motors', invert: true },
-  { name: 'Maritime Commercial', logo: '/brands/Maritime Commercial Nelson Mandela Bay  copy.jpg', link: 'https://www.google.com/maps/dir/-33.9876803,25.5562544/-33.92839,25.60486/@-33.9582083,25.5429752,13z', subtitle: 'Commercial Vehicles' },
+  { name: 'Mercedes-Benz', logo: '/brands/Mercedes-Benz-Maritime-Motors.jpg', link: 'https://www.google.com/maps/dir/-33.9876803,25.5562544/-33.97959,25.55352/@-33.9824379,25.5436883,15z', subtitle: 'Maritime Motors' },
+  { name: 'Kia', logo: '/brands/Kia-Nelson-Mandela-Bay.jpg', link: 'https://www.google.com/maps/dir/-33.9876803,25.5562544/-33.97959,25.55352/@-33.9824379,25.5436883,15z', subtitle: 'Maritime Motors', invert: true },
+  { name: 'Mitsubishi', logo: '/brands/Mitsubishi-Motors-at-Maritime.png', link: 'https://www.google.com/maps/dir/-33.9876803,25.5562544/-33.97959,25.55352/@-33.9824379,25.5436883,15z', subtitle: 'Maritime Motors' },
+  { name: 'Honda Auto PE', logo: '/brands/Honda-at-Maritime-George.png', link: 'https://www.google.com/maps/dir/-33.9876803,25.5562544/-33.97959,25.55352/@-33.9824379,25.5436883,15z', subtitle: 'Maritime Motors', invert: true },
+  { name: 'Honda & Haval George', logo: '/brands/Honda-at-Maritime-George.png', link: 'https://www.google.com/maps/dir/-33.9876803,25.5562544/-33.95616,22.45249/@-33.610492,21.3243824,7z', subtitle: 'Maritime George', invert: true },
+  { name: 'GWM', logo: '/brands/GWM-Maritime-George.png', link: 'https://www.google.com/maps/dir/-33.9876803,25.5562544/-33.95616,22.45249/@-33.610492,21.3243824,7z', subtitle: 'Maritime George', invert: true },
+  { name: 'Haval', logo: '/brands/Haval-at-Maritime-George.png', link: 'https://www.google.com/maps/dir/-33.9876803,25.5562544/-33.95616,22.45249/@-33.610492,21.3243824,7z', subtitle: 'Maritime George' },
+  { name: 'Jetour', logo: '/brands/Jetour-Nelson-Mandela-Bay.png', link: 'https://www.google.com/maps/dir/-33.9876803,25.5562544/-33.97959,25.55352/@-33.9824379,25.5436883,15z', subtitle: 'Maritime Motors', invert: true },
+  { name: 'Tata Motors', logo: '/brands/Tata-Motors-Nelson-Mandela-Bay.png', link: 'https://www.google.com/maps/dir/-33.9876803,25.5562544/-33.97959,25.55352/@-33.9824379,25.5436883,15z', subtitle: 'Maritime Motors', invert: true },
+  { name: 'Maritime Commercial', logo: '/brands/Maritime-Commercial-Nelson-Mandela-Bay.jpg', link: 'https://www.google.com/maps/dir/-33.9876803,25.5562544/-33.92839,25.60486/@-33.9582083,25.5429752,13z', subtitle: 'Commercial Vehicles' },
   { name: 'Fuso', logo: '/brands/Fuso.jpg', link: 'https://www.google.com/maps/dir/-33.9876803,25.5562544/-33.92839,25.60486/@-33.9582083,25.5429752,13z', subtitle: 'Maritime Commercial', invert: true },
 ];
 
