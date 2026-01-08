@@ -21,6 +21,7 @@ const nextConfig: NextConfig = {
   experimental: {
     optimizeCss: true,
   },
+  output: 'standalone',
   // Add headers for better caching
   async headers() {
     return [
