@@ -21,6 +21,7 @@ const nextConfig: NextConfig = {
     optimizeCss: true,
   },
   output: 'export',
+  distDir: 'out',
   trailingSlash: true,
 };
 
