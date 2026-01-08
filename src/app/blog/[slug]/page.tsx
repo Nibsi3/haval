@@ -140,6 +140,25 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
               )}
             </article>
 
+            {post.gallery && post.gallery.length > 0 && (
+              <div className="pt-10">
+                <h3 className="text-2xl font-bold text-white mb-6">In‑Article Gallery</h3>
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                  {post.gallery.map((img, i) => (
+                    <motion.div
+                      key={img + i}
+                      initial={{ opacity: 0, y: 20 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      viewport={{ once: true }}
+                      className="relative aspect-video rounded-2xl overflow-hidden border border-white/5 shadow-2xl"
+                    >
+                      <Image src={img} alt={`${post.title} gallery ${i + 1}`} fill className="object-cover" />
+                    </motion.div>
+                  ))}
+                </div>
+              </div>
+            )}
+
             {related.length > 0 && (
               <div className="pt-20 border-t border-white/5">
                 <h3 className="text-2xl font-bold text-white mb-10">Related Perspectives</h3>

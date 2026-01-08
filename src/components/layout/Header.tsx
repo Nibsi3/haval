@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 import { useState } from 'react';
-import { Menu, X } from 'lucide-react';
+import { Menu, X, ChevronDown } from 'lucide-react';
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -19,7 +19,18 @@ export default function Header() {
             <nav className="hidden md:flex items-center space-x-8">
               <Link href="/about" className="text-gray-300 hover:text-white text-sm font-medium transition-colors">About</Link>
               <Link href="/services" className="text-gray-300 hover:text-white text-sm font-medium transition-colors">Services</Link>
-              <Link href="/used-cars" className="text-gray-300 hover:text-white text-sm font-medium transition-colors">Used Cars</Link>
+              <div className="relative group">
+                <button className="text-gray-300 hover:text-white text-sm font-medium transition-colors inline-flex items-center gap-1">
+                  Our Cars
+                  <ChevronDown className="w-4 h-4" />
+                </button>
+                <div className="absolute left-0 top-full mt-2 hidden group-hover:block">
+                  <div className="bg-black/80 backdrop-blur-xl border border-white/10 rounded-xl p-2 shadow-2xl min-w-[180px]">
+                    <Link href="/new-vehicles" className="block px-4 py-2 text-gray-300 hover:text-white hover:bg-white/5 rounded-lg text-sm">New Vehicles</Link>
+                    <Link href="/used-cars" className="block px-4 py-2 text-gray-300 hover:text-white hover:bg-white/5 rounded-lg text-sm">Used Vehicles</Link>
+                  </div>
+                </div>
+              </div>
               <Link href="/blog" className="text-gray-300 hover:text-white text-sm font-medium transition-colors">Blog</Link>
               <Link href="/contact" className="text-gray-300 hover:text-white text-sm font-medium transition-colors">Contact</Link>
             </nav>
@@ -45,7 +56,8 @@ export default function Header() {
             <nav className="flex flex-col p-6 space-y-4">
               <Link href="/about" className="text-white text-lg font-medium" onClick={() => setIsMenuOpen(false)}>About</Link>
               <Link href="/services" className="text-white text-lg font-medium" onClick={() => setIsMenuOpen(false)}>Services</Link>
-              <Link href="/used-cars" className="text-white text-lg font-medium" onClick={() => setIsMenuOpen(false)}>Used Cars</Link>
+              <Link href="/new-vehicles" className="text-white text-lg font-medium" onClick={() => setIsMenuOpen(false)}>New Vehicles</Link>
+              <Link href="/used-cars" className="text-white text-lg font-medium" onClick={() => setIsMenuOpen(false)}>Used Vehicles</Link>
               <Link href="/blog" className="text-white text-lg font-medium" onClick={() => setIsMenuOpen(false)}>Blog</Link>
               <Link href="/contact" className="text-white text-lg font-medium" onClick={() => setIsMenuOpen(false)}>Contact</Link>
               <Link href="/contact" className="bg-white text-black px-6 py-3 rounded-full text-center font-bold mt-4" onClick={() => setIsMenuOpen(false)}>

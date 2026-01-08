@@ -75,7 +75,7 @@ export default function BlogPage() {
 
       <section className="relative h-[60vh] min-h-[500px] flex items-center">
         <Image
-          src="/wallpapers/tank300.jpg"
+          src="/wallpapers/h6gt.jpg"
           alt="The Maritime Journal"
           fill
           quality={100}
@@ -195,8 +195,11 @@ export default function BlogPage() {
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: idx * 0.05 }}
-                  className="group flex flex-col bg-zinc-950/20 border border-white/5 rounded-xl overflow-hidden hover:border-blue-500/30 transition-all duration-500 shadow-lg"
+                  className="group relative flex flex-col bg-zinc-950/20 border border-white/5 rounded-xl overflow-hidden hover:border-blue-500/30 transition-all duration-500 shadow-lg"
                 >
+                  <Link href={`/blog/${post.slug}`} className="absolute inset-0 z-10" aria-label={`Open ${post.title}`}> 
+                    <span className="sr-only">Open article</span>
+                  </Link>
                   <div className="relative h-24 w-full overflow-hidden">
                     <Image
                       src={post.thumbnailImage}
@@ -233,7 +236,7 @@ export default function BlogPage() {
                     <div className="mt-auto pt-2 border-t border-white/5">
                       <Link
                         href={`/blog/${post.slug}`}
-                        className="text-blue-500 hover:text-blue-400 font-bold text-[8px] flex items-center gap-1 group/link uppercase tracking-widest"
+                        className="relative z-20 text-blue-500 hover:text-blue-400 font-bold text-[8px] flex items-center gap-1 group/link uppercase tracking-widest"
                       >
                         Read article
                         <ArrowRight className="w-2 h-2 group-hover/link:translate-x-1 transition-transform" />

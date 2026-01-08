@@ -609,7 +609,10 @@ export default function ModelPage() {
                 <p className="text-blue-400 text-4xl font-bold mt-2">{currentVariant.price}</p>
               </div>
               <div className="flex flex-wrap gap-4">
-                <Link href="/contact" className="bg-white text-black px-8 py-4 rounded-full font-bold hover:bg-gray-200 transition-all">
+                <Link 
+                  href={`/contact?subject=${encodeURIComponent('New Vehicle Enquiry')}&message=${encodeURIComponent(`Hi Maritime team, I'm interested in the ${car.model} - ${currentVariant.name}. Please share full specifications, availability, and finance options.`)}`}
+                  className="bg-white text-black px-8 py-4 rounded-full font-bold hover:bg-gray-200 transition-all"
+                >
                   Request a Quote
                 </Link>
                 <Link href="tel:0413992800" className="border border-white/20 text-white px-8 py-4 rounded-full font-bold hover:bg-white/10 transition-all">
@@ -895,7 +898,10 @@ export default function ModelPage() {
           <h2 className="text-3xl md:text-5xl font-bold text-white mb-6">Ready to Experience the {car.model}?</h2>
           <p className="text-gray-400 text-lg mb-10">Contact our team to schedule a test drive or request a personalized quote.</p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-            <Link href="/contact" className="bg-blue-600 hover:bg-blue-500 text-white px-10 py-4 rounded-full font-bold transition-all">
+            <Link 
+              href={`/contact?subject=${encodeURIComponent('New Vehicle Test Drive')}&message=${encodeURIComponent(`Hi Maritime team, I'd like to book a test drive for the ${car.model} - ${car.variants[0]?.name || 'Selected Variant'}.` )}`}
+              className="bg-blue-600 hover:bg-blue-500 text-white px-10 py-4 rounded-full font-bold transition-all"
+            >
               Book a Test Drive
             </Link>
             <Link href="tel:0413992800" className="bg-white/10 hover:bg-white/20 border border-white/20 text-white px-10 py-4 rounded-full font-bold transition-all">

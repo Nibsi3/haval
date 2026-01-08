@@ -8,7 +8,7 @@ interface AnimatedCounterProps {
   duration?: number;
 }
 
-export default function AnimatedCounter({ value, label, duration = 2000 }: AnimatedCounterProps) {
+export default function AnimatedCounter({ value, label, duration = 3000 }: AnimatedCounterProps) {
   const [displayValue, setDisplayValue] = useState('0');
   const [hasAnimated, setHasAnimated] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
@@ -21,7 +21,7 @@ export default function AnimatedCounter({ value, label, duration = 2000 }: Anima
           animateValue();
         }
       },
-      { threshold: 0.5 }
+      { threshold: 0.2 }
     );
 
     if (ref.current) {
@@ -47,10 +47,12 @@ export default function AnimatedCounter({ value, label, duration = 2000 }: Anima
     const animate = (currentTime: number) => {
       const elapsed = currentTime - startTime;
       const progress = Math.min(elapsed / duration, 1);
-      
-      // Ease out cubic for smooth deceleration
-      const easeOut = 1 - Math.pow(1 - progress, 3);
-      const current = Math.floor(easeOut * targetNumber);
+
+      // Ease-in-out cubic for extra smoothness
+      const easeInOutCubic = progress < 0.5
+        ? 4 * progress * progress * progress
+        : 1 - Math.pow(-2 * progress + 2, 3) / 2;
+      const current = Math.round(easeInOutCubic * targetNumber);
       
       setDisplayValue(`${current}${suffix}`);
       

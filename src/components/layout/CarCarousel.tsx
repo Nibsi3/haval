@@ -102,6 +102,7 @@ export default function CarCarousel() {
   const [isPaused, setIsPaused] = useState(false);
 
   const currentCar = cars[currentIndex];
+  const nextIndex = (currentIndex + 1) % cars.length;
 
   const navigate = useCallback((dir: number) => {
     setDirection(dir);
@@ -414,6 +415,35 @@ export default function CarCarousel() {
               </button>
             ))}
           </div>
+        </div>
+      </div>
+
+      {/* Bottom-left model tabs (current and next) */}
+      <div 
+        className="absolute bottom-10 left-10 z-20"
+        onMouseEnter={() => setIsPaused(true)}
+        onMouseLeave={() => setIsPaused(false)}
+      >
+        <div className="flex flex-wrap items-center gap-3">
+          {cars.map((car, index) => (
+            <button
+              key={car.id}
+              onClick={() => goToSlide(index)}
+              className={`relative px-3 py-1.5 rounded-full text-[10px] font-bold uppercase tracking-widest transition-all border
+                ${index === currentIndex ? 'bg-white text-black border-white' : 'bg-white/10 text-white/80 border-white/20 hover:bg-white/20'}`}
+              aria-label={`Go to ${car.name} ${car.model}`}
+            >
+              <span className="opacity-70 mr-1">{index === currentIndex ? 'Now:' : index === nextIndex ? 'Next:' : ''}</span>
+              {car.model}
+              {index === currentIndex && (
+                <motion.span
+                  layoutId="tab-underline"
+                  className="absolute -bottom-1 left-3 right-3 h-0.5 bg-black"
+                  transition={{ duration: 0.25 }}
+                />
+              )}
+            </button>
+          ))}
         </div>
       </div>
 

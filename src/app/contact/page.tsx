@@ -1,5 +1,7 @@
 "use client";
 
+import { useEffect, useMemo, useState } from 'react';
+import { useSearchParams } from 'next/navigation';
 import { Phone, Mail, MapPin, Clock, Send, Facebook, Instagram, Linkedin } from 'lucide-react';
 import Image from 'next/image';
 import Header from '@/components/layout/Header';
@@ -19,6 +21,18 @@ const socialLinks = [
 ];
 
 export default function Contact() {
+  const searchParams = useSearchParams();
+  const initialSubject = useMemo(() => searchParams.get('subject') || 'General Inquiry', [searchParams]);
+  const initialMessage = useMemo(() => searchParams.get('message') || '', [searchParams]);
+  const [subject, setSubject] = useState<string>(initialSubject);
+  const [message, setMessage] = useState<string>(initialMessage);
+
+  useEffect(() => {
+    // Keep form in sync when navigating with different prefill links
+    setSubject(initialSubject);
+    setMessage(initialMessage);
+  }, [initialSubject, initialMessage]);
+
   return (
     <div className="min-h-screen bg-[#0a0a0a]">
       <Header />
@@ -121,21 +135,27 @@ export default function Contact() {
 
                 <div>
                   <label className="text-gray-400 text-sm mb-2 block">Subject</label>
-                  <select className="w-full bg-zinc-800 border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-blue-500 transition-colors">
-                    <option>General Inquiry</option>
-                    <option>New Vehicle Enquiry</option>
-                    <option>Pre-Owned Vehicles</option>
-                    <option>Service Booking</option>
-                    <option>Parts & Accessories</option>
-                    <option>Finance Options</option>
+                  <select 
+                    className="w-full bg-zinc-800 border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-blue-500 transition-colors"
+                    value={subject}
+                    onChange={(e) => setSubject(e.target.value)}
+                  >
+                    <option value="General Inquiry">General Inquiry</option>
+                    <option value="New Vehicle Enquiry">New Vehicle Enquiry</option>
+                    <option value="Pre-Owned Vehicles">Pre-Owned Vehicles</option>
+                    <option value="Service Booking">Service Booking</option>
+                    <option value="Parts & Accessories">Parts & Accessories</option>
+                    <option value="Finance Options">Finance Options</option>
                   </select>
                 </div>
 
                 <div>
                   <label className="text-gray-400 text-sm mb-2 block">Message</label>
                   <textarea 
-                    rows={4}
+                    rows={6}
                     placeholder="How can we help you today?"
+                    value={message}
+                    onChange={(e) => setMessage(e.target.value)}
                     className="w-full bg-zinc-800 border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-blue-500 transition-colors resize-none"
                   />
                 </div>

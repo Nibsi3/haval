@@ -7,74 +7,9 @@ import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Filter, Search, X, ChevronDown, Tag as TagIcon, ArrowRight } from 'lucide-react';
+import { usedCars } from '@/lib/usedCars';
 
-interface UsedCar {
-  id: number;
-  name: string;
-  model: string;
-  price: number;
-  mileage: number;
-  year: number;
-  fuelType: 'Petrol' | 'Diesel' | 'Hybrid' | 'Electric';
-  transmission: 'Manual' | 'Automatic';
-  drivetrain: '4x2' | '4x4';
-  bodyType: 'SUV' | 'Double Cab' | 'Hatchback';
-  location: string;
-  colour: string;
-  image: string;
-  createdAt: string;
-}
-
-const usedCars: UsedCar[] = [
-  {
-    id: 1,
-    name: 'Haval Jolion Super Luxury',
-    model: 'Jolion',
-    price: 399900,
-    mileage: 18500,
-    year: 2023,
-    fuelType: 'Petrol',
-    transmission: 'Automatic',
-    drivetrain: '4x2',
-    bodyType: 'SUV',
-    location: 'Gqeberha',
-    colour: 'White',
-    image: '/cars/haval-pro.png',
-    createdAt: '2025-01-05',
-  },
-  {
-    id: 2,
-    name: 'GWM Tank 300 Ultra',
-    model: 'Tank 300',
-    price: 859900,
-    mileage: 12000,
-    year: 2024,
-    fuelType: 'Petrol',
-    transmission: 'Automatic',
-    drivetrain: '4x4',
-    bodyType: 'SUV',
-    location: 'George',
-    colour: 'Sand',
-    image: '/cars/haval-tank-300.png',
-    createdAt: '2025-01-12',
-  },
-  {
-    id: 3,
-    name: 'Haval H6 GT Super Luxury',
-    model: 'H6 GT',
-    price: 679900,
-    mileage: 22000,
-    year: 2023,
-    fuelType: 'Petrol',
-    transmission: 'Automatic',
-    drivetrain: '4x4',
-    bodyType: 'SUV',
-    location: 'Gqeberha',
-    colour: 'Green',
-    image: '/cars/haval-h6-gt.png',
-    createdAt: '2024-12-10',
-  },
-];
+ 
 
 const sortOptions = [
   { value: 'recent', label: 'Most recent' },
@@ -205,7 +140,7 @@ export default function UsedCarsPage() {
           className="object-cover object-center brightness-50"
         />
         <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-transparent to-[#0a0a0a]" />
-        <div className="relative max-w-7xl mx-auto px-6 w-full pt-20">
+        <div className="relative max-w-7xl mx-auto px-6 w-full pt-32">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -282,8 +217,11 @@ export default function UsedCarsPage() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: idx * 0.1 }}
-                className="group flex flex-col bg-zinc-950/20 border border-white/5 rounded-xl overflow-hidden hover:border-blue-500/30 transition-all duration-500 shadow-xl"
+                className="group relative flex flex-col bg-zinc-950/20 border border-white/5 rounded-xl overflow-hidden hover:border-blue-500/30 transition-all duration-500 shadow-xl"
               >
+                <Link href={`/used-cars/${car.id}`} className="absolute inset-0 z-10" aria-label={`Open ${car.year} ${car.name}`}> 
+                  <span className="sr-only">Open vehicle</span>
+                </Link>
                 <div className="relative h-28 w-full overflow-hidden bg-gradient-to-b from-black/40 to-zinc-900/40">
                   <Image
                     src={car.image}
@@ -347,10 +285,10 @@ export default function UsedCarsPage() {
 
                   <div className="mt-auto grid grid-cols-1 gap-1.5">
                     <Link
-                      href="/contact"
-                      className="flex items-center justify-center gap-1 py-2 rounded bg-blue-600 text-white text-[8px] font-black uppercase tracking-widest hover:bg-blue-500 transition-all duration-300 shadow-xl shadow-blue-600/20 group/btn"
+                      href={`/contact?subject=${encodeURIComponent('Pre-Owned Vehicles')}&message=${encodeURIComponent(`Hi Maritime team, I'm interested in the ${car.year} ${car.name} (${car.model}) in ${car.colour}, with ${formatNumber(car.mileage)} KM, listed at R ${formatNumber(car.price)}. Please share full specifications and availability.`)}`}
+                      className="relative z-20 flex items-center justify-center gap-1 py-2 rounded bg-blue-600 text-white text-[8px] font-black uppercase tracking-widest hover:bg-blue-500 transition-all duration-300 shadow-xl shadow-blue-600/20 group/btn"
                     >
-                      Enquire
+                      View full specifications
                       <ArrowRight className="w-2 h-2 group-hover/btn:translate-x-1 transition-transform" />
                     </Link>
                   </div>
