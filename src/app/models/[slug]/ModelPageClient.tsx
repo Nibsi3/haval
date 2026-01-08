@@ -1,9 +1,9 @@
 "use client";
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import { ArrowLeft, Check, FileText, ChevronDown, ChevronUp } from 'lucide-react';
+import { ArrowLeft, Check, FileText, X, ChevronRight } from 'lucide-react';
 import ImageLightbox from '@/components/ImageLightbox';
 import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
@@ -59,13 +59,31 @@ interface ModelPageClientProps {
 export default function ModelPageClient({ slug, car }: ModelPageClientProps) {
   const [selectedVariant, setSelectedVariant] = useState(0);
   const [lightbox, setLightbox] = useState<{ images: string[]; index: number; title: string } | null>(null);
-  const [showSpecs, setShowSpecs] = useState(false);
+  const [specsSidebarOpen, setSpecsSidebarOpen] = useState(false);
 
   const currentVariant = car.variants[selectedVariant];
 
   const exteriorImgUrls = car.exteriorImages.map(n => `${car.galleryFolder}/${n}.jpg`);
   const interiorImgUrls = car.interiorImages.map(n => `${car.galleryFolder}/${n}.jpg`);
   const detailImgUrls = car.detailImages.map(n => `${car.galleryFolder}/${n}.jpg`);
+
+  // Preload all images for instant display
+  useEffect(() => {
+    const allImages = [car.heroImage, ...exteriorImgUrls, ...interiorImgUrls, ...detailImgUrls];
+    allImages.forEach((src) => {
+      const img = new window.Image();
+      img.src = src;
+    });
+  }, [car.heroImage, exteriorImgUrls, interiorImgUrls, detailImgUrls]);
+
+  // Close sidebar on escape key
+  useEffect(() => {
+    const handleEscape = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') setSpecsSidebarOpen(false);
+    };
+    window.addEventListener('keydown', handleEscape);
+    return () => window.removeEventListener('keydown', handleEscape);
+  }, []);
 
   const openLightbox = (images: string[], index: number, title: string) => {
     setLightbox({ images, index, title });
@@ -138,117 +156,200 @@ export default function ModelPageClient({ slug, car }: ModelPageClientProps) {
         </div>
       </section>
 
-      {/* Variant Selector */}
-      <section className="py-16 px-6 border-b border-white/5">
-        <div className="max-w-7xl mx-auto">
-          <h2 className="text-2xl font-bold text-white mb-8">Choose Your Variant</h2>
-          
-          <div className="flex flex-wrap gap-4 mb-12">
-            {car.variants.map((variant, index) => (
-              <button
-                key={variant.name}
-                onClick={() => setSelectedVariant(index)}
-                className={`px-8 py-3 rounded-full text-sm font-semibold transition-all ${
-                  selectedVariant === index 
-                    ? 'bg-white text-black' 
-                    : 'bg-white/5 text-white hover:bg-white/10 border border-white/10'
-                }`}
+      {/* Specs Sidebar */}
+      <div 
+        className={`fixed inset-0 z-50 transition-opacity duration-300 ${specsSidebarOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'}`}
+      >
+        {/* Backdrop */}
+        <div 
+          className="absolute inset-0 bg-black/80 backdrop-blur-sm"
+          onClick={() => setSpecsSidebarOpen(false)}
+        />
+        
+        {/* Sidebar Panel */}
+        <div 
+          className={`absolute top-0 right-0 h-full w-full max-w-lg bg-zinc-950 border-l border-white/10 shadow-2xl transform transition-transform duration-300 ease-out ${specsSidebarOpen ? 'translate-x-0' : 'translate-x-full'}`}
+        >
+          <div className="h-full flex flex-col">
+            {/* Header */}
+            <div className="flex items-center justify-between p-6 border-b border-white/10">
+              <div>
+                <p className="text-blue-400 text-xs font-bold uppercase tracking-wider mb-1">Full Specifications</p>
+                <h3 className="text-xl font-bold text-white">{currentVariant.name}</h3>
+              </div>
+              <button 
+                onClick={() => setSpecsSidebarOpen(false)}
+                className="p-2 rounded-full bg-white/5 hover:bg-white/10 transition-colors"
               >
-                {variant.name}
+                <X className="w-5 h-5 text-white" />
               </button>
-            ))}
-          </div>
-
-          {/* Selected Variant Details */}
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-            <div>
-              <div className="mb-8">
-                <p className="text-gray-500 text-sm uppercase tracking-wider mb-2">Starting from</p>
-                <p className="text-4xl font-black text-white">{currentVariant.price}</p>
+            </div>
+            
+            {/* Content */}
+            <div className="flex-1 overflow-y-auto p-6 space-y-6">
+              {/* Quick Stats */}
+              <div className="grid grid-cols-2 gap-4">
+                <div className="bg-white/5 rounded-xl p-4">
+                  <p className="text-gray-500 text-xs uppercase tracking-wider mb-1">Price</p>
+                  <p className="text-white font-bold text-lg">{currentVariant.price}</p>
+                </div>
+                <div className="bg-white/5 rounded-xl p-4">
+                  <p className="text-gray-500 text-xs uppercase tracking-wider mb-1">Engine</p>
+                  <p className="text-white font-bold text-lg">{currentVariant.engine}</p>
+                </div>
+                <div className="bg-white/5 rounded-xl p-4">
+                  <p className="text-gray-500 text-xs uppercase tracking-wider mb-1">Power</p>
+                  <p className="text-white font-bold text-lg">{currentVariant.power}</p>
+                </div>
+                <div className="bg-white/5 rounded-xl p-4">
+                  <p className="text-gray-500 text-xs uppercase tracking-wider mb-1">Torque</p>
+                  <p className="text-white font-bold text-lg">{currentVariant.torque}</p>
+                </div>
               </div>
 
-              <div className="grid grid-cols-2 gap-6 mb-8">
-                <div>
-                  <p className="text-gray-500 text-xs uppercase tracking-wider mb-1">Engine</p>
-                  <p className="text-white font-semibold">{currentVariant.engine}</p>
+              {/* Detailed Specs */}
+              {currentVariant.detailedSpecs?.map((section, idx) => (
+                <div key={idx} className="bg-white/5 rounded-xl p-5">
+                  <h4 className="text-blue-400 font-bold text-sm uppercase tracking-wider mb-4 flex items-center gap-2">
+                    <span className="w-1.5 h-1.5 bg-blue-500 rounded-full" />
+                    {section.title}
+                  </h4>
+                  <ul className="space-y-2.5">
+                    {section.items.map((item, i) => (
+                      <li key={i} className="text-gray-300 text-sm flex items-start gap-3">
+                        <Check className="w-4 h-4 text-blue-500 flex-shrink-0 mt-0.5" />
+                        {item}
+                      </li>
+                    ))}
+                  </ul>
                 </div>
-                <div>
-                  <p className="text-gray-500 text-xs uppercase tracking-wider mb-1">Power</p>
-                  <p className="text-white font-semibold">{currentVariant.power}</p>
-                </div>
-                <div>
-                  <p className="text-gray-500 text-xs uppercase tracking-wider mb-1">Torque</p>
-                  <p className="text-white font-semibold">{currentVariant.torque}</p>
-                </div>
-                <div>
-                  <p className="text-gray-500 text-xs uppercase tracking-wider mb-1">Transmission</p>
-                  <p className="text-white font-semibold">{currentVariant.transmission}</p>
-                </div>
-                <div>
-                  <p className="text-gray-500 text-xs uppercase tracking-wider mb-1">Drivetrain</p>
-                  <p className="text-white font-semibold">{currentVariant.drive}</p>
-                </div>
-                <div>
-                  <p className="text-gray-500 text-xs uppercase tracking-wider mb-1">Fuel Consumption</p>
-                  <p className="text-white font-semibold">{currentVariant.fuelConsumption}</p>
+              ))}
+
+              {/* Dimensions */}
+              <div className="bg-white/5 rounded-xl p-5">
+                <h4 className="text-blue-400 font-bold text-sm uppercase tracking-wider mb-4 flex items-center gap-2">
+                  <span className="w-1.5 h-1.5 bg-blue-500 rounded-full" />
+                  Dimensions
+                </h4>
+                <div className="space-y-3">
+                  {car.dimensions.map((dim, i) => (
+                    <div key={i} className="flex justify-between items-center">
+                      <span className="text-gray-400 text-sm">{dim.label}</span>
+                      <span className="text-white font-medium text-sm">{dim.value}</span>
+                    </div>
+                  ))}
                 </div>
               </div>
             </div>
 
-            <div>
-              <p className="text-gray-500 text-sm uppercase tracking-wider mb-4">Key Features</p>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                {currentVariant.keyFeatures.map((feature, i) => (
-                  <div key={i} className="flex items-center gap-3 text-white">
-                    <Check className="w-4 h-4 text-blue-500 flex-shrink-0" />
-                    <span className="text-sm">{feature}</span>
+            {/* Footer */}
+            <div className="p-6 border-t border-white/10">
+              <a
+                href={car.brochureUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-full flex items-center justify-center gap-2 px-6 py-3 bg-blue-600 hover:bg-blue-500 text-white rounded-full font-bold transition-colors"
+              >
+                <FileText className="w-4 h-4" />
+                Download Full Brochure
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Variant Selector */}
+      <section className="py-20 px-6 border-b border-white/5">
+        <div className="max-w-7xl mx-auto">
+          <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-6 mb-10">
+            <h2 className="text-3xl font-bold text-white">Choose Your Variant</h2>
+            
+            <div className="flex flex-wrap gap-3">
+              {car.variants.map((variant, index) => (
+                <button
+                  key={variant.name}
+                  onClick={() => setSelectedVariant(index)}
+                  className={`px-6 py-2.5 rounded-full text-sm font-semibold transition-all ${
+                    selectedVariant === index 
+                      ? 'bg-white text-black shadow-lg shadow-white/20' 
+                      : 'bg-white/5 text-white hover:bg-white/10 border border-white/10'
+                  }`}
+                >
+                  {variant.name}
+                </button>
+              ))}
+            </div>
+          </div>
+
+          {/* Variant Card */}
+          <div className="bg-zinc-900/50 border border-white/5 rounded-3xl p-8 md:p-10">
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-10">
+              {/* Left: Price & Specs */}
+              <div className="lg:col-span-5">
+                <div className="mb-8">
+                  <p className="text-gray-500 text-xs uppercase tracking-widest mb-2">Starting from</p>
+                  <p className="text-5xl font-black text-white">{currentVariant.price}</p>
+                </div>
+
+                <div className="grid grid-cols-2 gap-x-8 gap-y-5">
+                  <div className="border-l-2 border-blue-500 pl-4">
+                    <p className="text-gray-500 text-xs uppercase tracking-wider mb-1">Engine</p>
+                    <p className="text-white font-semibold">{currentVariant.engine}</p>
                   </div>
-                ))}
+                  <div className="border-l-2 border-blue-500 pl-4">
+                    <p className="text-gray-500 text-xs uppercase tracking-wider mb-1">Power</p>
+                    <p className="text-white font-semibold">{currentVariant.power}</p>
+                  </div>
+                  <div className="border-l-2 border-blue-500 pl-4">
+                    <p className="text-gray-500 text-xs uppercase tracking-wider mb-1">Torque</p>
+                    <p className="text-white font-semibold">{currentVariant.torque}</p>
+                  </div>
+                  <div className="border-l-2 border-blue-500 pl-4">
+                    <p className="text-gray-500 text-xs uppercase tracking-wider mb-1">Transmission</p>
+                    <p className="text-white font-semibold">{currentVariant.transmission}</p>
+                  </div>
+                  <div className="border-l-2 border-blue-500 pl-4">
+                    <p className="text-gray-500 text-xs uppercase tracking-wider mb-1">Drivetrain</p>
+                    <p className="text-white font-semibold">{currentVariant.drive}</p>
+                  </div>
+                  <div className="border-l-2 border-blue-500 pl-4">
+                    <p className="text-gray-500 text-xs uppercase tracking-wider mb-1">Fuel Consumption</p>
+                    <p className="text-white font-semibold">{currentVariant.fuelConsumption}</p>
+                  </div>
+                </div>
+              </div>
+
+              {/* Right: Key Features */}
+              <div className="lg:col-span-7">
+                <div className="flex items-center justify-between mb-6">
+                  <p className="text-gray-400 text-sm uppercase tracking-widest">Key Features</p>
+                  {currentVariant.detailedSpecs && (
+                    <button
+                      onClick={() => setSpecsSidebarOpen(true)}
+                      className="flex items-center gap-2 text-blue-400 hover:text-blue-300 text-sm font-semibold transition-colors group"
+                    >
+                      View Full Specs
+                      <ChevronRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                    </button>
+                  )}
+                </div>
+                
+                <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
+                  {currentVariant.keyFeatures.map((feature, i) => (
+                    <div 
+                      key={i} 
+                      className="flex items-center gap-3 bg-white/5 rounded-xl px-4 py-3"
+                    >
+                      <Check className="w-4 h-4 text-blue-500 flex-shrink-0" />
+                      <span className="text-white text-sm">{feature}</span>
+                    </div>
+                  ))}
+                </div>
               </div>
             </div>
           </div>
         </div>
       </section>
-
-      {/* Detailed Specs Accordion */}
-      {currentVariant.detailedSpecs && (
-        <section className="py-8 px-6">
-          <div className="max-w-7xl mx-auto">
-            <button
-              onClick={() => setShowSpecs(!showSpecs)}
-              className="w-full flex items-center justify-between bg-white/5 hover:bg-white/10 border border-white/10 rounded-2xl p-6 transition-all group"
-            >
-              <div className="flex items-center gap-4">
-                <FileText className="w-5 h-5 text-blue-500" />
-                <span className="text-white font-bold">Full Specifications for {currentVariant.name}</span>
-              </div>
-              {showSpecs ? (
-                <ChevronUp className="w-5 h-5 text-gray-400 group-hover:text-white transition-colors" />
-              ) : (
-                <ChevronDown className="w-5 h-5 text-gray-400 group-hover:text-white transition-colors" />
-              )}
-            </button>
-
-            {showSpecs && (
-              <div className="mt-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                {currentVariant.detailedSpecs.map((section, idx) => (
-                  <div key={idx} className="bg-zinc-950/50 border border-white/5 rounded-2xl p-6">
-                    <h4 className="text-blue-500 font-bold text-sm uppercase tracking-wider mb-4">{section.title}</h4>
-                    <ul className="space-y-2">
-                      {section.items.map((item, i) => (
-                        <li key={i} className="text-gray-400 text-sm flex items-start gap-2">
-                          <span className="text-blue-500 mt-1">•</span>
-                          {item}
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                ))}
-              </div>
-            )}
-          </div>
-        </section>
-      )}
 
       {/* Exterior Gallery */}
       <section className="py-16 px-6">
@@ -263,7 +364,14 @@ export default function ModelPageClient({ slug, car }: ModelPageClientProps) {
                 onClick={() => openLightbox(exteriorImgUrls, i, 'Exterior Design')}
                 className={`relative rounded-xl overflow-hidden cursor-pointer group ${i === 0 ? 'col-span-2 row-span-2 h-[450px]' : 'h-[220px]'}`}
               >
-                <Image src={url} alt={`Exterior ${i + 1}`} fill className="object-cover object-center group-hover:scale-102 transition-transform duration-500" />
+                <Image 
+                  src={url} 
+                  alt={`Exterior ${i + 1}`} 
+                  fill 
+                  priority={i < 3}
+                  loading={i < 3 ? "eager" : "lazy"}
+                  className="object-cover object-center group-hover:scale-105 transition-transform duration-500" 
+                />
                 <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors" />
               </button>
             ))}
@@ -282,9 +390,16 @@ export default function ModelPageClient({ slug, car }: ModelPageClientProps) {
               <button 
                 key={i} 
                 onClick={() => openLightbox(interiorImgUrls, i, 'Interior Design')}
-                className="relative h-[200px] rounded-xl overflow-hidden cursor-pointer group"
+                className="relative h-[250px] rounded-xl overflow-hidden cursor-pointer group"
               >
-                <Image src={url} alt={`Interior ${i + 1}`} fill className="object-cover object-center group-hover:scale-102 transition-transform duration-500" />
+                <Image 
+                  src={url} 
+                  alt={`Interior ${i + 1}`} 
+                  fill 
+                  priority={i < 2}
+                  loading={i < 2 ? "eager" : "lazy"}
+                  className="object-cover object-center group-hover:scale-105 transition-transform duration-500" 
+                />
                 <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors" />
               </button>
             ))}
@@ -316,7 +431,14 @@ export default function ModelPageClient({ slug, car }: ModelPageClientProps) {
               onClick={() => openLightbox(detailImgUrls, 0, 'Technical Details')}
               className="relative h-[400px] lg:h-auto min-h-[300px] rounded-2xl overflow-hidden cursor-pointer group"
             >
-              <Image src={detailImgUrls[0]} alt="Detail" fill className="object-cover object-center group-hover:scale-102 transition-transform duration-500" />
+              <Image 
+                src={detailImgUrls[0]} 
+                alt="Detail" 
+                fill 
+                priority
+                loading="eager"
+                className="object-cover object-center group-hover:scale-105 transition-transform duration-500" 
+              />
               <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors" />
             </button>
           </div>
@@ -337,7 +459,14 @@ export default function ModelPageClient({ slug, car }: ModelPageClientProps) {
               onClick={() => openLightbox(detailImgUrls, 1, 'Technical Details')}
               className="relative h-[300px] rounded-2xl overflow-hidden cursor-pointer group"
             >
-              <Image src={detailImgUrls[1]} alt="Dimensions" fill className="object-cover object-center group-hover:scale-102 transition-transform duration-500" />
+              <Image 
+                src={detailImgUrls[1]} 
+                alt="Dimensions" 
+                fill 
+                priority
+                loading="eager"
+                className="object-cover object-center group-hover:scale-105 transition-transform duration-500" 
+              />
               <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors" />
             </button>
           </div>
@@ -345,30 +474,48 @@ export default function ModelPageClient({ slug, car }: ModelPageClientProps) {
       </section>
 
       {/* Standard Features */}
-      <section className="py-16 px-6 bg-zinc-950/50">
+      <section className="py-20 px-6 bg-zinc-950/50">
         <div className="max-w-7xl mx-auto">
-          <h2 className="text-3xl font-bold text-white mb-8">Standard Features</h2>
+          <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-4 mb-10">
+            <div>
+              <h2 className="text-3xl font-bold text-white mb-2">Standard Features</h2>
+              <p className="text-gray-500">Every model comes fully equipped</p>
+            </div>
+          </div>
           
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <div className="lg:col-span-2">
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                {car.standardFeatures.map((feature, i) => (
-                  <div key={i} className="flex items-center gap-3 text-gray-300">
-                    <Check className="w-4 h-4 text-blue-500 flex-shrink-0" />
-                    <span className="text-sm">{feature}</span>
-                  </div>
-                ))}
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10">
+            {/* Features Grid */}
+            <div className="lg:col-span-8">
+              <div className="bg-zinc-900/50 border border-white/5 rounded-2xl p-8">
+                <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
+                  {car.standardFeatures.map((feature, i) => (
+                    <div 
+                      key={i} 
+                      className="flex items-center gap-3 bg-white/5 rounded-xl px-4 py-3"
+                    >
+                      <Check className="w-4 h-4 text-blue-500 flex-shrink-0" />
+                      <span className="text-white text-sm">{feature}</span>
+                    </div>
+                  ))}
+                </div>
               </div>
             </div>
-            <div className="space-y-4">
+            
+            {/* Images Column */}
+            <div className="lg:col-span-4 grid grid-rows-3 gap-4">
               {detailImgUrls.slice(2, 5).map((url, i) => (
                 <button 
                   key={i} 
                   onClick={() => openLightbox(detailImgUrls, i + 2, 'Technical Details')}
-                  className="relative h-[150px] w-full rounded-xl overflow-hidden cursor-pointer group"
+                  className="relative h-[140px] w-full rounded-xl overflow-hidden cursor-pointer group"
                 >
-                  <Image src={url} alt={`Feature ${i + 1}`} fill className="object-cover object-center group-hover:scale-102 transition-transform duration-500" />
-                  <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors" />
+                  <Image 
+                    src={url} 
+                    alt={`Feature ${i + 1}`} 
+                    fill 
+                    className="object-cover object-center group-hover:scale-105 transition-transform duration-500" 
+                  />
+                  <div className="absolute inset-0 bg-black/0 group-hover:bg-black/30 transition-colors" />
                 </button>
               ))}
             </div>
