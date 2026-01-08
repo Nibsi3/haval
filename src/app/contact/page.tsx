@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useMemo, useState } from 'react';
+import { Suspense, useEffect, useMemo, useState } from 'react';
 import { useSearchParams } from 'next/navigation';
 import { Phone, Mail, MapPin, Clock, Send, Facebook, Instagram, Linkedin } from 'lucide-react';
 import Image from 'next/image';
@@ -20,7 +20,7 @@ const socialLinks = [
   { name: 'Instagram', href: 'https://www.instagram.com/maritime_motorspe/', icon: Instagram },
 ];
 
-export default function Contact() {
+function ContactForm() {
   const searchParams = useSearchParams();
   const initialSubject = useMemo(() => searchParams.get('subject') || 'General Inquiry', [searchParams]);
   const initialMessage = useMemo(() => searchParams.get('message') || '', [searchParams]);
@@ -28,10 +28,80 @@ export default function Contact() {
   const [message, setMessage] = useState<string>(initialMessage);
 
   useEffect(() => {
-    // Keep form in sync when navigating with different prefill links
     setSubject(initialSubject);
     setMessage(initialMessage);
   }, [initialSubject, initialMessage]);
+
+  return (
+    <div className="bg-zinc-900 border border-white/10 p-8 rounded-2xl">
+      <h3 className="text-xl font-bold text-white mb-6">Send us a message</h3>
+      
+      <form className="space-y-5" onSubmit={(e) => e.preventDefault()}>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+          <div>
+            <label className="text-gray-400 text-sm mb-2 block">Full Name</label>
+            <input 
+              type="text" 
+              placeholder="John Doe"
+              className="w-full bg-zinc-800 border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-blue-500 transition-colors"
+            />
+          </div>
+          <div>
+            <label className="text-gray-400 text-sm mb-2 block">Phone Number</label>
+            <input 
+              type="tel" 
+              placeholder="082 123 4567"
+              className="w-full bg-zinc-800 border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-blue-500 transition-colors"
+            />
+          </div>
+        </div>
+
+        <div>
+          <label className="text-gray-400 text-sm mb-2 block">Email Address</label>
+          <input 
+            type="email" 
+            placeholder="john@example.com"
+            className="w-full bg-zinc-800 border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-blue-500 transition-colors"
+          />
+        </div>
+
+        <div>
+          <label className="text-gray-400 text-sm mb-2 block">Subject</label>
+          <select 
+            className="w-full bg-zinc-800 border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-blue-500 transition-colors"
+            value={subject}
+            onChange={(e) => setSubject(e.target.value)}
+          >
+            <option value="General Inquiry">General Inquiry</option>
+            <option value="New Vehicle Enquiry">New Vehicle Enquiry</option>
+            <option value="Pre-Owned Vehicles">Pre-Owned Vehicles</option>
+            <option value="Service Booking">Service Booking</option>
+            <option value="Parts & Accessories">Parts & Accessories</option>
+            <option value="Finance Options">Finance Options</option>
+          </select>
+        </div>
+
+        <div>
+          <label className="text-gray-400 text-sm mb-2 block">Message</label>
+          <textarea 
+            rows={6}
+            placeholder="How can we help you today?"
+            value={message}
+            onChange={(e) => setMessage(e.target.value)}
+            className="w-full bg-zinc-800 border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-blue-500 transition-colors resize-none"
+          />
+        </div>
+
+        <button className="w-full bg-blue-600 hover:bg-blue-700 text-white py-4 rounded-lg font-bold flex items-center justify-center space-x-2 transition-all">
+          <span>Send Message</span>
+          <Send className="w-4 h-4" />
+        </button>
+      </form>
+    </div>
+  );
+}
+
+export default function Contact() {
 
   return (
     <div className="min-h-screen bg-[#0a0a0a]">
@@ -100,72 +170,10 @@ export default function Contact() {
               </div>
             </div>
 
-            {/* Contact Form */}
-            <div className="bg-zinc-900 border border-white/10 p-8 rounded-2xl">
-              <h3 className="text-xl font-bold text-white mb-6">Send us a message</h3>
-              
-              <form className="space-y-5" onSubmit={(e) => e.preventDefault()}>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-                  <div>
-                    <label className="text-gray-400 text-sm mb-2 block">Full Name</label>
-                    <input 
-                      type="text" 
-                      placeholder="John Doe"
-                      className="w-full bg-zinc-800 border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-blue-500 transition-colors"
-                    />
-                  </div>
-                  <div>
-                    <label className="text-gray-400 text-sm mb-2 block">Phone Number</label>
-                    <input 
-                      type="tel" 
-                      placeholder="082 123 4567"
-                      className="w-full bg-zinc-800 border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-blue-500 transition-colors"
-                    />
-                  </div>
-                </div>
-
-                <div>
-                  <label className="text-gray-400 text-sm mb-2 block">Email Address</label>
-                  <input 
-                    type="email" 
-                    placeholder="john@example.com"
-                    className="w-full bg-zinc-800 border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-blue-500 transition-colors"
-                  />
-                </div>
-
-                <div>
-                  <label className="text-gray-400 text-sm mb-2 block">Subject</label>
-                  <select 
-                    className="w-full bg-zinc-800 border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-blue-500 transition-colors"
-                    value={subject}
-                    onChange={(e) => setSubject(e.target.value)}
-                  >
-                    <option value="General Inquiry">General Inquiry</option>
-                    <option value="New Vehicle Enquiry">New Vehicle Enquiry</option>
-                    <option value="Pre-Owned Vehicles">Pre-Owned Vehicles</option>
-                    <option value="Service Booking">Service Booking</option>
-                    <option value="Parts & Accessories">Parts & Accessories</option>
-                    <option value="Finance Options">Finance Options</option>
-                  </select>
-                </div>
-
-                <div>
-                  <label className="text-gray-400 text-sm mb-2 block">Message</label>
-                  <textarea 
-                    rows={6}
-                    placeholder="How can we help you today?"
-                    value={message}
-                    onChange={(e) => setMessage(e.target.value)}
-                    className="w-full bg-zinc-800 border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-blue-500 transition-colors resize-none"
-                  />
-                </div>
-
-                <button className="w-full bg-blue-600 hover:bg-blue-700 text-white py-4 rounded-lg font-bold flex items-center justify-center space-x-2 transition-all">
-                  <span>Send Message</span>
-                  <Send className="w-4 h-4" />
-                </button>
-              </form>
-            </div>
+            {/* Contact Form - wrapped in Suspense for useSearchParams */}
+            <Suspense fallback={<div className="bg-zinc-900 border border-white/10 p-8 rounded-2xl animate-pulse h-[600px]" />}>
+              <ContactForm />
+            </Suspense>
           </div>
         </div>
       </section>
