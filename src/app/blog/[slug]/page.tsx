@@ -1,15 +1,17 @@
-"use client";
-
 import Image from 'next/image';
 import Link from 'next/link';
 import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
-import { getPostBySlug, getRelatedPosts } from '@/lib/blogPosts';
+import { getPostBySlug, getRelatedPosts, blogPosts } from '@/lib/blogPosts';
 import type { BlogCategory } from '@/lib/blogPosts';
 import { notFound } from 'next/navigation';
-import { motion } from 'framer-motion';
 import { ArrowLeft, CalendarDays, Clock3, Tag as TagIcon, ArrowRight } from 'lucide-react';
-import { use } from 'react';
+
+export function generateStaticParams() {
+  return blogPosts.map((post) => ({
+    slug: post.slug,
+  }));
+}
 
 interface BlogPostPageProps {
   params: Promise<{
@@ -30,8 +32,8 @@ function buildCategoryLink(category: BlogCategory) {
   return `/blog?category=${query}`;
 }
 
-export default function BlogPostPage({ params }: BlogPostPageProps) {
-  const { slug } = use(params);
+export default async function BlogPostPage({ params }: BlogPostPageProps) {
+  const { slug } = await params;
   const post = getPostBySlug(slug);
 
   if (!post) {
@@ -102,19 +104,14 @@ export default function BlogPostPage({ params }: BlogPostPageProps) {
                     </p>
                     {/* Interperse gallery images every few paragraphs */}
                     {post.gallery && post.gallery[idx] && (
-                      <motion.div 
-                        initial={{ opacity: 0, y: 20 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
-                        className="relative aspect-video rounded-[2rem] overflow-hidden border border-white/5 shadow-2xl"
-                      >
+                      <div className="relative aspect-video rounded-[2rem] overflow-hidden border border-white/5 shadow-2xl">
                         <Image
                           src={post.gallery[idx]}
                           alt={`${post.title} detail ${idx + 1}`}
                           fill
                           className="object-cover"
                         />
-                      </motion.div>
+                      </div>
                     )}
                   </div>
                 ))}
@@ -148,15 +145,12 @@ export default function BlogPostPage({ params }: BlogPostPageProps) {
                 <h3 className="text-2xl font-bold text-white mb-6">In‑Article Gallery</h3>
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
                   {post.gallery.map((img, i) => (
-                    <motion.div
+                    <div
                       key={img + i}
-                      initial={{ opacity: 0, y: 20 }}
-                      whileInView={{ opacity: 1, y: 0 }}
-                      viewport={{ once: true }}
                       className="relative aspect-video rounded-2xl overflow-hidden border border-white/5 shadow-2xl"
                     >
                       <Image src={img} alt={`${post.title} gallery ${i + 1}`} fill className="object-cover" />
-                    </motion.div>
+                    </div>
                   ))}
                 </div>
               </div>

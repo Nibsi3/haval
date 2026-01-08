@@ -3,15 +3,20 @@ import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
-import { getUsedCarById } from '@/lib/usedCars';
+import { getUsedCarById, usedCars } from '@/lib/usedCars';
 import { ArrowRight } from 'lucide-react';
 
-interface PageProps {
-  params: { id: string };
+export function generateStaticParams() {
+  return usedCars.map((car) => ({ id: String(car.id) }));
 }
 
-export default function UsedCarDetailPage({ params }: PageProps) {
-  const car = getUsedCarById(Number(params.id));
+interface PageProps {
+  params: Promise<{ id: string }>;
+}
+
+export default async function UsedCarDetailPage({ params }: PageProps) {
+  const { id } = await params;
+  const car = getUsedCarById(Number(id));
   if (!car) return notFound();
 
   const message = `Hi Maritime team, I'm interested in the ${car.year} ${car.name} (${car.model}) in ${car.colour}, with ${car.mileage.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ' ')} KM, listed at R ${car.price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ' ')}. Please share full specifications and availability.`;

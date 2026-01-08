@@ -12,8 +12,7 @@ const nextConfig: NextConfig = {
     deviceSizes: [640, 750, 828, 1080, 1200, 1920, 2048, 3840],
     imageSizes: [16, 32, 48, 64, 96, 128, 256, 384],
     minimumCacheTTL: 31536000,
-    // Disable lazy loading by default for better initial load
-    loader: 'default',
+    unoptimized: true,
   },
   compress: true,
   poweredByHeader: false,
@@ -21,30 +20,8 @@ const nextConfig: NextConfig = {
   experimental: {
     optimizeCss: true,
   },
-  output: 'standalone',
-  // Add headers for better caching
-  async headers() {
-    return [
-      {
-        source: '/:all*(svg|jpg|jpeg|png|webp|avif|gif|ico)',
-        headers: [
-          {
-            key: 'Cache-Control',
-            value: 'public, max-age=31536000, immutable',
-          },
-        ],
-      },
-      {
-        source: '/:all*(js|css)',
-        headers: [
-          {
-            key: 'Cache-Control',
-            value: 'public, max-age=31536000, immutable',
-          },
-        ],
-      },
-    ];
-  },
+  output: 'export',
+  trailingSlash: true,
 };
 
 export default nextConfig;
