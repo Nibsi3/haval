@@ -82,7 +82,7 @@ export default function About() {
               </p>
             </div>
             <div className="relative h-[400px] rounded-2xl overflow-hidden">
-              <Image src="/service.jpg" alt="Since 1958" fill quality={100} className="object-cover" priority />
+              <Image src="/tank300.jpg" alt="Since 1958" fill quality={100} className="object-cover" priority />
               <div className="absolute inset-0 bg-black/40" />
             </div>
           </div>

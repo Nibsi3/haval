@@ -16,7 +16,7 @@ export interface Dealership {
 export const dealerships: Dealership[] = [
   {
     id: "maritime-george",
-    name: "Maritime George (Preferred)",
+    name: "Maritime George",
     email: "george@maritimemotors.co.za",
     phone: "+27 44 803 7900",
     whatsapp: "27448037900",
