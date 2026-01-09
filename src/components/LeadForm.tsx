@@ -63,12 +63,22 @@ export default function LeadForm({
   className = "",
   compact = false,
 }: LeadFormProps) {
+  const getDefaultMessage = (formType: FormType, vehicle?: string) => {
+    if (formType === 'test_drive' && vehicle) {
+      return `I would like to book a test drive for the ${vehicle}. Please contact me to arrange a convenient time.`;
+    }
+    if (formType === 'quote' && vehicle) {
+      return `I would like to request a quote for the ${vehicle}. Please provide pricing and available options.`;
+    }
+    return '';
+  };
+
   const [formData, setFormData] = useState<FormData>({
     name: "",
     email: "",
     phone: "",
     vehicleInterest: vehiclePreselect || "",
-    message: "",
+    message: getDefaultMessage(type, vehiclePreselect),
     preferredContactTime: "",
     currentVehicle: "",
     currentYear: "",
@@ -162,7 +172,7 @@ export default function LeadForm({
               email: "",
               phone: "",
               vehicleInterest: vehiclePreselect || "",
-              message: "",
+              message: getDefaultMessage(type, vehiclePreselect),
               preferredContactTime: "",
               currentVehicle: "",
               currentYear: "",

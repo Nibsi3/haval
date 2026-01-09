@@ -200,7 +200,7 @@ export default function BlogPage() {
                   <Link href={`/blog/${post.slug}`} className="absolute inset-0 z-10" aria-label={`Open ${post.title}`}> 
                     <span className="sr-only">Open article</span>
                   </Link>
-                  <div className="relative h-48 w-full overflow-hidden">
+                  <div className="relative h-64 w-full overflow-hidden">
                     <Image
                       src={post.thumbnailImage}
                       alt={post.title}

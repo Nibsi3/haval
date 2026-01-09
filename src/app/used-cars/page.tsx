@@ -209,7 +209,7 @@ export default function UsedCarsPage() {
             <div className="h-[1px] flex-1 mx-10 bg-gradient-to-r from-white/10 to-transparent hidden md:block" />
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             <AnimatePresence mode="popLayout">
             {filteredCars.map((car) => (
               <motion.div
@@ -219,79 +219,79 @@ export default function UsedCarsPage() {
                 animate={{ opacity: 1, scale: 1 }}
                 exit={{ opacity: 0, scale: 0.95 }}
                 transition={{ duration: 0.2 }}
-                className="group relative flex flex-col bg-zinc-950/20 border border-white/5 rounded-xl overflow-hidden hover:border-blue-500/30 transition-all duration-500 shadow-xl"
+                className="group relative flex flex-col bg-zinc-950/40 border border-white/5 rounded-2xl overflow-hidden hover:border-blue-500/30 transition-all duration-500 shadow-xl"
               >
                 <Link href={`/used-cars/${car.id}`} className="absolute inset-0 z-10" aria-label={`Open ${car.year} ${car.name}`}> 
                   <span className="sr-only">Open vehicle</span>
                 </Link>
-                <div className="relative h-28 w-full overflow-hidden bg-gradient-to-b from-black/40 to-zinc-900/40">
+                <div className="relative h-52 w-full overflow-hidden bg-gradient-to-b from-black/40 to-zinc-900/40">
                   <Image
                     src={car.image}
                     alt={car.name}
                     fill
                     quality={100}
-                    className="object-contain p-2 group-hover:scale-110 transition-transform duration-1000"
+                    className="object-contain p-6 group-hover:scale-110 transition-transform duration-1000"
                   />
                   
-                  <div className="absolute top-2 left-2 flex flex-col gap-1">
-                    <span className="bg-blue-600 text-white text-[5px] font-black px-1.5 py-0.5 rounded uppercase tracking-[0.2em] shadow-2xl">
+                  <div className="absolute top-4 left-4 flex flex-col gap-2">
+                    <span className="bg-blue-600 text-white text-[10px] font-black px-3 py-1.5 rounded-lg uppercase tracking-[0.15em] shadow-2xl">
                       Certified
                     </span>
                     {car.mileage < 20000 && (
-                      <span className="bg-emerald-500/10 text-emerald-400 backdrop-blur-xl border border-emerald-500/20 text-[5px] font-black px-1.5 py-0.5 rounded uppercase tracking-[0.2em]">
+                      <span className="bg-emerald-500/10 text-emerald-400 backdrop-blur-xl border border-emerald-500/20 text-[10px] font-black px-3 py-1.5 rounded-lg uppercase tracking-[0.15em]">
                         Low KM
                       </span>
                     )}
                   </div>
 
-                  <div className="absolute bottom-2 left-2 right-2">
-                    <div className="bg-black/60 backdrop-blur-xl border border-white/10 p-1 rounded flex items-center justify-between text-[6px] font-black text-white uppercase tracking-widest shadow-2xl">
-                      <span className="flex items-center gap-1">
-                        <TagIcon className="w-2 h-2 text-blue-500" />
+                  <div className="absolute bottom-4 left-4 right-4">
+                    <div className="bg-black/60 backdrop-blur-xl border border-white/10 px-4 py-2 rounded-xl flex items-center justify-between text-xs font-bold text-white uppercase tracking-widest shadow-2xl">
+                      <span className="flex items-center gap-2">
+                        <TagIcon className="w-3 h-3 text-blue-500" />
                         {car.location}
                       </span>
                     </div>
                   </div>
                 </div>
 
-                <div className="p-3 flex flex-col flex-1">
-                  <div className="flex items-start justify-between mb-2">
+                <div className="p-5 flex flex-col flex-1">
+                  <div className="flex items-start justify-between mb-4">
                     <div>
-                      <h3 className="text-xs font-bold text-white mb-0.5 group-hover:text-blue-400 transition-colors duration-300">
+                      <h3 className="text-lg font-bold text-white mb-1 group-hover:text-blue-400 transition-colors duration-300">
                         {car.year} {car.name}
                       </h3>
-                      <p className="text-gray-500 text-[7px] font-bold uppercase tracking-[0.25em]">
+                      <p className="text-gray-500 text-xs font-bold uppercase tracking-widest">
                         {car.bodyType} • {car.fuelType}
                       </p>
                     </div>
                     <div className="text-right">
-                      <p className="text-sm font-black text-white tracking-tighter">
+                      <p className="text-xl font-black text-white tracking-tight">
                         R {formatNumber(car.price)}
                       </p>
-                      <p className="text-[6px] text-gray-500 uppercase tracking-widest mt-0.5 font-bold">
+                      <p className="text-[10px] text-gray-500 uppercase tracking-widest mt-1 font-bold">
                         Est. R {(car.price * 0.018).toFixed(0)} p/m*
                       </p>
                     </div>
                   </div>
 
-                  <div className="grid grid-cols-2 gap-2 mb-3 py-2 border-y border-white/5">
-                    <div className="space-y-0.5">
-                      <span className="text-gray-500 text-[6px] font-black uppercase tracking-widest">KM</span>
-                      <p className="text-white text-[9px] font-bold">{formatNumber(car.mileage)}</p>
+                  <div className="grid grid-cols-2 gap-4 mb-5 py-4 border-y border-white/5">
+                    <div className="space-y-1">
+                      <span className="text-gray-500 text-[10px] font-black uppercase tracking-widest">Mileage</span>
+                      <p className="text-white text-sm font-bold">{formatNumber(car.mileage)} km</p>
                     </div>
-                    <div className="space-y-0.5 text-right">
-                      <span className="text-gray-500 text-[6px] font-black uppercase tracking-widest">Gearbox</span>
-                      <p className="text-white text-[9px] font-bold">{car.transmission}</p>
+                    <div className="space-y-1 text-right">
+                      <span className="text-gray-500 text-[10px] font-black uppercase tracking-widest">Gearbox</span>
+                      <p className="text-white text-sm font-bold">{car.transmission}</p>
                     </div>
                   </div>
 
-                  <div className="mt-auto grid grid-cols-1 gap-1.5">
+                  <div className="mt-auto">
                     <Link
                       href={`/used-cars/${car.id}`}
-                      className="relative z-20 flex items-center justify-center gap-1 py-2 rounded bg-blue-600 text-white text-[8px] font-black uppercase tracking-widest hover:bg-blue-500 transition-all duration-300 shadow-xl shadow-blue-600/20 group/btn"
+                      className="relative z-20 flex items-center justify-center gap-2 py-4 rounded-xl bg-white text-black text-sm font-bold hover:bg-blue-500 hover:text-white transition-all duration-300 shadow-xl group/btn"
                     >
-                      View full specifications
-                      <ArrowRight className="w-2 h-2 group-hover/btn:translate-x-1 transition-transform" />
+                      View Full Specifications
+                      <ArrowRight className="w-4 h-4 group-hover/btn:translate-x-1 transition-transform" />
                     </Link>
                   </div>
                 </div>

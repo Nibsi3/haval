@@ -3,7 +3,7 @@
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import { ArrowLeft, Check, FileText, X, ChevronRight } from 'lucide-react';
+import { Check, FileText, X, ChevronRight, Car } from 'lucide-react';
 import ImageLightbox from '@/components/ImageLightbox';
 import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
@@ -115,14 +115,6 @@ export default function ModelPageClient({ slug, car }: ModelPageClientProps) {
         
         <div className="absolute inset-0 flex flex-col justify-end pb-16">
           <div className="max-w-7xl mx-auto w-full px-6">
-            <Link 
-              href="/new-vehicles" 
-              className="inline-flex items-center gap-2 text-white/60 hover:text-white text-sm mb-6 transition-colors"
-            >
-              <ArrowLeft className="w-4 h-4" />
-              Back to vehicles
-            </Link>
-            
             <p className="text-blue-400 text-sm font-bold uppercase tracking-[0.3em] mb-2">{car.tagline}</p>
             <h1 className="text-5xl md:text-7xl font-black text-white tracking-tight mb-4">
               {car.name} <span className="text-blue-500">{car.model}</span>
@@ -131,15 +123,16 @@ export default function ModelPageClient({ slug, car }: ModelPageClientProps) {
             
             <div className="flex flex-wrap gap-4">
               <Link
-                href={`/contact?subject=New Vehicle Enquiry&message=I'm interested in the ${car.name} ${car.model} ${currentVariant.name}. Please provide more information about pricing and availability.`}
+                href={`/quote?vehicle=${encodeURIComponent(`${car.name} ${car.model}`)}`}
                 className="px-8 py-4 bg-white text-black rounded-full font-bold hover:bg-blue-500 hover:text-white transition-all"
               >
                 Request a Quote
               </Link>
               <Link
-                href={`/contact?subject=Test Drive Request&message=I would like to book a test drive for the ${car.name} ${car.model} ${currentVariant.name}.`}
-                className="px-8 py-4 border border-white/20 text-white rounded-full font-bold hover:bg-white/10 transition-all"
+                href={`/test-drive?vehicle=${encodeURIComponent(`${car.name} ${car.model}`)}`}
+                className="px-8 py-4 border border-white/20 text-white rounded-full font-bold hover:bg-white/10 transition-all flex items-center gap-2"
               >
+                <Car className="w-4 h-4" />
                 Book a Test Drive
               </Link>
               <a
@@ -351,6 +344,52 @@ export default function ModelPageClient({ slug, car }: ModelPageClientProps) {
         </div>
       </section>
 
+      {/* Why Choose Section */}
+      <section className="py-20 px-6 bg-gradient-to-b from-zinc-950 to-[#0a0a0a]">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-16">
+            <p className="text-blue-400 text-sm font-bold uppercase tracking-[0.3em] mb-4">Why Choose</p>
+            <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">The {car.name} {car.model}</h2>
+            <p className="text-gray-400 text-lg max-w-3xl mx-auto leading-relaxed">
+              Engineered for South African roads and lifestyles, the {car.model} combines world-class technology 
+              with exceptional value. Backed by our comprehensive warranty and nationwide service network.
+            </p>
+          </div>
+          
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div className="bg-zinc-900/50 border border-white/5 rounded-2xl p-8 text-center hover:border-blue-500/30 transition-all">
+              <div className="w-16 h-16 bg-blue-500/10 rounded-2xl flex items-center justify-center mx-auto mb-6">
+                <svg className="w-8 h-8 text-blue-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                </svg>
+              </div>
+              <h3 className="text-xl font-bold text-white mb-3">5-Year Warranty</h3>
+              <p className="text-gray-400">Industry-leading coverage for complete peace of mind on every journey.</p>
+            </div>
+            
+            <div className="bg-zinc-900/50 border border-white/5 rounded-2xl p-8 text-center hover:border-blue-500/30 transition-all">
+              <div className="w-16 h-16 bg-blue-500/10 rounded-2xl flex items-center justify-center mx-auto mb-6">
+                <svg className="w-8 h-8 text-blue-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
+                </svg>
+              </div>
+              <h3 className="text-xl font-bold text-white mb-3">Advanced Technology</h3>
+              <p className="text-gray-400">Cutting-edge features including L2 autonomous driving and smart connectivity.</p>
+            </div>
+            
+            <div className="bg-zinc-900/50 border border-white/5 rounded-2xl p-8 text-center hover:border-blue-500/30 transition-all">
+              <div className="w-16 h-16 bg-blue-500/10 rounded-2xl flex items-center justify-center mx-auto mb-6">
+                <svg className="w-8 h-8 text-blue-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+              </div>
+              <h3 className="text-xl font-bold text-white mb-3">Exceptional Value</h3>
+              <p className="text-gray-400">Premium features at competitive prices with low running costs.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Exterior Gallery */}
       <section className="py-16 px-6">
         <div className="max-w-7xl mx-auto">
@@ -379,6 +418,41 @@ export default function ModelPageClient({ slug, car }: ModelPageClientProps) {
         </div>
       </section>
 
+      {/* Performance Highlight */}
+      <section className="py-20 px-6 bg-gradient-to-r from-blue-600/10 via-zinc-950 to-zinc-950 border-y border-white/5">
+        <div className="max-w-7xl mx-auto">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+            <div>
+              <p className="text-blue-400 text-sm font-bold uppercase tracking-[0.3em] mb-4">Performance</p>
+              <h2 className="text-4xl font-bold text-white mb-6">Engineered for Excellence</h2>
+              <p className="text-gray-400 text-lg leading-relaxed mb-8">
+                The {car.model} delivers a driving experience that exceeds expectations. Whether navigating city streets 
+                or tackling challenging terrain, you'll enjoy responsive handling, impressive power delivery, and the 
+                confidence that comes from world-class engineering.
+              </p>
+              <div className="grid grid-cols-2 gap-6">
+                <div className="bg-white/5 rounded-xl p-5">
+                  <p className="text-3xl font-black text-white mb-1">{currentVariant.power}</p>
+                  <p className="text-gray-500 text-sm">Maximum Power</p>
+                </div>
+                <div className="bg-white/5 rounded-xl p-5">
+                  <p className="text-3xl font-black text-white mb-1">{currentVariant.torque}</p>
+                  <p className="text-gray-500 text-sm">Peak Torque</p>
+                </div>
+              </div>
+            </div>
+            <div className="relative h-[400px] rounded-2xl overflow-hidden">
+              <Image 
+                src={exteriorImgUrls[1] || car.heroImage} 
+                alt="Performance" 
+                fill 
+                className="object-cover"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Interior Gallery */}
       <section className="py-16 px-6 bg-zinc-950/50">
         <div className="max-w-7xl mx-auto">
@@ -403,6 +477,49 @@ export default function ModelPageClient({ slug, car }: ModelPageClientProps) {
                 <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors" />
               </button>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Comfort & Technology Section */}
+      <section className="py-20 px-6">
+        <div className="max-w-7xl mx-auto">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+            <div className="order-2 lg:order-1 relative h-[400px] rounded-2xl overflow-hidden">
+              <Image 
+                src={interiorImgUrls[0] || car.heroImage} 
+                alt="Comfort" 
+                fill 
+                className="object-cover"
+              />
+            </div>
+            <div className="order-1 lg:order-2">
+              <p className="text-blue-400 text-sm font-bold uppercase tracking-[0.3em] mb-4">Comfort & Technology</p>
+              <h2 className="text-4xl font-bold text-white mb-6">Where Luxury Meets Innovation</h2>
+              <p className="text-gray-400 text-lg leading-relaxed mb-8">
+                Step inside and experience a cabin designed around you. Premium materials, intuitive controls, 
+                and advanced technology come together to create an environment that makes every journey a pleasure. 
+                From the moment you settle into the driver's seat, you'll appreciate the attention to detail.
+              </p>
+              <ul className="space-y-4">
+                <li className="flex items-center gap-4 text-white">
+                  <Check className="w-5 h-5 text-blue-500" />
+                  <span>Dual-zone automatic climate control</span>
+                </li>
+                <li className="flex items-center gap-4 text-white">
+                  <Check className="w-5 h-5 text-blue-500" />
+                  <span>12.3" digital instrument cluster</span>
+                </li>
+                <li className="flex items-center gap-4 text-white">
+                  <Check className="w-5 h-5 text-blue-500" />
+                  <span>Wireless smartphone integration</span>
+                </li>
+                <li className="flex items-center gap-4 text-white">
+                  <Check className="w-5 h-5 text-blue-500" />
+                  <span>Premium sound system</span>
+                </li>
+              </ul>
+            </div>
           </div>
         </div>
       </section>

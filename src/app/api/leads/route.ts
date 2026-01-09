@@ -1,8 +1,12 @@
 import { NextRequest, NextResponse } from "next/server";
+import { Resend } from "resend";
 import { defaultDealership, getDealershipById } from "@/lib/dealerships";
 
 // This ensures the route is handled as a serverless function on Vercel
 export const dynamic = "force-dynamic";
+
+const resend = new Resend("re_NQrmxZwj_3c5nMozgUJVUBwtzmee7kide");
+const DEALER_EMAIL = "cameronfalck03@gmail.com";
 
 // Lead types
 type LeadType = "test_drive" | "quote" | "trade_in" | "finance" | "contact";
@@ -215,30 +219,32 @@ export async function POST(request: NextRequest) {
     const customerEmailHtml = generateCustomerEmail(data, dealership.name);
     const emailSubject = getEmailSubject(data.type, data.vehicleInterest);
 
-    // In production, you would send emails here using a service like:
-    // - Resend (recommended for Next.js)
-    // - SendGrid
-    // - AWS SES
-    // - Nodemailer with SMTP
-    
-    // For now, we'll log the lead and return success
-    // TODO: Implement actual email sending
-    console.log("=== NEW LEAD RECEIVED ===");
-    console.log("Type:", data.type);
-    console.log("Name:", data.name);
-    console.log("Email:", data.email);
-    console.log("Phone:", data.phone);
-    console.log("Vehicle:", data.vehicleInterest);
-    console.log("Dealership:", dealership.name);
-    console.log("Dealer Email To:", dealership.email);
-    console.log("Subject:", emailSubject);
-    console.log("========================");
-
-    // Store lead in database (implement based on your database choice)
-    // await db.leads.create({ data: { ...data, dealershipId: dealership.id, createdAt: new Date() } });
-
-    // Return success with lead ID for tracking
+    // Generate lead ID for tracking
     const leadId = `LEAD-${Date.now()}-${Math.random().toString(36).substr(2, 9).toUpperCase()}`;
+
+    // Send email to dealer
+    try {
+      await resend.emails.send({
+        from: "Maritime Motors <leads@resend.dev>",
+        to: DEALER_EMAIL,
+        subject: emailSubject,
+        html: dealerEmailHtml,
+      });
+
+      // Send confirmation email to customer
+      await resend.emails.send({
+        from: "Maritime Motors <noreply@resend.dev>",
+        to: data.email,
+        subject: `Thank you for your ${getLeadTypeLabel(data.type).toLowerCase()} request`,
+        html: customerEmailHtml,
+      });
+    } catch (emailError) {
+      console.error("Email sending error:", emailError);
+      // Continue even if email fails - lead is still captured
+    }
+
+    console.log(`Lead ${leadId} submitted: ${data.type} - ${data.name} - ${data.vehicleInterest || "General"}`);
+
 
     return NextResponse.json({
       success: true,

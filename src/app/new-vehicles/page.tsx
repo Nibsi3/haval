@@ -8,11 +8,11 @@ import { motion } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
 
 const models = [
-  { slug: 'tank-300', name: 'GWM', model: 'TANK 300', image: '/carousel_bg/tank300.jpg', tagline: 'Born for Adventure', price: 'From R799,900' },
-  { slug: 'h6', name: 'HAVAL', model: 'H6', image: '/carousel_bg/h6.jpg', tagline: 'Intelligent Luxury SUV', price: 'From R599,900' },
-  { slug: 'h6-gt', name: 'HAVAL', model: 'H6 GT', image: '/carousel_bg/h6gt.jpg', tagline: 'Sporty Performance SUV', price: 'From R649,900' },
-  { slug: 'jolion', name: 'HAVAL', model: 'JOLION', image: '/carousel_bg/jolion.webp', tagline: 'Smart Urban Crossover', price: 'From R429,900' },
-  { slug: 'h7', name: 'HAVAL', model: 'H7', image: '/carousel_bg/h7.jpg', tagline: 'Premium 7-Seater SUV', price: 'From R699,900' },
+  { slug: 'tank-300', name: 'GWM', model: 'TANK 300', image: '/haval_pics/haval-tank-300/0.jpg', tagline: 'Born for Adventure', price: 'From R799,900' },
+  { slug: 'h6', name: 'HAVAL', model: 'H6', image: '/haval_pics/haval-h6/0.jpg', tagline: 'Intelligent Luxury SUV', price: 'From R599,900' },
+  { slug: 'h6-gt', name: 'HAVAL', model: 'H6 GT', image: '/haval_pics/haval-h6-gt/0.jpg', tagline: 'Sporty Performance SUV', price: 'From R649,900' },
+  { slug: 'jolion', name: 'HAVAL', model: 'JOLION', image: '/haval_pics/haval-jolion-pro/0.jpg', tagline: 'Smart Urban Crossover', price: 'From R429,900' },
+  { slug: 'h7', name: 'HAVAL', model: 'H7', image: '/haval_pics/haval-h7/0.jpg', tagline: 'Premium 7-Seater SUV', price: 'From R699,900' },
 ];
 
 export default function NewVehiclesPage() {
@@ -33,6 +33,20 @@ export default function NewVehiclesPage() {
               Discover our complete lineup of GWM and Haval vehicles. Click any model for full specifications, pricing and exclusive offers.
             </p>
           </motion.div>
+        </div>
+      </section>
+
+      {/* Description Section */}
+      <section className="py-16 px-6 border-b border-white/5">
+        <div className="max-w-4xl mx-auto text-center">
+          <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
+            The Complete GWM & Haval Range
+          </h2>
+          <p className="text-gray-400 text-lg leading-relaxed">
+            From rugged off-road adventurers to sophisticated urban crossovers, our lineup delivers exceptional value, 
+            cutting-edge technology, and uncompromising quality. Each model is designed to exceed expectations and 
+            backed by our industry-leading warranty and service network across South Africa.
+          </p>
         </div>
       </section>
 

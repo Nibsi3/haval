@@ -4,7 +4,7 @@ import { notFound } from 'next/navigation';
 import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
 import { getUsedCarById, usedCars } from '@/lib/usedCars';
-import { ArrowRight } from 'lucide-react';
+import { ArrowRight, Car } from 'lucide-react';
 
 export function generateStaticParams() {
   return usedCars.map((car) => ({ id: String(car.id) }));
@@ -74,10 +74,17 @@ export default async function UsedCarDetailPage({ params }: PageProps) {
             <div className="rounded-2xl border border-white/10 bg-zinc-950/50 p-6">
               <h3 className="text-white font-bold mb-4">Interested?</h3>
               <Link
-                href={`/contact?subject=${encodeURIComponent('Pre-Owned Vehicles')}&message=${encodeURIComponent(message)}`}
-                className="flex items-center justify-center gap-2 py-3 rounded-xl bg-blue-600 text-white font-black uppercase tracking-widest hover:bg-blue-500 transition-all"
+                href={`/test-drive?vehicle=${encodeURIComponent(`${car.year} ${car.name} ${car.model}`)}`}
+                className="flex items-center justify-center gap-2 py-3 rounded-xl bg-white text-black font-bold hover:bg-blue-500 hover:text-white transition-all mb-3"
               >
-                View full specifications
+                <Car className="w-4 h-4" />
+                Book a Test Drive
+              </Link>
+              <Link
+                href={`/quote?vehicle=${encodeURIComponent(`${car.year} ${car.name} ${car.model}`)}`}
+                className="flex items-center justify-center gap-2 py-3 rounded-xl border border-white/20 text-white font-bold hover:bg-white/10 transition-all"
+              >
+                Request a Quote
                 <ArrowRight className="w-4 h-4" />
               </Link>
               <div className="mt-4 text-center text-xs text-gray-500">No obligation. We reply within 1 business hour.</div>

@@ -403,7 +403,6 @@ export default function CarCarousel() {
                 ${index === currentIndex ? 'bg-white text-black border-white' : 'bg-white/10 text-white/80 border-white/20 hover:bg-white/20'}`}
               aria-label={`Go to ${car.name} ${car.model}`}
             >
-              <span className="opacity-70 mr-1">{index === currentIndex ? 'Now:' : index === nextIndex ? 'Next:' : ''}</span>
               {car.model}
             </motion.button>
           ))}

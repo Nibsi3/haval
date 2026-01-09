@@ -54,7 +54,7 @@ export default function RootLayout({
       >
         <GoogleAnalytics />
         {children}
-        <FloatingWhatsApp whatsappNumber="27413631518" message="Hi, I'm interested in learning more about your vehicles at Maritime Motors." />
+        <FloatingWhatsApp whatsappNumber="27662995533" message="Hi, I'm interested in learning more about your vehicles at Maritime Motors." />
         <Analytics />
         <SpeedInsights />
       </body>
