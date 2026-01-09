@@ -38,7 +38,7 @@ export default function FinancePage() {
   const [vehiclePrice, setVehiclePrice] = useState(800000);
   const [deposit, setDeposit] = useState(80000);
   const [term, setTerm] = useState(60);
-  const interestRate = 11.5;
+  const [interestRate, setInterestRate] = useState(11.5);
 
   // Calculate monthly payment
   const loanAmount = vehiclePrice - deposit;
@@ -146,14 +146,30 @@ export default function FinancePage() {
                   />
                 </div>
 
+                <div>
+                  <div className="flex justify-between mb-2">
+                    <label className="text-gray-400 text-sm">Interest Rate</label>
+                    <span className="text-white font-bold">{interestRate}%</span>
+                  </div>
+                  <input
+                    type="range"
+                    min={7}
+                    max={18}
+                    step={0.5}
+                    value={interestRate}
+                    onChange={(e) => setInterestRate(Number(e.target.value))}
+                    className="w-full accent-orange-500"
+                  />
+                  <div className="flex justify-between text-xs text-gray-500 mt-1">
+                    <span>7%</span>
+                    <span>18%</span>
+                  </div>
+                </div>
+
                 <div className="border-t border-white/10 pt-6">
                   <div className="flex justify-between items-center mb-4">
                     <span className="text-gray-400">Loan Amount</span>
                     <span className="text-white font-bold">R {loanAmount.toLocaleString()}</span>
-                  </div>
-                  <div className="flex justify-between items-center mb-4">
-                    <span className="text-gray-400">Interest Rate</span>
-                    <span className="text-white font-bold">{interestRate}%</span>
                   </div>
                   <div className="bg-orange-500/10 border border-orange-500/20 rounded-xl p-4">
                     <p className="text-orange-400 text-sm mb-1">Estimated Monthly Payment</p>

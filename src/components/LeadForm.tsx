@@ -273,6 +273,11 @@ export default function LeadForm({
                 className="w-full pl-12 pr-4 py-3 bg-white/5 border border-white/10 rounded-xl text-white focus:outline-none focus:border-blue-500 transition-colors appearance-none cursor-pointer"
               >
                 <option value="" className="bg-zinc-900">Select a vehicle</option>
+                {vehiclePreselect && !vehicleModels.some(m => m.label === vehiclePreselect) && (
+                  <option value={vehiclePreselect} className="bg-zinc-900">
+                    {vehiclePreselect}
+                  </option>
+                )}
                 {vehicleModels.map((model) => (
                   <option key={model.value} value={model.label} className="bg-zinc-900">
                     {model.label}
@@ -381,9 +386,10 @@ export default function LeadForm({
               className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-xl text-white focus:outline-none focus:border-blue-500 transition-colors appearance-none cursor-pointer"
             >
               <option value="" className="bg-zinc-900">Any time</option>
-              <option value="Morning (8am - 12pm)" className="bg-zinc-900">Morning (8am - 12pm)</option>
-              <option value="Afternoon (12pm - 5pm)" className="bg-zinc-900">Afternoon (12pm - 5pm)</option>
-              <option value="Evening (5pm - 7pm)" className="bg-zinc-900">Evening (5pm - 7pm)</option>
+              <option value="8am - 10am" className="bg-zinc-900">8am - 10am</option>
+              <option value="10am - 12pm" className="bg-zinc-900">10am - 12pm</option>
+              <option value="12pm - 2pm" className="bg-zinc-900">12pm - 2pm</option>
+              <option value="2pm - 4pm" className="bg-zinc-900">2pm - 4pm</option>
             </select>
           </div>
         )}
