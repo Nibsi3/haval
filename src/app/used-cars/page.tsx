@@ -152,7 +152,7 @@ export default function UsedCarsPage() {
               <span className="text-blue-500">Inventory</span>
             </h1>
             <p className="text-gray-300 text-xl leading-relaxed font-light mb-10 max-w-2xl">
-              Discover our meticulously inspected range of GWM and Haval vehicles. Each unit is certified to deliver peace of mind and performance.
+              Discover Thorp Certified Pre-Owned vehicles. Each unit is meticulously inspected and comes with our quality guarantee for peace of mind.
             </p>
           </motion.div>
         </div>
@@ -399,7 +399,7 @@ export default function UsedCarsPage() {
                 <div className="space-y-6">
                   <p className="font-bold text-lg">Body Style</p>
                   <div className="grid grid-cols-2 gap-3">
-                    {['SUV', 'Double Cab', 'Hatchback'].map((type) => (
+                    {['SUV', 'Double Cab', 'Hatchback', 'Crossover'].map((type) => (
                       <button
                         key={type}
                         onClick={() => handleCheckboxFilter('bodyTypes', type)}
