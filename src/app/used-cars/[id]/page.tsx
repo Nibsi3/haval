@@ -19,7 +19,7 @@ export default async function UsedCarDetailPage({ params }: PageProps) {
   const car = getUsedCarById(Number(id));
   if (!car) return notFound();
 
-  const message = `Hi Maritime team, I'm interested in the ${car.year} ${car.name} (${car.model}) in ${car.colour}, with ${car.mileage.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ' ')} KM, listed at R ${car.price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ' ')}. Please share full specifications and availability.`;
+  const message = `Hi Thorp team, I'm interested in the ${car.year} ${car.name} (${car.model}) in ${car.colour}, with ${car.mileage.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ' ')} KM, listed at R ${car.price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ' ')}. Please share full specifications and availability.`;
 
   return (
     <div className="min-h-screen bg-[#0a0a0a]">
@@ -64,7 +64,7 @@ export default async function UsedCarDetailPage({ params }: PageProps) {
             <div className="rounded-2xl border border-white/10 bg-zinc-950/50 p-6">
               <h2 className="text-white font-bold text-xl mb-4">Description</h2>
               <p className="text-gray-400 leading-relaxed">
-                This {car.year} {car.name} is a certified pre-owned vehicle from The Maritime Group. Contact us for a full specification sheet,
+                This {car.year} {car.name} is a Thorp Certified Pre-Owned vehicle. Contact us for a full specification sheet,
                 service history and detailed condition report.
               </p>
             </div>

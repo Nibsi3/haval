@@ -23,7 +23,7 @@ export default function Navbar() {
           <div className="flex items-center">
             <Link href="/" className="flex items-center space-x-2">
               <Car className="w-8 h-8 text-blue-500" />
-              <span className="text-white font-bold text-xl tracking-tighter">MARITIME<span className="text-blue-500">3D</span></span>
+              <span className="text-white font-bold text-xl tracking-tighter">Thorp<span className="text-blue-500"> Haval & GWM</span></span>
             </Link>
           </div>
           

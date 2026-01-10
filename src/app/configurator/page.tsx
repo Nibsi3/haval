@@ -58,7 +58,7 @@ export default function Configurator() {
   const [roughness, setRoughness] = useState(0.2);
 
   const colors = [
-    { name: 'Maritime Blue', value: '#3b82f6' },
+    { name: 'Thorp Blue', value: '#3b82f6' },
     { name: 'Phantom Black', value: '#0a0a0a' },
     { name: 'Alpine White', value: '#f8fafc' },
     { name: 'Solar Red', value: '#ef4444' },

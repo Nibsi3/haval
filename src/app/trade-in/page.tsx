@@ -5,7 +5,7 @@ import LeadForm from '@/components/LeadForm';
 import { RefreshCw, DollarSign, Clock, CheckCircle } from 'lucide-react';
 
 export const metadata = {
-  title: 'Trade-In Valuation | The Maritime Group',
+  title: 'Trade-In Valuation | Thorp Haval & GWM',
   description: 'Find out what your current vehicle is worth. Get a free trade-in valuation today.',
 };
 

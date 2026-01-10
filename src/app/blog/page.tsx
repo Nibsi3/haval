@@ -76,7 +76,7 @@ export default function BlogPage() {
       <section className="relative h-[60vh] min-h-[500px] flex items-center">
         <Image
           src="/wallpapers/blog-hero.jpg"
-          alt="The Maritime Journal"
+          alt="Thorp Journal"
           fill
           quality={100}
           priority
@@ -91,7 +91,7 @@ export default function BlogPage() {
           >
             <p className="text-blue-500 text-sm font-bold uppercase tracking-[0.4em] mb-6">Established 1958</p>
             <h1 className="text-5xl md:text-7xl font-bold text-white mb-8 leading-[1.1] tracking-tight">
-              The Maritime <br />
+              Thorp <br />
               <span className="text-blue-500">Journal</span>
             </h1>
             <p className="text-gray-300 text-xl leading-relaxed font-light mb-10 max-w-2xl">

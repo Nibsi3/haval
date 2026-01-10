@@ -18,7 +18,7 @@ export const trackLeadTestDrive = (vehicleInterest?: string, dealership?: string
     window.gtag("event", "lead_test_drive", {
       event_category: "Lead Generation",
       event_label: vehicleInterest || "General",
-      dealership: dealership || "Maritime Group",
+      dealership: dealership || "Thorp Haval & GWM",
       value: 1,
     });
   }
@@ -29,7 +29,7 @@ export const trackLeadQuote = (vehicleInterest?: string, dealership?: string) =>
     window.gtag("event", "lead_quote", {
       event_category: "Lead Generation",
       event_label: vehicleInterest || "General",
-      dealership: dealership || "Maritime Group",
+      dealership: dealership || "Thorp Haval & GWM",
       value: 1,
     });
   }
@@ -40,7 +40,7 @@ export const trackLeadTradeIn = (vehicleInterest?: string, dealership?: string) 
     window.gtag("event", "lead_trade_in", {
       event_category: "Lead Generation",
       event_label: vehicleInterest || "General",
-      dealership: dealership || "Maritime Group",
+      dealership: dealership || "Thorp Haval & GWM",
       value: 1,
     });
   }
@@ -51,7 +51,7 @@ export const trackLeadFinance = (vehicleInterest?: string, dealership?: string) 
     window.gtag("event", "lead_finance", {
       event_category: "Lead Generation",
       event_label: vehicleInterest || "General",
-      dealership: dealership || "Maritime Group",
+      dealership: dealership || "Thorp Haval & GWM",
       value: 1,
     });
   }
@@ -62,7 +62,7 @@ export const trackLeadContact = (subject?: string, dealership?: string) => {
     window.gtag("event", "lead_contact", {
       event_category: "Lead Generation",
       event_label: subject || "General Enquiry",
-      dealership: dealership || "Maritime Group",
+      dealership: dealership || "Thorp Haval & GWM",
       value: 1,
     });
   }
@@ -103,7 +103,7 @@ export const trackFormSubmission = (
       event_category: "Lead Generation",
       form_type: formType,
       event_label: vehicleInterest || "General",
-      dealership: dealership || "Maritime Group",
+      dealership: dealership || "Thorp Haval & GWM",
       value: 1,
     });
   }
