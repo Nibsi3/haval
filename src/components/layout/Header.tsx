@@ -20,7 +20,6 @@ export default function Header() {
             
             <nav className="hidden md:flex items-center space-x-8">
               <Link href="/about" className="text-gray-300 hover:text-white text-sm font-medium transition-colors">About</Link>
-              <Link href="/specials" className="text-gray-300 hover:text-white text-sm font-medium transition-colors">Specials</Link>
               <Link href="/services" className="text-gray-300 hover:text-white text-sm font-medium transition-colors">Services</Link>
               <div 
                 className="relative"
@@ -70,12 +69,23 @@ export default function Header() {
                             Used Vehicles
                           </Link>
                         </motion.div>
+                        <motion.div
+                          initial={{ opacity: 0, y: 10 }}
+                          animate={{ opacity: 1, y: 0 }}
+                          transition={{ delay: 0.2, duration: 0.2 }}
+                        >
+                          <Link 
+                            href="/specials" 
+                            className="block px-5 py-2.5 text-gray-300 hover:text-white hover:bg-white/10 rounded-lg text-sm font-medium whitespace-nowrap transition-colors"
+                          >
+                            Specials
+                          </Link>
+                        </motion.div>
                       </motion.div>
                     </motion.div>
                   )}
                 </AnimatePresence>
               </div>
-              <Link href="/warranty" className="text-gray-300 hover:text-white text-sm font-medium transition-colors">Warranty</Link>
               <Link href="/contact" className="text-gray-300 hover:text-white text-sm font-medium transition-colors">Contact</Link>
             </nav>
 
@@ -99,11 +109,10 @@ export default function Header() {
           <div className="md:hidden bg-black/90 backdrop-blur-xl mt-2 rounded-2xl border border-white/10">
             <nav className="flex flex-col p-6 space-y-4">
               <Link href="/about" className="text-white text-lg font-medium" onClick={() => setIsMenuOpen(false)}>About</Link>
-              <Link href="/specials" className="text-white text-lg font-medium" onClick={() => setIsMenuOpen(false)}>Specials</Link>
               <Link href="/services" className="text-white text-lg font-medium" onClick={() => setIsMenuOpen(false)}>Services</Link>
               <Link href="/new-vehicles" className="text-white text-lg font-medium" onClick={() => setIsMenuOpen(false)}>New Vehicles</Link>
               <Link href="/used-cars" className="text-white text-lg font-medium" onClick={() => setIsMenuOpen(false)}>Used Vehicles</Link>
-              <Link href="/warranty" className="text-white text-lg font-medium" onClick={() => setIsMenuOpen(false)}>Warranty</Link>
+              <Link href="/specials" className="text-white text-lg font-medium" onClick={() => setIsMenuOpen(false)}>Specials</Link>
               <Link href="/contact" className="text-white text-lg font-medium" onClick={() => setIsMenuOpen(false)}>Contact</Link>
               <Link href="/quote" className="bg-white text-black px-6 py-3 rounded-full text-center font-bold mt-4" onClick={() => setIsMenuOpen(false)}>
                 Get a Quote

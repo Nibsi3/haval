@@ -90,6 +90,24 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Warranty CTA Banner */}
+      <section className="py-12 px-6 bg-gradient-to-r from-blue-600 to-blue-800">
+        <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
+          <div className="flex items-center gap-4">
+            <div className="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center">
+              <span className="text-3xl">🛡️</span>
+            </div>
+            <div>
+              <h3 className="text-white font-bold text-xl">FREE Extended Warranty</h3>
+              <p className="text-blue-100">10 Years / 1 Million KM - Exclusive to Thorp</p>
+            </div>
+          </div>
+          <Link href="/warranty" className="bg-white text-blue-600 px-8 py-3 rounded-full font-bold hover:bg-gray-100 transition-all whitespace-nowrap">
+            Learn More
+          </Link>
+        </div>
+      </section>
+
       {/* Stats Section */}
       <section className="py-20 px-6 bg-gradient-to-r from-blue-900/20 to-purple-900/20">
         <div className="max-w-7xl mx-auto">
