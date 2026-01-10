@@ -28,7 +28,7 @@ export default function LegalNoticePage() {
             <div className="border border-white/10 divide-y divide-white/10">
               <div className="flex justify-between py-3 px-4">
                 <span className="text-gray-400">Registered Name</span>
-                <span className="text-white font-medium">Maritime Motors (Pty) Ltd</span>
+                <span className="text-white font-medium">Thorp Haval &amp; GWM</span>
               </div>
               <div className="flex justify-between py-3 px-4">
                 <span className="text-gray-400">Registration Number</span>
@@ -64,7 +64,7 @@ export default function LegalNoticePage() {
             <h2 className="text-lg font-semibold text-white mb-4 uppercase tracking-wide">Intellectual Property</h2>
             <p className="text-gray-400 leading-relaxed">
               All content on this website, including but not limited to text, graphics, logos, images, and software, 
-              is the property of The Maritime Group or its licensors and is protected by South African and 
+              is the property of Thorp Haval &amp; GWM or its licensors and is protected by South African and 
               international copyright and trademark laws.
             </p>
           </div>
@@ -83,7 +83,7 @@ export default function LegalNoticePage() {
           <div className="mb-10">
             <h2 className="text-lg font-semibold text-white mb-4 uppercase tracking-wide">Limitation of Liability</h2>
             <p className="text-gray-400 leading-relaxed">
-              The Maritime Group shall not be liable for any direct, indirect, incidental, special, or consequential 
+              Thorp Haval &amp; GWM shall not be liable for any direct, indirect, incidental, special, or consequential 
               damages arising from your use of this website, our services, or any products purchased through our dealerships.
             </p>
           </div>
@@ -99,7 +99,7 @@ export default function LegalNoticePage() {
               </p>
               <p>
                 All financial services are provided in accordance with the Financial Advisory and Intermediary 
-                Services Act (FAIS). The Maritime Group is an authorized Financial Services Provider (FSP 45171).
+                Services Act (FAIS). Thorp Haval &amp; GWM is an authorized Financial Services Provider (FSP 45171).
               </p>
             </div>
           </div>
@@ -110,23 +110,23 @@ export default function LegalNoticePage() {
             <div className="border border-white/10 divide-y divide-white/10">
               <div className="flex justify-between py-3 px-4">
                 <span className="text-gray-400">Registered Address</span>
-                <span className="text-white font-medium text-right">Cnr. William Moffett Expressway & Circular Drive, Gqeberha, 6000</span>
+                <span className="text-white font-medium text-right">220 Main Road, Plumstead, Cape Town 7801</span>
               </div>
               <div className="flex justify-between py-3 px-4">
                 <span className="text-gray-400">Telephone</span>
-                <span className="text-white font-medium">041 399 2800</span>
+                <span className="text-white font-medium">021 002 2282</span>
               </div>
               <div className="flex justify-between py-3 px-4">
                 <span className="text-gray-400">Fax</span>
-                <span className="text-white font-medium">041 399 2801</span>
+                <span className="text-white font-medium">N/A</span>
               </div>
               <div className="flex justify-between py-3 px-4">
                 <span className="text-gray-400">Email</span>
-                <span className="text-white font-medium">info@maritimemotors.co.za</span>
+                <span className="text-white font-medium">info@thorphaval.co.za</span>
               </div>
               <div className="flex justify-between py-3 px-4">
                 <span className="text-gray-400">Website</span>
-                <span className="text-white font-medium">www.themaritimegroup.co.za</span>
+                <span className="text-white font-medium">thorphaval.co.za</span>
               </div>
             </div>
           </div>

@@ -28,7 +28,7 @@ export default function BBBEEPage() {
             <div className="border border-white/10 divide-y divide-white/10">
               <div className="flex justify-between py-3 px-4">
                 <span className="text-gray-400">Company Name</span>
-                <span className="text-white font-medium">Maritime Motors (Pty) Ltd</span>
+                <span className="text-white font-medium">Thorp Haval &amp; GWM</span>
               </div>
               <div className="flex justify-between py-3 px-4">
                 <span className="text-gray-400">Registration Number</span>
@@ -54,7 +54,7 @@ export default function BBBEEPage() {
             <h2 className="text-lg font-semibold text-white mb-4 uppercase tracking-wide">About BBBEE</h2>
             <div className="text-gray-400 space-y-4 leading-relaxed">
               <p>
-                The Maritime Group is committed to transformation and economic empowerment in South Africa. 
+                Thorp Haval &amp; GWM is committed to transformation and economic empowerment in South Africa. 
                 Our BBBEE certificate demonstrates our dedication to contributing to the country&apos;s economic 
                 transformation objectives as set out in the Broad-Based Black Economic Empowerment Act.
               </p>

@@ -27,7 +27,7 @@ export default function PrivacyPolicyPage() {
             <h2 className="text-lg font-semibold text-white mb-4 uppercase tracking-wide">Introduction</h2>
             <div className="text-gray-400 space-y-4 leading-relaxed">
               <p>
-                The Maritime Group is committed to protecting your privacy and ensuring the security 
+                Thorp Haval &amp; GWM is committed to protecting your privacy and ensuring the security 
                 of your personal information. This Privacy Policy explains how we collect, use, 
                 disclose, and safeguard your information in accordance with the Protection of Personal 
                 Information Act (POPIA).
@@ -117,15 +117,15 @@ export default function PrivacyPolicyPage() {
             <div className="border border-white/10 divide-y divide-white/10">
               <div className="flex justify-between py-3 px-4">
                 <span className="text-gray-400">Email</span>
-                <span className="text-white font-medium">privacy@maritimemotors.co.za</span>
+                <span className="text-white font-medium">info@thorphaval.co.za</span>
               </div>
               <div className="flex justify-between py-3 px-4">
                 <span className="text-gray-400">Telephone</span>
-                <span className="text-white font-medium">041 399 2800</span>
+                <span className="text-white font-medium">021 002 2282</span>
               </div>
               <div className="flex justify-between py-3 px-4">
                 <span className="text-gray-400">Address</span>
-                <span className="text-white font-medium text-right">Cnr. William Moffett Expressway & Circular Drive, Gqeberha</span>
+                <span className="text-white font-medium text-right">220 Main Road, Plumstead, Cape Town 7801</span>
               </div>
             </div>
           </div>

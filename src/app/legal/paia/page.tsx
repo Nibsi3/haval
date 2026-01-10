@@ -33,7 +33,7 @@ export default function PAIAPage() {
                 exercise or protection of any rights.
               </p>
               <p>
-                The Maritime Group respects the right of access to information and is committed to transparency 
+                Thorp Haval &amp; GWM respects the right of access to information and is committed to transparency 
                 in accordance with PAIA requirements.
               </p>
             </div>
@@ -45,19 +45,19 @@ export default function PAIAPage() {
             <div className="border border-white/10 divide-y divide-white/10">
               <div className="flex justify-between py-3 px-4">
                 <span className="text-gray-400">Name</span>
-                <span className="text-white font-medium">The Maritime Group</span>
+                <span className="text-white font-medium">Thorp Haval &amp; GWM</span>
               </div>
               <div className="flex justify-between py-3 px-4">
                 <span className="text-gray-400">Physical Address</span>
-                <span className="text-white font-medium text-right">Cnr. William Moffett Expressway & Circular Drive, Gqeberha, 6000</span>
+                <span className="text-white font-medium text-right">220 Main Road, Plumstead, Cape Town 7801</span>
               </div>
               <div className="flex justify-between py-3 px-4">
                 <span className="text-gray-400">Telephone</span>
-                <span className="text-white font-medium">041 399 2800</span>
+                <span className="text-white font-medium">021 002 2282</span>
               </div>
               <div className="flex justify-between py-3 px-4">
                 <span className="text-gray-400">Email</span>
-                <span className="text-white font-medium">info@maritimemotors.co.za</span>
+                <span className="text-white font-medium">info@thorphaval.co.za</span>
               </div>
             </div>
           </div>
