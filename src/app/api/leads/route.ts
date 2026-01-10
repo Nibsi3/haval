@@ -135,7 +135,7 @@ const generateDealerEmail = (data: LeadData): string => {
       </div>
     </div>
     <div class="footer">
-      <p>This lead was submitted via the Maritime Group website.</p>
+      <p>This lead was submitted via the Thorp Haval & GWM website.</p>
       <p>Source: ${data.source || "Website Form"}</p>
     </div>
   </div>
@@ -179,8 +179,8 @@ const generateCustomerEmail = (data: LeadData, dealershipName: string): string =
       <p>Best regards,<br><strong>${dealershipName}</strong></p>
     </div>
     <div class="footer">
-      <p>This is an automated confirmation email from The Maritime Group.</p>
-      <p>© ${new Date().getFullYear()} The Maritime Group. All rights reserved.</p>
+      <p>This is an automated confirmation email from Thorp Haval & GWM.</p>
+      <p>© ${new Date().getFullYear()} Thorp Haval & GWM. All rights reserved.</p>
     </div>
   </div>
 </body>
@@ -225,7 +225,7 @@ export async function POST(request: NextRequest) {
     // Send email to dealer
     try {
       await resend.emails.send({
-        from: "Maritime Motors <leads@resend.dev>",
+        from: "Thorp Haval & GWM <leads@resend.dev>",
         to: DEALER_EMAIL,
         subject: emailSubject,
         html: dealerEmailHtml,
@@ -233,7 +233,7 @@ export async function POST(request: NextRequest) {
 
       // Send confirmation email to customer
       await resend.emails.send({
-        from: "Maritime Motors <noreply@resend.dev>",
+        from: "Thorp Haval & GWM <noreply@resend.dev>",
         to: data.email,
         subject: `Thank you for your ${getLeadTypeLabel(data.type).toLowerCase()} request`,
         html: customerEmailHtml,

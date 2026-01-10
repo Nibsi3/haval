@@ -8,6 +8,7 @@ import { motion } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
 
 const models = [
+  { slug: 'tank-500', name: 'GWM', model: 'TANK 500', image: '/brochures/tank-500/0.jpg', tagline: 'Where Majesty Meets Muscle', price: 'From R1,299,900', featured: true },
   { slug: 'tank-300', name: 'GWM', model: 'TANK 300', image: '/haval_pics/haval-tank-300/0.jpg', tagline: 'Born for Adventure', price: 'From R799,900' },
   { slug: 'h6', name: 'HAVAL', model: 'H6', image: '/haval_pics/haval-h6/0.jpg', tagline: 'Intelligent Luxury SUV', price: 'From R599,900' },
   { slug: 'h6-gt', name: 'HAVAL', model: 'H6 GT', image: '/haval_pics/haval-h6-gt/0.jpg', tagline: 'Sporty Performance SUV', price: 'From R649,900' },
@@ -43,9 +44,9 @@ export default function NewVehiclesPage() {
             The Complete GWM & Haval Range
           </h2>
           <p className="text-gray-400 text-lg leading-relaxed">
-            From rugged off-road adventurers to sophisticated urban crossovers, our lineup delivers exceptional value, 
-            cutting-edge technology, and uncompromising quality. Each model is designed to exceed expectations and 
-            backed by our industry-leading warranty and service network across South Africa.
+            From the luxurious Tank 500 to rugged off-road adventurers and sophisticated urban crossovers, our lineup delivers exceptional value, 
+            cutting-edge technology, and uncompromising quality. Each model is backed by our exclusive FREE 10-year, 1 Million KM warranty - 
+            only at Thorp Haval & GWM in Cape Town.
           </p>
         </div>
       </section>

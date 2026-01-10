@@ -21,8 +21,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "The Maritime Group | Premium Automotive Dealer",
-  description: "The Maritime Group represents South Africa's finest automotive brands. Explore our range of GWM, Haval, Mercedes-Benz, Kia, Honda and more.",
+  title: "Thorp Haval & GWM | Cape Town | Plumstead & Table Bay Mall",
+  description: "Thorp Haval & GWM - Cape Town's premier Haval and GWM dealer. Explore Tank 500, Tank 300, H6, H7, Jolion and more. FREE 10-year, 1 Million KM warranty exclusive to Thorp.",
 };
 
 export default function RootLayout({
@@ -54,7 +54,7 @@ export default function RootLayout({
       >
         <GoogleAnalytics />
         {children}
-        <FloatingWhatsApp whatsappNumber="27662995533" message="Hi, I'm interested in learning more about your vehicles at Maritime Motors." />
+        <FloatingWhatsApp whatsappNumber="27210022282" message="Hi, I'm interested in learning more about your vehicles at Thorp Haval & GWM." />
         <Analytics />
         <SpeedInsights />
       </body>

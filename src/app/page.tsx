@@ -43,8 +43,8 @@ export default function Home() {
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-5xl font-bold text-white mb-4">Our Brands</h2>
             <p className="text-gray-400 max-w-2xl mx-auto">
-              The Maritime Group represents South Africa&apos;s finest automotive brands, 
-              offering world-class vehicles and service excellence since 1958.
+              Thorp Haval & GWM represents Cape Town&apos;s premier Haval and GWM dealership, 
+              offering world-class vehicles with our exclusive FREE 10-year, 1 Million KM warranty.
             </p>
           </div>
         </div>
@@ -94,10 +94,10 @@ export default function Home() {
       <section className="py-20 px-6 bg-gradient-to-r from-blue-900/20 to-purple-900/20">
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-            <AnimatedCounter value="65+" label="Years of Excellence" />
-            <AnimatedCounter value="9" label="Premium Brands" />
-            <AnimatedCounter value="50K+" label="Happy Customers" />
-            <AnimatedCounter value="3" label="Locations" />
+            <AnimatedCounter value="10" label="Year Warranty" />
+            <AnimatedCounter value="1M" label="KM Coverage" />
+            <AnimatedCounter value="2" label="Cape Town Locations" />
+            <AnimatedCounter value="5★" label="ANCAP Safety" />
           </div>
         </div>
       </section>
@@ -119,10 +119,10 @@ export default function Home() {
               Contact Us
             </Link>
             <a 
-              href="tel:0413992800" 
+              href="tel:0210022282" 
               className="border border-white/30 text-white px-8 py-4 rounded-full font-bold hover:bg-white/10 transition-all"
             >
-              Call 041 399 2800
+              Call 021 002 2282
             </a>
           </div>
         </div>

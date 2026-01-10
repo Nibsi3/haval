@@ -5,9 +5,8 @@ import { Facebook, Instagram, Linkedin, Phone, Mail, MapPin } from 'lucide-react
 import { TrackedPhone, TrackedWhatsApp } from '@/components/TrackedContact';
 
 const socialLinks = [
-  { name: 'LinkedIn', href: 'https://www.linkedin.com/company/maritime-motors/', icon: Linkedin },
-  { name: 'Facebook', href: 'https://www.facebook.com/MaritimeMotors001', icon: Facebook },
-  { name: 'Instagram', href: 'https://www.instagram.com/maritime_motorspe/', icon: Instagram },
+  { name: 'Facebook', href: 'https://www.facebook.com/thorphavalplumstead/', icon: Facebook },
+  { name: 'Instagram', href: 'https://www.instagram.com/thorphaval/', icon: Instagram },
 ];
 
 export default function Footer() {
@@ -20,15 +19,15 @@ export default function Footer() {
           <div>
             <div className="flex items-center space-x-3 mb-6">
               <div className="w-12 h-12 bg-white rounded-lg flex items-center justify-center">
-                <span className="text-black font-black">GWM</span>
+                <span className="text-black font-black text-xs">THORP</span>
               </div>
               <div>
-                <p className="text-white font-bold">Maritime Motors</p>
-                <p className="text-gray-500 text-sm">The Maritime Group</p>
+                <p className="text-white font-bold">Thorp Haval & GWM</p>
+                <p className="text-gray-500 text-sm">Plumstead & Table Bay Mall</p>
               </div>
             </div>
             <p className="text-gray-400 text-sm leading-relaxed mb-6">
-              Industry leader in car sales, services & related accessories. Committed to your complete satisfaction since 1958.
+              Your trusted Haval & GWM dealer in Cape Town. Experience luxury SUVs with our exclusive FREE 10-year, 1 Million KM warranty.
             </p>
             <div className="flex items-center space-x-4">
               {socialLinks.map((social) => (
@@ -75,29 +74,39 @@ export default function Footer() {
             <ul className="space-y-4">
               <li>
                 <TrackedPhone 
-                  phone="+27 41 399 2800" 
+                  phone="+27 21 002 2282" 
                   location="Footer"
                   className="flex items-center space-x-3 text-gray-400 hover:text-white transition-colors"
                 >
                   <Phone className="w-5 h-5" />
-                  <span className="text-sm">041 399 2800</span>
+                  <span className="text-sm">021 002 2282 (Plumstead)</span>
                 </TrackedPhone>
               </li>
               <li>
-                <a href="mailto:marketing@maritimemotors.co.za" className="flex items-center space-x-3 text-gray-400 hover:text-white transition-colors">
+                <TrackedPhone 
+                  phone="+27 21 002 0071" 
+                  location="Footer"
+                  className="flex items-center space-x-3 text-gray-400 hover:text-white transition-colors"
+                >
+                  <Phone className="w-5 h-5" />
+                  <span className="text-sm">021 002 0071 (Table Bay Mall)</span>
+                </TrackedPhone>
+              </li>
+              <li>
+                <a href="mailto:info@thorphaval.co.za" className="flex items-center space-x-3 text-gray-400 hover:text-white transition-colors">
                   <Mail className="w-5 h-5" />
-                  <span className="text-sm">marketing@maritimemotors.co.za</span>
+                  <span className="text-sm">info@thorphaval.co.za</span>
                 </a>
               </li>
               <li>
                 <a 
-                  href="https://www.google.com/maps/dir//maritime+motors+port+elizabeth" 
+                  href="https://www.google.com/maps/place/Thorp+Haval+%26+GWM+Plumstead" 
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-start space-x-3 text-gray-400 hover:text-white transition-colors"
                 >
                   <MapPin className="w-5 h-5 mt-0.5" />
-                  <span className="text-sm">Gqeberha, Port Elizabeth, South Africa</span>
+                  <span className="text-sm">220 Main Road, Plumstead, Cape Town</span>
                 </a>
               </li>
             </ul>
@@ -110,11 +119,11 @@ export default function Footer() {
       <div className="border-t border-white/10 py-6">
         <div className="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-4">
           <p className="text-gray-500 text-sm">
-            © {new Date().getFullYear()} The Maritime Group. All rights reserved. FSP 45171
+            © {new Date().getFullYear()} Thorp Haval & GWM. All rights reserved. E&OE.
           </p>
           <div className="flex items-center space-x-6 text-sm">
-            <a href="https://www.themaritimegroup.co.za/" target="_blank" rel="noopener noreferrer" className="text-gray-500 hover:text-white transition-colors">
-              The Maritime Group
+            <a href="https://thorphaval.co.za/" target="_blank" rel="noopener noreferrer" className="text-gray-500 hover:text-white transition-colors">
+              thorphaval.co.za
             </a>
           </div>
         </div>

@@ -7,58 +7,43 @@ import PartsSlider from '@/components/PartsSlider';
 
 const branchManagers = [
   {
-    name: 'Wikus Loots',
-    role: 'Managing Director',
-    branch: 'The Maritime Group',
-    image: '/managers/wikus-loots.avif',
-    description: 'With our world-class facility housing a state-of-the-art workshop, we are able to keep the best vehicles in the world maintained to the highest standard. The Dealership\'s parts warehouse is a regional hub and of strategic importance to all of its brands. Our impressive showrooms are stocked with "Dream Cars", making a visit to the dealership an unforgettable experience.',
-    address: 'Cnr. William Moffett Expressway & Circular Drive, Port Elizabeth',
-    phone: '041 399 2800',
-    location: 'https://www.google.com/maps/dir//maritime+motors+port+elizabeth',
+    name: 'Thorp Plumstead',
+    role: 'Sales & Service',
+    branch: 'Thorp Haval & GWM',
+    image: '/brochures/tank-500/4.jpg',
+    description: 'Our Plumstead showroom offers the complete Haval and GWM range with expert sales consultants and a fully-equipped service centre. Experience our exclusive FREE 10-year, 1 Million KM warranty on select vehicles.',
+    address: '220 Main Road, Plumstead, Cape Town 7801',
+    phone: '021 002 2282',
+    location: 'https://www.google.com/maps/place/Thorp+Haval+%26+GWM+Plumstead',
   },
   {
-    name: 'Piet Potgieter',
-    role: 'Dealer Principal',
-    branch: 'Maritime George',
-    image: '/managers/neal_perks_edited.avif',
-    description: 'Honda George is the only fully-fledged Honda dealership in the Southern Cape and services a vast area. The dealership is situated in the heart of George along the Garden Route and is ideally located between Cape Town and Port Elizabeth. Honda George opened in 2004 and sell New and Pre-owned Honda\'s, Haval and GWM with a full service history and a one year AA Roadside Assistance.',
-    address: '45 CJ Langenhoven Rd George, Western Cape 6530',
-    phone: '044 803 7900',
-    location: 'https://www.google.com/maps/dir//maritime+george',
-  },
-  {
-    name: 'Jaco Johnstone',
-    role: 'Branch Manager',
-    branch: 'Commercial Vehicles',
-    image: '/managers/jaco-johnstone.avif',
-    description: 'Mercedes-Benz and FUSO Trucks, Buses, and Vans offer the best cutting edge technology along with unbeatable quality, supreme comfort, maximum safety, and ultimate economy.',
-    address: '111 Grahamstown Rd, North End, Port Elizabeth, 6001',
-    phone: '041 408 6600',
-    location: 'https://www.google.com/maps/dir//maritime+commercial+port+elizabeth',
+    name: 'Thorp Table Bay Mall',
+    role: 'Sales & Service',
+    branch: 'Thorp Haval & GWM',
+    image: '/brochures/tank-500/0.jpg',
+    description: 'Conveniently located in Table Bay Mall, our showroom is open 7 days a week. Browse our full range of Haval and GWM vehicles including the luxurious Tank 500 and adventure-ready Tank 300.',
+    address: 'Table Bay Mall, Berkshire Boulevard, Sunningdale, Cape Town',
+    phone: '021 002 0071',
+    location: 'https://www.google.com/maps/place/Table+Bay+Mall',
   },
 ];
 
 const serviceLocations = [
   {
     brand: 'GWM & Haval',
-    dealer: 'Maritime Motors',
-    address: 'Cnr. William Moffett Expressway & Circular Dr, Gqeberha',
-    location: 'https://www.google.com/maps/dir//maritime+motors+port+elizabeth',
-    phone: '041 399 2800',
+    dealer: 'Thorp Plumstead',
+    address: '220 Main Road, Plumstead, Cape Town 7801',
+    location: 'https://www.google.com/maps/place/Thorp+Haval+%26+GWM+Plumstead',
+    phone: '021 761 1865',
+    hours: 'Mon-Fri: 08H00-17H30 | Sat: 09H00-13H00',
   },
   {
-    brand: 'Honda & Haval George',
-    dealer: 'Maritime George',
-    address: '44 C.J. Langenhoven Rd, George Central, George',
-    location: 'https://www.google.com/maps/dir//maritime+george',
-    phone: '044 803 7900',
-  },
-  {
-    brand: 'Commercial Vehicles',
-    dealer: 'Maritime Commercial',
-    address: '111 Grahamstown Rd, North End, Gqeberha',
-    location: 'https://www.google.com/maps/dir//maritime+commercial+port+elizabeth',
-    phone: '041 408 6600',
+    brand: 'GWM & Haval',
+    dealer: 'Thorp Table Bay Mall',
+    address: 'Table Bay Mall, Berkshire Boulevard, Sunningdale',
+    location: 'https://www.google.com/maps/place/Table+Bay+Mall',
+    phone: '021 476 0210',
+    hours: 'Mon-Sat: 09H00-19H00 | Sun: 09H00-18H00',
   },
 ];
 
@@ -129,7 +114,7 @@ export default function Services() {
             <p className="text-blue-400 text-sm uppercase tracking-wider mb-2">Group Contacts</p>
             <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">Where to Find Us</h2>
             <p className="text-gray-400 max-w-2xl mx-auto">
-              Meet our leadership team and discover our locations across the Eastern and Western Cape.
+              Visit our showrooms in Plumstead or Table Bay Mall for expert sales and service.
             </p>
           </div>
 
@@ -183,7 +168,7 @@ export default function Services() {
                 Why Service With Us?
               </h2>
               <p className="text-gray-400 mb-6 leading-relaxed">
-                The Maritime Group is committed to ensuring that your car remains safe, reliable, 
+                Thorp Haval & GWM is committed to ensuring that your car remains safe, reliable, 
                 and economical long after your purchase. Our dedicated team understands the importance 
                 of high-quality, reliable workmanship.
               </p>
@@ -232,7 +217,7 @@ export default function Services() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {serviceLocations.map((loc) => (
               <div
                 key={loc.brand}
@@ -383,8 +368,8 @@ export default function Services() {
             <Link href="/contact" className="bg-white text-black px-8 py-4 rounded-full font-bold hover:bg-gray-200 transition-all">
               Book a Service
             </Link>
-            <a href="tel:0413992800" className="border border-white/30 text-white px-8 py-4 rounded-full font-bold hover:bg-white/10 transition-all">
-              Call 041 399 2800
+            <a href="tel:0217611865" className="border border-white/30 text-white px-8 py-4 rounded-full font-bold hover:bg-white/10 transition-all">
+              Call 021 761 1865
             </a>
           </div>
         </div>

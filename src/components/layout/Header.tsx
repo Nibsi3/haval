@@ -15,7 +15,7 @@ export default function Header() {
         <div className="bg-black/60 backdrop-blur-xl rounded-2xl border border-white/10 px-6 py-3">
           <div className="max-w-[1800px] mx-auto flex items-center justify-between">
             <Link href="/" className="flex items-center">
-              <span className="text-white font-bold text-lg tracking-tight">The Maritime Group</span>
+              <span className="text-white font-bold text-lg tracking-tight">Thorp Haval & GWM</span>
             </Link>
             
             <nav className="hidden md:flex items-center space-x-8">

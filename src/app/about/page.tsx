@@ -9,32 +9,26 @@ import AnimatedCounter from '@/components/AnimatedCounter';
 
 const locations = [
   {
-    name: 'Maritime Motors',
-    address: 'Cnr. William Moffett Expressway & Circular Dr, Overbaakens, Gqeberha, 6000',
-    phone: '041 399 2800',
-    mapUrl: 'https://www.google.com/maps/dir/-33.9876803,25.5562544/-33.97959,25.55352/@-33.9824379,25.5436883,15z',
-    embedUrl: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3311.9892!2d25.5535!3d-33.9796!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1e7ad1ecf00e265f%3A0xacb1f2ec1dcfd275!2sMaritime%20Motors!5e0!3m2!1sen!2sza!4v1234567890',
+    name: 'Thorp Haval & GWM Plumstead',
+    address: '220 Main Road, Plumstead, Cape Town 7801',
+    phone: '021 002 2282',
+    hours: 'Mon-Fri: 08H00-17H30 | Sat: 09H00-13H00',
+    mapUrl: 'https://www.google.com/maps/place/Thorp+Haval+%26+GWM+Plumstead',
+    embedUrl: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3310.5!2d18.4656!3d-34.0167!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1dcc5d2f7a8e4b5f%3A0x1234567890abcdef!2s220%20Main%20Rd%2C%20Plumstead%2C%20Cape%20Town%2C%207801!5e0!3m2!1sen!2sza!4v1234567890',
   },
   {
-    name: 'Maritime Commercial',
-    address: '111 Grahamstown Rd, North End, Gqeberha, 6001',
-    phone: '041 408 6600',
-    mapUrl: 'https://www.google.com/maps/dir/-33.9876803,25.5562544/-33.92839,25.60486/@-33.9582083,25.5429752,13z',
-    embedUrl: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3310.5!2d25.6049!3d-33.9284!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1e7ad3!2sMaritime%20Commercial!5e0!3m2!1sen!2sza!4v1234567890',
-  },
-  {
-    name: 'Maritime George',
-    address: '44 C.J. Langenhoven Rd, George Central, George, 6529',
-    phone: '044 803 7900',
-    mapUrl: 'https://www.google.com/maps/dir/-33.9876803,25.5562544/-33.95616,22.45249/@-33.610492,21.3243824,7z',
-    embedUrl: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3310!2d22.4525!3d-33.9562!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1dd60547e38a2947%3A0xbe0cecd5a3dff8bc!2sMaritime%20George!5e0!3m2!1sen!2sza!4v1234567890',
+    name: 'Thorp Haval & GWM Table Bay Mall',
+    address: 'Table Bay Mall, Berkshire Boulevard, Sunningdale, Cape Town',
+    phone: '021 002 0071',
+    hours: 'Mon-Sat: 09H00-19H00 | Sun: 09H00-18H00',
+    mapUrl: 'https://www.google.com/maps/place/Table+Bay+Mall',
+    embedUrl: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3310!2d18.5!3d-33.8!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1dcc5!2sTable%20Bay%20Mall!5e0!3m2!1sen!2sza!4v1234567890',
   },
 ];
 
 const socialLinks = [
-  { name: 'LinkedIn', href: 'https://www.linkedin.com/company/maritime-motors/', icon: Linkedin },
-  { name: 'Facebook', href: 'https://www.facebook.com/MaritimeMotors001', icon: Facebook },
-  { name: 'Instagram', href: 'https://www.instagram.com/maritime_motorspe/', icon: Instagram },
+  { name: 'Facebook', href: 'https://www.facebook.com/thorphavalplumstead/', icon: Facebook },
+  { name: 'Instagram', href: 'https://www.instagram.com/thorphaval/', icon: Instagram },
 ];
 
 export default function About() {
@@ -50,7 +44,7 @@ export default function About() {
           <div className="text-center px-6">
             <h1 className="text-4xl md:text-6xl font-bold text-white mb-4">About Us</h1>
             <p className="text-gray-300 max-w-2xl mx-auto text-lg">
-              Serving South Africa with excellence since 1958
+              Your trusted Haval & GWM dealer in Cape Town
             </p>
           </div>
         </div>
@@ -63,22 +57,22 @@ export default function About() {
             <div>
               <span className="text-blue-400 text-sm font-medium uppercase tracking-wider">Our Story</span>
               <h2 className="text-3xl md:text-4xl font-bold text-white mt-2 mb-6">
-                65+ Years of Excellence
+                Cape Town&apos;s Premier Haval & GWM Dealer
               </h2>
               <p className="text-gray-400 leading-relaxed mb-4">
-                Maritime Motors, one of the oldest and largest privately-owned Mercedes-Benz dealerships 
-                in South Africa, was established in 1958 by Mr. Rudi Stucken, grandfather of the current 
-                Chairman Mr. Nico Stucken.
+                Thorp Haval & GWM is your trusted destination for world-class SUVs in Cape Town. 
+                With showrooms in Plumstead and Table Bay Mall, we bring the full range of Haval 
+                and GWM vehicles to the Western Cape.
               </p>
               <p className="text-gray-400 leading-relaxed mb-4">
-                As a proud franchised agent with our main facility in Gqeberha, we serve the greater 
-                western and central part of the Eastern Cape Province from a vehicle sales and 
-                after-sales perspective.
+                We are proud to offer an exclusive FREE 10-year, 1 Million KM warranty on select 
+                vehicles - a commitment to quality and customer satisfaction that sets us apart 
+                from other dealerships.
               </p>
               <p className="text-gray-400 leading-relaxed">
-                Since its inception, Maritime Motors has become one of the leading luxury automotive 
-                dealerships in the Eastern Cape. The dealership has grown significantly and now 
-                includes nine exceptional franchises.
+                From the luxurious GWM Tank 500 to the adventure-ready Tank 300, and the popular 
+                Haval range including the H6, H7, and Jolion - we have the perfect vehicle for 
+                every lifestyle and budget.
               </p>
             </div>
             <div className="relative h-[400px] rounded-2xl overflow-hidden">
@@ -93,10 +87,10 @@ export default function About() {
       <section className="py-16 px-6 bg-zinc-950">
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-            <AnimatedCounter value="65+" label="Years of Excellence" />
-            <AnimatedCounter value="9" label="Premium Brands" />
-            <AnimatedCounter value="50K+" label="Happy Customers" />
-            <AnimatedCounter value="3" label="Locations" />
+            <AnimatedCounter value="10" label="Year Warranty" />
+            <AnimatedCounter value="1M" label="KM Coverage" />
+            <AnimatedCounter value="2" label="Cape Town Locations" />
+            <AnimatedCounter value="5★" label="ANCAP Safety" />
           </div>
         </div>
       </section>
@@ -107,11 +101,11 @@ export default function About() {
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">Our Locations</h2>
             <p className="text-gray-400 max-w-2xl mx-auto">
-              Visit us at any of our dealerships across the Eastern Cape and Western Cape.
+              Visit us at our showrooms in Plumstead or Table Bay Mall, Cape Town.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
             {locations.map((loc) => (
               <div
                 key={loc.name}
@@ -193,14 +187,14 @@ export default function About() {
           <div className="bg-zinc-900 border border-white/10 rounded-2xl p-8 md:p-12 text-center">
             <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">Visit Us Today</h2>
             <p className="text-gray-400 mb-8 max-w-xl mx-auto">
-              Experience the Maritime difference. Visit any of our showrooms or contact us to learn more.
+              Experience the Thorp difference. Visit our showrooms or contact us to learn more about our exclusive warranty.
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
               <Link href="/contact" className="bg-white text-black px-8 py-4 rounded-full font-bold hover:bg-gray-200 transition-all">
                 Contact Us
               </Link>
-              <a href="tel:0413992800" className="border border-white/30 text-white px-8 py-4 rounded-full font-bold hover:bg-white/10 transition-all">
-                Call 041 399 2800
+              <a href="tel:0210022282" className="border border-white/30 text-white px-8 py-4 rounded-full font-bold hover:bg-white/10 transition-all">
+                Call 021 002 2282
               </a>
             </div>
           </div>

@@ -41,9 +41,63 @@ export interface CarData {
   detailImages: number[];
 }
 
-export const MODEL_SLUGS = ['tank-300', 'h6', 'h6-gt', 'jolion', 'h7'];
+export const MODEL_SLUGS = ['tank-500', 'tank-300', 'h6', 'h6-gt', 'jolion', 'h7'];
 
 export const carsData: Record<string, CarData> = {
+  'tank-500': {
+    name: 'GWM',
+    model: 'TANK 500',
+    tagline: 'Where Majesty Meets Muscle',
+    longDescription: 'The GWM Tank 500 Hybrid is a luxurious 7-seater SUV that redefines what it means to command the road – and the trails beyond. A statement of power, sophistication, and the unyielding spirit of adventure, delivering 255 kW of power and 648 Nm of torque with advanced hybrid technology.',
+    heroImage: '/brochures/tank-500/0.jpg',
+    galleryFolder: '/brochures/tank-500',
+    brochureUrl: '/brochures/haval-tank-500.pdf',
+    exteriorImages: [1, 2, 3, 0, 4],
+    interiorImages: [0, 4],
+    detailImages: [1, 2, 3, 0, 4],
+    variants: [
+      {
+        name: 'Tank 500 Hybrid',
+        price: 'From R 1,299,900',
+        engine: '2.0L Turbo Hybrid',
+        power: '255 kW',
+        torque: '648 Nm',
+        transmission: '9HAT Automatic',
+        drive: '4WD',
+        fuelConsumption: '9.2 L/100km',
+        dimensions: '5,078 x 1,934 x 1,905 mm',
+        grade: 'Hybrid',
+        keyFeatures: ['7-Seater Configuration', '14.6" Touchscreen', '12.3" Digital Cluster', 'Panoramic Sunroof', 'Premium Sound System', '4x4 Standard', 'Ladder-Frame Construction'],
+        detailedSpecs: [
+          { title: 'Power & Performance', items: ['2.0T Engine + Electric Motor', '255 kW Combined Power', '648 Nm Combined Torque', '9HAT Transmission', '4x4 Standard', '80L Fuel Tank'] },
+          { title: 'Off-Road Capability', items: ['224mm Ground Clearance', '800mm Wading Depth', '30° Approach Angle', '22.5° Breakover Angle', '24° Departure Angle', 'Ladder-Frame Construction'] },
+          { title: 'Interior & Comfort', items: ['7-Seater (2+3+2)', '14.6" Touchscreen Infotainment', '12.3" Digital Instrument Cluster', 'Panoramic Sunroof', 'Premium Sound System', 'Nappa Leather Seats'] },
+          { title: 'Safety & Technology', items: ['Multiple Airbags', 'Advanced Driver-Assist Systems', 'L2 Autonomous Driving', '360° Camera', 'Parking Sensors', '5-Star ANCAP Safety Rating'] },
+          { title: 'Warranty', items: ['FREE 10 Years / 1 Million KM Warranty (Exclusive to Thorp)', '5 Years Roadside Assistance', '5 Years / 90,000 km Service Plan'] }
+        ]
+      },
+    ],
+    specCategories: [
+      { category: 'Engine & Performance', specs: [
+        { label: 'Engine Type', value: '2.0L Turbocharged + Electric Motor' },
+        { label: 'Maximum Power', value: '255 kW (Combined)' },
+        { label: 'Maximum Torque', value: '648 Nm (Combined)' },
+        { label: 'Transmission', value: '9HAT Automatic' },
+        { label: 'Drive Type', value: '4WD' },
+        { label: 'Fuel Tank', value: '80 Litres' },
+      ]},
+    ],
+    standardFeatures: ['7-Seater Configuration', '14.6" Touchscreen', '12.3" Digital Cluster', 'Apple CarPlay & Android Auto', 'Nappa Leather Seats', 'Panoramic Sunroof', '360° Camera', 'Parking Sensors', 'Keyless Entry', 'Dual-Zone Climate', 'LED Lights', 'Electric Tailgate', 'Premium Sound System'],
+    safetyFeatures: ['Multiple Airbags', 'ABS with EBD', 'ESC', 'Hill Start Assist', 'Hill Descent Control', 'Adaptive Cruise Control', 'Lane Keep Assist', 'Forward Collision Warning', 'AEB', 'Blind Spot Monitor', '360° Camera', '5-Star ANCAP Rating'],
+    dimensions: [
+      { label: 'Length', value: '5,078mm' },
+      { label: 'Width', value: '1,934mm' },
+      { label: 'Height', value: '1,905mm' },
+      { label: 'Ground Clearance', value: '224mm' },
+      { label: 'Wading Depth', value: '800mm' },
+      { label: 'Fuel Tank', value: '80L' },
+    ],
+  },
   'tank-300': {
     name: 'GWM',
     model: 'TANK 300',

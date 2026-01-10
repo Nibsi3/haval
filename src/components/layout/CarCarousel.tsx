@@ -10,6 +10,23 @@ import Header from './Header';
 const cars = [
   {
     id: 1,
+    slug: 'tank-500',
+    name: 'TANK',
+    model: '500',
+    tagline: 'Where Majesty Meets Muscle',
+    description: 'The Tank 500 Hybrid is a luxurious 7-seater SUV delivering 255 kW of power and 648 Nm of torque with advanced hybrid technology. FREE 10-year, 1 Million KM warranty exclusive to Thorp.',
+    specs: {
+      power: '255 kW',
+      torque: '648 Nm',
+      engine: '2.0L Hybrid',
+      transmission: '9HAT',
+    },
+    price: 'From R 1,299,900',
+    image: '/brochures/tank-500/0.jpg',
+    bgImage: '/brochures/tank-500/1.jpg',
+  },
+  {
+    id: 2,
     slug: 'tank-300',
     name: 'TANK',
     model: '300',
@@ -26,7 +43,7 @@ const cars = [
     bgImage: '/carousel_bg/tank300.jpg',
   },
   {
-    id: 2,
+    id: 3,
     slug: 'h6',
     name: 'HAVAL',
     model: 'H6',
@@ -43,7 +60,7 @@ const cars = [
     bgImage: '/carousel_bg/h6.jpg',
   },
   {
-    id: 3,
+    id: 4,
     slug: 'h6-gt',
     name: 'HAVAL',
     model: 'H6 GT',
@@ -60,7 +77,7 @@ const cars = [
     bgImage: '/carousel_bg/h6gt.jpg',
   },
   {
-    id: 4,
+    id: 5,
     slug: 'jolion',
     name: 'HAVAL',
     model: 'JOLION',
@@ -77,7 +94,7 @@ const cars = [
     bgImage: '/carousel_bg/jolion.webp',
   },
   {
-    id: 5,
+    id: 6,
     slug: 'h7',
     name: 'HAVAL',
     model: 'H7',
@@ -208,7 +225,7 @@ export default function CarCarousel() {
                 initial={{ y: 20 }}
                 animate={{ y: 0 }}
               >
-                THE MARITIME GROUP
+                THORP HAVAL & GWM
               </motion.h1>
               <motion.p 
                 className="text-gray-500 text-sm uppercase tracking-[0.5em] mt-4"
@@ -216,7 +233,7 @@ export default function CarCarousel() {
                 animate={{ opacity: 1 }}
                 transition={{ delay: 0.3 }}
               >
-                Premium Automotive Since 1958
+                Cape Town&apos;s Premier Dealer
               </motion.p>
             </motion.div>
           </motion.div>

@@ -10,16 +10,16 @@ import LeadForm from '@/components/LeadForm';
 import { TrackedPhone, TrackedWhatsApp } from '@/components/TrackedContact';
 
 const contactInfo = [
-  { icon: Phone, label: 'Call Us', value: '041 399 2800', phone: '+27 41 399 2800' },
-  { icon: Mail, label: 'Email', value: 'marketing@maritimemotors.co.za', href: 'mailto:marketing@maritimemotors.co.za' },
-  { icon: MapPin, label: 'Location', value: 'Gqeberha, South Africa', href: 'https://www.google.com/maps/dir//maritime+motors+port+elizabeth' },
-  { icon: Clock, label: 'Hours', value: 'Mon - Fri: 08:00 - 17:30', href: '#' },
+  { icon: Phone, label: 'Plumstead Sales', value: '021 002 2282', phone: '+27 21 002 2282' },
+  { icon: Phone, label: 'Table Bay Mall Sales', value: '021 002 0071', phone: '+27 21 002 0071' },
+  { icon: Mail, label: 'Email', value: 'info@thorphaval.co.za', href: 'mailto:info@thorphaval.co.za' },
+  { icon: MapPin, label: 'Plumstead', value: '220 Main Road, Plumstead, Cape Town', href: 'https://www.google.com/maps/place/Thorp+Haval+%26+GWM+Plumstead' },
+  { icon: Clock, label: 'Hours (Plumstead)', value: 'Mon-Fri: 08:00-17:30, Sat: 09:00-13:00', href: '#' },
 ];
 
 const socialLinks = [
-  { name: 'LinkedIn', href: 'https://www.linkedin.com/company/maritime-motors/', icon: Linkedin },
-  { name: 'Facebook', href: 'https://www.facebook.com/MaritimeMotors001', icon: Facebook },
-  { name: 'Instagram', href: 'https://www.instagram.com/maritime_motorspe/', icon: Instagram },
+  { name: 'Facebook', href: 'https://www.facebook.com/thorphavalplumstead/', icon: Facebook },
+  { name: 'Instagram', href: 'https://www.instagram.com/thorphaval/', icon: Instagram },
 ];
 
 const quickActions = [
@@ -166,12 +166,35 @@ export default function Contact() {
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold text-white mb-4">Find Us</h2>
-            <p className="text-gray-400">Visit our showrooms across the Eastern Cape and Western Cape.</p>
+            <p className="text-gray-400">Visit our showrooms in Plumstead or Table Bay Mall, Cape Town.</p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
+            <div className="bg-zinc-900/50 border border-white/10 rounded-2xl p-6">
+              <h3 className="text-white font-bold text-lg mb-2">Thorp Plumstead</h3>
+              <p className="text-gray-400 text-sm mb-2">220 Main Road, Plumstead, Cape Town 7801</p>
+              <p className="text-gray-500 text-xs mb-4">Mon-Fri: 08H00-17H30 | Sat: 09H00-13H00</p>
+              <div className="space-y-1 text-sm">
+                <p className="text-gray-400">New Car Sales: <span className="text-white">021 002 2282</span></p>
+                <p className="text-gray-400">Used Car Sales: <span className="text-white">021 002 0444</span></p>
+                <p className="text-gray-400">Service: <span className="text-white">021 761 1865</span></p>
+              </div>
+            </div>
+            <div className="bg-zinc-900/50 border border-white/10 rounded-2xl p-6">
+              <h3 className="text-white font-bold text-lg mb-2">Thorp Table Bay Mall</h3>
+              <p className="text-gray-400 text-sm mb-2">Table Bay Mall, Berkshire Boulevard, Sunningdale</p>
+              <p className="text-gray-500 text-xs mb-4">Mon-Sat: 09H00-19H00 | Sun: 09H00-18H00</p>
+              <div className="space-y-1 text-sm">
+                <p className="text-gray-400">New Car Sales: <span className="text-white">021 002 0071</span></p>
+                <p className="text-gray-400">Used Car Sales: <span className="text-white">021 002 2999</span></p>
+                <p className="text-gray-400">Service: <span className="text-white">021 476 0210</span></p>
+              </div>
+            </div>
           </div>
 
           <div className="relative h-[450px] rounded-2xl overflow-hidden">
             <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3311.9892!2d25.5535!3d-33.9796!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1e7ad1ecf00e265f%3A0xacb1f2ec1dcfd275!2sMaritime%20Motors!5e0!3m2!1sen!2sza!4v1234567890"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3310.5!2d18.4656!3d-34.0167!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1dcc5d2f7a8e4b5f%3A0x1234567890abcdef!2s220%20Main%20Rd%2C%20Plumstead%2C%20Cape%20Town%2C%207801!5e0!3m2!1sen!2sza!4v1234567890"
               width="100%"
               height="100%"
               style={{ border: 0 }}
