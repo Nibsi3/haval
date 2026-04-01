@@ -1,44 +1,35 @@
 # haval
 
-## What this project is
-A portfolio project maintained by Cameron to demonstrate practical engineering work. This README was standardized for interview readiness.
+## Overview
+This repository contains active product code and implementation details for the **haval** project.
 
-## Code used (high-level)
-- `public`
-- `src`
-- `.gitignore`
-- `.hostinger.json`
-- `eslint.config.mjs`
-- `netlify.toml`
-- `next.config.ts`
-- `package-lock.json`
+## Highlights
+- Clean project structure with separated app/data/config concerns.
+- Production-oriented setup with environment-driven configuration.
+- Ready for extension with tests, CI checks, and deployment workflows.
 
-## Tech stack
-- Node.js / JavaScript
+## Tech Stack
+- Node.js
 - TypeScript
-- Python
+- React
 - Next.js
 
-## What still needs to be done
-- Add architecture notes for key modules.
-- Add tests and CI status (if missing).
-- Add environment variable documentation in .env.example.
-- Add screenshots or demo video link.
-- Add known limitations and roadmap milestones.
+## Run Locally
+1. Clone the repository and move into the project folder.
+2. Install dependencies (`npm install`, `pnpm install`, or the package manager used by the project).
+3. Create a local `.env` file if environment variables are required.
+4. Start the development server and verify the main flow works end-to-end.
 
-## Local setup
-1. Clone the repository.
-2. Install dependencies based on detected stack.
-3. Configure required environment variables.
-4. Run the app/service and verify locally.
+## Repository Layout
+- `public/`
+- `src/`
 
-## Interview talking points
-- Problem solved and user value.
-- Main architecture decisions and tradeoffs.
-- Performance, reliability, and security considerations.
-- What you would improve with more time.
+## Demo
+![service](public\service.jpg)
 
-## Security
-- No secrets should be committed.
-- Rotate any previously exposed keys immediately.
-- Use environment variables + secret managers for credentials.
+![tank300](public\tank300.jpg)
+
+## Security Notes
+- Keep credentials in environment variables, never in tracked files.
+- Rotate and replace any key immediately if exposure is suspected.
+- Use least-privilege tokens for third-party integrations.
