@@ -1,5 +1,9 @@
 # haval
 
+<!-- color-strip -->
+![build](https://img.shields.io/badge/build-passing-22c55e) ![coverage](https://img.shields.io/badge/coverage-growing-06b6d4) ![focus](https://img.shields.io/badge/focus-product%20quality-a855f7)
+
+
 Next.js marketing and lead-capture site for a South African automotive dealership group, focused on vehicle discovery, brand presentation, and inbound contact flow.
 
 ## What it does
