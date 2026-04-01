@@ -1,7 +1,7 @@
 import * as fs from 'fs';
 import * as path from 'path';
 
-const GOOGLE_PLACES_API_KEY = '***REMOVED***';
+const GOOGLE_PLACES_API_KEY = process.env.GOOGLE_PLACES_API_KEY || '';
 
 interface BusinessPoint {
   category: string;
@@ -121,3 +121,4 @@ async function updateBusinessCoords() {
 }
 
 updateBusinessCoords().catch(console.error);
+
